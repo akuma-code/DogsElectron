@@ -1,0 +1,40 @@
+body {
+    background: rgb(243, 217, 177);
+
+}
+
+.cont {
+    display: block;
+    position: absolute;
+    place-items: center;
+}
+
+.win_type {
+    display: flex;
+    position: relative;
+    border: 1px solid #000;
+    background: #8080ff;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+}
+
+.edit,
+.view {
+    display: flex;
+    border: 3px inset rgb(90, 82, 82);
+    cursor: pointer;
+    width: 120px;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+}
+
+:is(.edit, .view):hover {
+    background: #800000;
+    color: azure;
+}

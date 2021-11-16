@@ -1,0 +1,22 @@
+{
+  "name": "dog-app",
+  "version": "1.0.0",
+  "description": "doghouse @electron",
+  "main": "main.js",
+  "dependencies": {
+    "electron": "^16.0.0",
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "try": "nodemon main.js",
+    "start": "electron ."
+  },
+  "keywords": [
+    "dogs"
+  ],
+  "author": "akuma",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.61"
+  }
+}
