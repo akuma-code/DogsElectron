@@ -1,20 +1,3 @@
-// const {
-//     ipcRenderer: ip
-// } = require("electron");
-
-// document.getElementById('wintype').addEventListener('click', function (event) {
-//     const target = event.target;
-//     const {
-//         link
-//     } = target.dataset;
-
-//     if (link === 'edit') {
-
-//         ipcRenderer.send('app:link-edit');
-//         console.log('Send: ', 'app:link-edit')
-//     }
-// }, true)
-
 const {
     ipcRenderer
 } = require("electron");

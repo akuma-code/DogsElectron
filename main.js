@@ -28,8 +28,8 @@ function createWindow() {
 app.whenReady().then(() => {
     createWindow().loadFile("public/welcome.html")
     ipcMain.on('msg', (event, arg) => {
-        console.log(arg) // prints "ping"
-        event.sender.send('msg', 'pong')
+        console.log('main process: ', arg) // prints "ping"
+        event.sender.send('msg', 'msg recieved!')
     })
     // ipcMain.on('msg', (event, arg) => {
     //     console.log(arg) // prints "ping"
