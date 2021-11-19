@@ -23,8 +23,8 @@ body {
     height: 200px;
 }
 
-.edit,
-.view {
+.zcalc,
+.tps {
     display: flex;
     border: 3px inset rgb(90, 82, 82);
     cursor: pointer;
@@ -34,7 +34,7 @@ body {
     justify-content: center;
 }
 
-:is(.edit, .view):hover {
+:is(.zcalc, .tps):hover {
     background: #800000;
     color: azure;
 }

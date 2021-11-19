@@ -2,7 +2,7 @@ const {
     ipcRenderer
 } = require("electron");
 
-document.querySelector('#ed').addEventListener('click', (event) => {
+document.querySelector('#zcalc').addEventListener('click', (event) => {
     const target = event.target;
     const {
         link
@@ -15,7 +15,7 @@ document.querySelector('#ed').addEventListener('click', (event) => {
 }, true);
 
 
-document.querySelector('#vi').addEventListener('click', (event) => {
+document.querySelector('#tps').addEventListener('click', (event) => {
     const target = event.target;
     const {
         link

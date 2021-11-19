@@ -42,13 +42,15 @@ app.whenReady().then((resolve) => {
     })
 
 }).then(function (result) {
-    if (result == 'edit') {
+    console.log('zzzz')
+    if (result == 'zcalc') {
         () => openLink({
             width: 600,
             height: 800
-        }).loadFile("app/dogedit.html")
+        }).loadFile("app/dogedit.html");
+
     };
-    if (result == 'view') {
+    if (result == 'tps') {
         () => openLink({
             width: 900,
             height: 500
