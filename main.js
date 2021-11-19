@@ -11,28 +11,43 @@ const DOGS_PATH = `${ROOT_PATH}/dogs`;
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 1350,
-        height: 900,
+        width: 350,
+        height: 250,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-
-            // preload: path.join(__dirname, "loader.js")
         },
         useContentSize: true
     });
     return win
 }
 
+function openLink(type) {
+    const win = (w, h) => new BrowserWindow({
+
+        width: w,
+        height: h,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        },
+        useContentSize: true
+    });
+    if (type === 'edit') return win(1350, 1000)
+    else return win(600, 1000)
+}
 
 app.whenReady().then(() => {
     createWindow().loadFile("public/welcome.html")
     ipcMain.on('msg', (event, arg) => {
-        console.log('main process: ', arg) // prints "ping"
-        event.sender.send('msg', 'msg recieved!')
+        if (arg == 'edit') {
+            openLink('edit').loadFile("app/dogedit.html")
+        };
+        if (arg == 'view') {
+            openLink('view').loadFile("app/dogview.html")
+        };
+        console.log('main process: ', arg)
+        event.sender.send('msg', arg)
     })
-    // ipcMain.on('msg', (event, arg) => {
-    //     console.log(arg) // prints "ping"
-    //     event.returnValue = `get ${arg}`
-    // })
+
 })
