@@ -1,6 +1,8 @@
 const {
     app,
-    BrowserWindow
+    BrowserWindow,
+    ipcMain,
+    webPreferences
 } = require('electron')
 const path = require('path');
 
@@ -9,17 +11,28 @@ const DOGS_PATH = `${ROOT_PATH}/dogs`;
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 350,
-        height: 300,
+        width: 1350,
+        height: 900,
         webPreferences: {
             nodeIntegration: true,
-            preload: path.join(__dirname, "src", "preload.js")
-        }
-    });
+            contextIsolation: false,
 
-    win.loadFile("public/welcome.html")
+            // preload: path.join(__dirname, "loader.js")
+        },
+        useContentSize: true
+    });
+    return win
 }
 
+
 app.whenReady().then(() => {
-    createWindow()
+    createWindow().loadFile("public/welcome.html")
+    ipcMain.on('msg', (event, arg) => {
+        console.log(arg) // prints "ping"
+        event.sender.send('msg', 'pong')
+    })
+    // ipcMain.on('msg', (event, arg) => {
+    //     console.log(arg) // prints "ping"
+    //     event.returnValue = `get ${arg}`
+    // })
 })
