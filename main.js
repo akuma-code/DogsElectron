@@ -22,32 +22,37 @@ function createWindow() {
     return win
 }
 
-function openLink(type) {
-    const win = (w, h) => new BrowserWindow({
-
-        width: w,
-        height: h,
+function openLink() {
+    return new BrowserWindow({
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
         },
         useContentSize: true
-    });
-    if (type === 'edit') return win(1350, 1000)
-    else return win(600, 1000)
+    })
 }
 
-app.whenReady().then(() => {
+app.whenReady().then((resolve) => {
     createWindow().loadFile("public/welcome.html")
     ipcMain.on('msg', (event, arg) => {
-        if (arg == 'edit') {
-            openLink('edit').loadFile("app/dogedit.html")
-        };
-        if (arg == 'view') {
-            openLink('view').loadFile("app/dogview.html")
-        };
+        () => resolve(arg)
+
         console.log('main process: ', arg)
         event.sender.send('msg', arg)
     })
 
+}).then(function (result) {
+    if (result == 'edit') {
+        () => openLink({
+            width: 600,
+            height: 800
+        }).loadFile("app/dogedit.html")
+    };
+    if (result == 'view') {
+        () => openLink({
+            width: 900,
+            height: 500
+        }).loadFile("app/dogview.html");
+
+    };
 })
