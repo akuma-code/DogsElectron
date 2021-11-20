@@ -9,7 +9,7 @@ document.querySelector('#zcalc').addEventListener('click', (event) => {
     } = target.dataset;
 
 
-    ipcRenderer.send('msg', `loader send: ${app}`)
+    ipcRenderer.send('msg', `${app}`)
     ipcRenderer.on('msg', (_, ...args) => console.log('mainEvent response: ', ...args))
 
 }, true);
@@ -21,7 +21,7 @@ document.querySelector('#tps').addEventListener('click', (event) => {
         app
     } = target.dataset;
 
-    ipcRenderer.send('msg', `to main.event: ${app}`)
+    ipcRenderer.send('msg', `${app}`)
     ipcRenderer.on('msg', (_, ...args) => console.log('from main.event.sender:', ...args))
 
 }, true)
