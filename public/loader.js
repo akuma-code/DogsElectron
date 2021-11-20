@@ -5,11 +5,11 @@ const {
 document.querySelector('#zcalc').addEventListener('click', (event) => {
     const target = event.target;
     const {
-        link
+        app
     } = target.dataset;
 
 
-    ipcRenderer.send('msg', `loader send: ${link}`)
+    ipcRenderer.send('msg', `loader send: ${app}`)
     ipcRenderer.on('msg', (_, ...args) => console.log('mainEvent response: ', ...args))
 
 }, true);
@@ -18,10 +18,10 @@ document.querySelector('#zcalc').addEventListener('click', (event) => {
 document.querySelector('#tps').addEventListener('click', (event) => {
     const target = event.target;
     const {
-        link
+        app
     } = target.dataset;
 
-    ipcRenderer.send('msg', `to main.event: ${link}`)
+    ipcRenderer.send('msg', `to main.event: ${app}`)
     ipcRenderer.on('msg', (_, ...args) => console.log('from main.event.sender:', ...args))
 
 }, true)

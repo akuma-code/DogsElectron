@@ -1,0 +1,476 @@
+@import url("style-fon.css");
+@import url("sidepanel.css");
+@import url("style-btn.css");
+@import url("r_side.css");
+@import url("btn-tgl.css");
+@import url('tooltip.css');
+:root {
+    --main-color: chocolate;
+    --main-bg-color: coral;
+    --border-main: 2px solid black;
+    --border-main-d: 2px dotted black;
+    --bg-image-1: url('../img/body/z1.png');
+    --bg-image-2: url('../img/body/z2.png');
+    --bg-image-4: url('../img/body/z4.jpg');
+    --bg-image-5: url('../img/body/z5.jpg');
+}
+
+body {
+    background-color: beige;
+    height: 820px;
+    width: auto;
+    overflow: auto;
+}
+
+body>h1 {
+    width: fit-content;
+    padding-left: 2rem;
+    transform: scale(1.3);
+}
+
+.cont {
+    display: flex;
+    position: relative;
+    flex: 1 1 100%;
+    max-width: 1000px;
+    max-height: 700px;
+}
+
+.cont .profcont {
+    display: flex;
+    flex-basis: 100%;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.cont::after {
+    content: "";
+    background-image: url(../img/body/z3.jpg);
+    position: absolute;
+    width: 100%;
+    height: 750px;
+    background-position: 20px 0px;
+    background-repeat: no-repeat;
+    background-size: 1000px 760px;
+    z-index: -1;
+    opacity: 0.15;
+}
+
+.current {
+    display: block;
+    right: 0;
+    position: absolute;
+    overflow-y: auto;
+    margin-top: 2px;
+}
+
+div.profcont {
+    background-color: gray;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.profcont {
+    flex-flow: column nowrap;
+    height: 40px;
+    overflow: hidden;
+    border: none;
+    transition-property: all;
+    transition-duration: 1s;
+    border-radius: 10px;
+    top: 10px;
+}
+
+.stvani {
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.calc-btn {
+    flex: 1 1 25%;
+    border-radius: 10px;
+    background-color: coral;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    transition-property: all;
+    transition-duration: .2s;
+    cursor: pointer;
+    border: none;
+}
+
+.calc-btn:hover {
+    font-size: xx-large;
+}
+
+.calc-btn:active {
+    background-color: gray;
+    font-size: 5px;
+    border: 3px solid white;
+    border-style: inset;
+}
+
+.calc-btn:focus {
+    outline: none;
+}
+
+#gdepth {
+    display: flex;
+    flex-basis: 25%;
+    background-color: coral;
+    text-align-last: center;
+    font-size: 28px;
+    border-radius: 10px;
+    height: 100%;
+    opacity: 0.1;
+    transition: all .4s;
+}
+
+select#prof {
+    display: flex;
+    flex-basis: 100%;
+    background-color: coral;
+    text-align-last: center;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    height: 100%;
+    transition: all .3s;
+}
+
+select#prof:hover,
+select#prof:hover~select {
+    background-color: rgb(204, 200, 200);
+}
+
+.stv:hover {
+    background-color: coral;
+}
+
+.anim {
+    transition-property: all;
+    transition-duration: .3s;
+}
+
+.fff {
+    opacity: 1;
+}
+
+.sfs {
+    opacity: 0;
+}
+
+h3>b,
+strong {
+    font-size: 15px;
+}
+
+.config>h3 {
+    text-align: left;
+    font-size: 18px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    background-color: chocolate;
+}
+
+.config {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    text-align: center;
+    justify-content: space-between;
+    align-content: space-between;
+    border-bottom: 2px solid black;
+}
+
+#startbtn {
+    display: block;
+    position: relative;
+}
+
+
+/* #outside th,
+#outside>td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.zs {
+    /* background-color: hotpink; 
+    border-collapse: collapse;
+    border-style: inset;
+    border-width: 1px;
+    padding: 2px auto;
+    border-color: rgb(0, 0, 0);
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    width: 25%;
+} */
+
+.m-ceil:hover {
+    background-color: khaki;
+    transition: all .3s;
+}
+
+.m-ceil:hover:after {
+    font-size: .8rem;
+    position: absolute;
+    content: attr(data-math-ceil);
+    width: fit-content;
+    margin-left: 8px;
+    margin-top: 3px;
+    background-color: cornflowerblue;
+    box-shadow: indigo;
+}
+
+
+/* #outside>th {
+    background-color: chocolate;
+    font-size: 1rem;
+} */
+
+
+/* #outside>th::first-line {
+    font-size: 18px;
+    color: rgb(30, 30, 73);
+    /* font-family: fantasy; */
+
+
+/* font-style: oblique; */
+
+
+/* letter-spacing: 10px; 
+} */
+
+.config>h3::first-letter {
+    font-size: 15px;
+    color: ghostwhite;
+    font-family: fantasy;
+    font-style: oblique;
+    letter-spacing: 10px;
+}
+
+#zout {
+    display: flex;
+    flex-flow: row wrap;
+    max-height: 330px;
+    overflow: auto;
+    width: 1000px;
+}
+
+.ft {
+    display: flex;
+}
+
+.head {
+    width: 1000px;
+    height: 60px;
+}
+
+.headcont {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100%;
+    /* background-color: grey; */
+    border-radius: 15px;
+}
+
+.head-item {
+    display: flex;
+    background-color: tomato;
+    flex: 1 1 25%;
+    border: 1px solid white;
+    align-items: center;
+    justify-content: center;
+    transition-property: all;
+    transition-duration: .2s;
+    border-radius: 15px;
+}
+
+.head-item:active {
+    border-style: inset;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.head-item#zgrp:active {
+    border: none;
+}
+
+.head>h1 {
+    float: left;
+}
+
+.ztypebtn {
+    position: relative;
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
+    transition: all .5s;
+    backface-visibility: visible;
+}
+
+.ztypebtn:hover {
+    font-size: 35px;
+}
+
+.ztypebtn:active {
+    font-size: 1px;
+    background-color: grey;
+}
+
+.odepth {
+    display: block;
+}
+
+#outside {
+    display: block;
+    /* flex-flow: row nowrap; */
+    margin-top: 5px;
+    margin-right: 2px;
+    max-height: 800px;
+}
+
+.cls-out {
+    display: flex;
+    flex-flow: column wrap;
+    background-color: chocolate;
+    /* width: 210px; */
+    border-radius: 15px;
+    margin: 4px auto;
+}
+
+.cls-out>div {
+    display: flex;
+    /* border-bottom: 2px solid black; */
+    margin-bottom: 4px;
+    width: 210px;
+    justify-content: center;
+}
+
+.cls-out span {
+    font-size: large;
+    font-weight: bold;
+}
+
+.sys-line {
+    font-size: 25px;
+}
+
+.color-line {
+    font-size: 18px;
+    border-bottom: 1px solid black;
+    border-top: 1px double black;
+    flex-wrap: nowrap;
+}
+
+.size-line {
+    font-size: 17px;
+}
+
+#zgrp {
+    flex-basis: 65px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+#zlist {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+#zlist:focus {
+    outline: none;
+    background-color: brown;
+}
+
+div.head-item:first-child {
+    background-color: beige;
+}
+
+.ktype {
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    left: 219px;
+    top: 150px;
+    background-color: chocolate;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 18px;
+    padding: 2px 5px 2px 5px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+div#outside>span:-moz-first-node {
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.abs {
+    position: absolute;
+}
+
+.summ {
+    text-align: right;
+}
+
+.disc {
+    display: flex;
+    left: 805px;
+    top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 200px;
+}
+
+#discount {
+    width: 180px;
+}
+
+#discount::after {
+    content: "90%";
+    position: absolute;
+    left: 192px;
+}
+
+#discount::before {
+    content: "0%";
+    position: absolute;
+    right: 192px;
+}
+
+.disc span {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.disc>label {
+    background: rgba(189, 114, 28, 0.35);
+    width: 100%;
+    display: flex;
+    place-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+.disc>label:hover {
+    background-color: rgba(189, 114, 28, 0.75);
+}
+
+
+/* input[type="range"]#discount::-webkit-slider-runnable-track {
+    color: antiquewhite;
+    background-color: crimson;
+    height: 0.5rem;
+    
+} */

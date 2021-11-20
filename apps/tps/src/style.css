@@ -1,0 +1,25 @@
+@import url('styles/TPSmain.css');
+@import url('styles/selector.css');
+@import url('styles/tgl_button.css');
+@import url('styles/img_app.css');
+:root {
+    --pos-tps-left: 20px;
+    --pos-tps-top: 20px;
+    --gr-sel-t: topS;
+    --gr-sel-r: rightS;
+    --gr-sel-b: botS;
+    --gr-sel-l: leftS;
+    --index-up: 100;
+    --index-down: 5;
+    --bg-image: url('../assets/rama/stv.svg');
+    --arr1: url('../assets/arrows/Стрелка_1.svg');
+    --arr2: url('../assets/arrows/Стрелка_2.svg');
+    --arr3: url('../assets/arrows/Стрелка_3.svg');
+}
+
+.cont_bg {
+    position: relative;
+    background-color: transparent;
+    width: 550px;
+    height: 650px;
+}

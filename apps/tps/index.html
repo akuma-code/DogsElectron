@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TPS Construct</title>
+    <link rel='stylesheet' href='src/style.css'>
+    <meta charset='UTF-8'>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <script>
+        function toggle_target(selector) {
+            document.querySelector(selector).toggleAttribute('hidden')
+            return this
+        }
+    </script>
+</head>
+
+<body>
+    <div class="cont_bg">
+        <div class="tps_main">
+            <div class="tps_head">
+                <h2>ТехПомощь Стайл Калькулятор</h2>
+            </div>
+            <div class="tps_sys" data-selector='system'>
+                <span output='system' data-stdb="system">system</span>
+                <ul class="drop_content" data-side="system" data-handler-type='click' data-handler='updSides'>
+                    <li>ProLine</li>
+                    <li>ProLine232</li>
+                    <li>SoftLine</li>
+                    <li>EuroLine</li>
+                    <li>SoftLine82</li>
+                    <li>WHS</li>
+                    <li>WHS72</li>
+                </ul>
+            </div>
+            <div class="tps_dpt">
+                <span output="depth" data-stdb="depth">depth</span>
+                <ul class="drop_content" data-side="depth"></ul>
+            </div>
+            <div class="btn1"><button><a href="./zcalc/zindex.html" target="_blank">Калькулятор
+                        жалюзёв!</a></button></div>
+            <div class="btn2" id="savebtn"><button data-action="saveCalc">Сохранить расчет</button></div>
+            <div class="btn3" id="updatebtn"><button data-action="updateLS" disabled>Update LocalStorage</button></div>
+            <div class="btn4" id="clearbtn"><button data-action="clear" disabled>Clear LocalStorage</button></div>
+            <div class="tps_gweight">
+                <label for="gweight">Стеклопакет</label>
+                <input type="text" name="gweight" id="gweight" data-handler="updWeight" data-handler-type="input"
+                    placeholder="толщина" tabindex="3"></input>
+            </div>
+
+            <div class="tps_size_w" data-handler-type='click' data-handler='updSides'>
+                <input data-handler-type='input' data-handler='updSizes' type="number" id="tps_w" placeholder="ширина"
+                    min="0" tabindex="2" data-stdb="width" required name="tps_w">
+                <label for="tps_w">Ширина, мм</label>
+            </div>
+            <div class="tps_size_h" data-handler-type='click' data-handler='updSides'>
+                <label for="tps_h">Высота, мм</label>
+                <input data-handler-type='input' data-handler='updSizes' type="number" id="tps_h" placeholder="высота"
+                    min="0" tabindex="1" data-stdb="height" required name="tps_h">
+            </div>
+            <div class="tps_output" output='out'>
+
+            </div>
+            <div class="tps_img">
+                <div class="img_cont" data-bg-state='stv'>
+                    <div class="img_side" data-side="top">
+                        <span output='top' data-stdb='top'>верх</span>
+                        <ul class="drop_content" data-side="top" data-handler-type='click' data-handler='updSides'>
+                        </ul>
+                    </div>
+
+                    <div class="img_side" data-side="right">
+                        <span output='right' data-stdb="right">право</span>
+                        <ul class="drop_content" data-side="right" data-handler-type='click' data-handler='updSides'>
+                        </ul>
+                    </div>
+
+                    <div class="img_side" data-side="bot">
+                        <span output='bot' data-stdb="bot">низ</span>
+                        <ul class="drop_content" data-side="bot" data-handler-type='click' data-handler='updSides'>
+                        </ul>
+                    </div>
+
+                    <div class="img_side" data-side="left">
+                        <span output='left' data-stdb="left">лево</span>
+                        <ul class="drop_content" data-side="left" data-handler-type='click' data-handler='updSides'>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_rama grid_btn_rama">
+                <span>Размеры рамы:</span>
+                <div data-handler-type='click' data-handler='updSides' class="ts tgl_big_item" data-tgl-status="stv"
+                    data-type_sel='stv'></div>
+                <div data-handler-type='click' data-handler='updSides' class="ts tgl_big_item" data-tgl-status="fix"
+                    data-type_sel='fix'></div>
+            </div>
+            <div class="btn_svet grid_btn_svet">
+                <span>Размеры по свету</span>
+                <div data-handler-type='click' data-handler='updMSCalc' class="ts tgl_big_item" data-tgl-status="svet"
+                    data-type_sel='svet'></div>
+            </div>
+
+        </div>
+
+        <div class="target_output disp_none">
+            <button onclick="toggle_target('.target_list')">Show Status</button>
+            <ul class="target_list" hidden> </ul>
+
+        </div>
+    </div>
+    <div class="html_output" data-output="html_out" data-htmlout-type=''></div>
+    <script src='src/loader.js' defer></script>
+</body>
+
+</html>

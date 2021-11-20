@@ -1,0 +1,160 @@
+.tgl_big_box {
+    display: flex;
+    position: relative;
+    height: 60px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-around;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.tgl_big_item {
+    display: flex;
+    border: 2px ridge #000;
+    font-size: 1rem;
+    place-items: center;
+    text-align: center;
+    font-weight: 700;
+    transition: all .3s ease-in;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    border-collapse: collapse;
+}
+
+.btn_svet {
+    position: relative;
+    display: flex;
+    width: 201px;
+    height: 64px;
+    background-color: darkgray;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px ridge #168ec5;
+    z-index: 1;
+    transition: all .2s ease-out;
+    justify-content: center;
+}
+
+.btn_rama {
+    position: relative;
+    display: flex;
+    width: 225px;
+    height: 64px;
+    background-color: darkgray;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px ridge #000;
+    z-index: 1;
+    margin-left: 10px;
+    transition: all .2s ease-out;
+}
+
+.btn_rama::after {
+    content: url(../assets/arrows/Стрелка_1.svg);
+    position: absolute;
+    display: block;
+    width: 46px;
+    left: 230px;
+    transition: all .2s ease-in-out;
+}
+
+.btn_rama:not(.active)::after {
+    transform: rotate(180deg);
+}
+
+.btn_svet>.tgl_big_item {
+    height: 32px;
+    width: 198px;
+}
+
+.btn_rama>.tgl_big_item {
+    height: 32px;
+    width: 104px;
+}
+
+:is(.btn_rama, .btn_svet)>span {
+    display: block;
+    width: 100%;
+    height: 30px;
+    transition: all .3s;
+    text-align: center;
+}
+
+:is(.btn_rama, .btn_svet).active>span {
+    font-size: 1.15rem;
+}
+
+.btn_svet:not(.active) {
+    border: 1px ridge #000;
+}
+
+:is(.btn_rama, .btn_svet).active {
+    background-color: #a0a0a0;
+    border: 3px inset brown;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #000000;
+    /* z-index: 100; */
+}
+
+.tgl_big_item:not(.active) {
+    background-color: #3EB0E6;
+    color: rgb(63, 63, 63);
+    border: 2px ridge rgb(0, 0, 0);
+    z-index: 1;
+}
+
+.tgl_big_item.active {
+    background-color: #168ec5;
+    border: 3px inset brown;
+}
+
+.btn_rama .tgl_big_item[data-tgl-status='stv']:after {
+    content: 'Со створкой';
+    margin: 2px auto;
+    z-index: 190;
+}
+
+.btn_rama .tgl_big_item[data-tgl-status='fix']:after {
+    content: 'Фикса';
+    margin: 2px auto;
+    z-index: 100;
+}
+
+.tgl_big_item[data-tgl-status='svet']:after {
+    content: 'Световой проем';
+    margin: 2px auto;
+    z-index: 100;
+}
+
+.tgl_big_item::before {
+    content: "";
+    background-color: #168ec5;
+    position: absolute;
+    transition: all .3s ease;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: 0%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.tgl_big_item:hover::before {
+    width: 100%;
+}

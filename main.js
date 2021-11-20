@@ -33,28 +33,28 @@ function openLink() {
 }
 
 app.whenReady().then((resolve) => {
-    createWindow().loadFile("public/welcome.html")
+    createWindow().loadFile("public/homepage.html")
     ipcMain.on('msg', (event, arg) => {
-        () => resolve(arg)
+        () => resolve = arg
 
         console.log('main process: ', arg)
         event.sender.send('msg', arg)
     })
 
 }).then(function (result) {
-    console.log('zzzz')
+    console.log('zzzz:', result)
     if (result == 'zcalc') {
         () => openLink({
             width: 600,
             height: 800
-        }).loadFile("app/dogedit.html");
+        }).loadFile("../apps/zcalc/zindex.html");
 
     };
     if (result == 'tps') {
         () => openLink({
             width: 900,
             height: 500
-        }).loadFile("app/dogview.html");
+        }).loadFile("../apps/tps/index.html");
 
     };
 })

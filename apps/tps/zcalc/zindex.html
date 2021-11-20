@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='lib/style.css' />
+    <script src="lib/handlers.js"></script>
+    <script src='lib/SizeDB.js'></script>
+    <script src='lib/zDB.js'></script>
+    <script src='lib/animation.js'></script>
+    <script src='lib/main.js'></script>
+    <script>
+        function loadScript(src, callback) {
+            let script = document.createElement("script");
+            script.src = src;
+            document.head.append(script);
+            script.onload = () => callback(script);
+            // stylelog(`>>>HTML Started<<<`)
+        }
+
+        let source = "lib/handlers.js";
+
+        loadScript(source, script => {
+            return console.log(`Done!`);
+
+        });
+    </script>
+    <script defer>
+        const scripts = [
+            "lib/funcprice.js",
+            "lib/priceDB.js",
+            "lib/Selector.js",
+            "lib/mapper.js",
+            "lib/model.js",
+        ];
+
+        function load(src) {
+
+            let script = document.createElement("script");
+            script.src = src;
+            // script.onload = () => console.log(`${script.src} Loaded`);
+            document.head.append(script);
+        };
+
+
+
+        function loader() {
+            for (let i = 0; i < scripts.length; i++) {
+                load(scripts[i]);
+            };
+            console.log(`${scripts.length} scripts loaded`);
+
+        }
+
+        stylelog("HTML IS READY");
+    </script>
+
+    <script defer>
+        loader()
+            // td();
+            // tt()
+    </script>
+
+    <title>Калькулятор жалюзей</title>
+</head>
+
+<body>
+    <div>
+        <h1 onclick="reload()" class="tooltip">ЖАЛЮЗИ</h1> <span class="tooltiptext">Рассчет жалюзей по профилю</span>
+    </div>
+    <!-- *Header: кнопки смены профильной системы, толщины ст-п, типа и цвета жалюзи а также их группа и, наконец, кнопка расчета -->
+    <header class="head">
+        <div class="headcont">
+
+            <div class="head-item">
+                <select name="veka" id="prof" oninput="td()" onclick="td()">
+<optgroup label="Основные">
+                    <option value="Proline" selected>Proline Comfort 70мм</option>
+                    <option value="Softline">Softline ComfortPlus 70мм</option>
+                    <option value="Premium82">Softline Premium 82мм</option>
+                    <option value="Euroline">Euroline 58мм</option>
+                    </optgroup>
+                    <optgroup label="Бюджетные">
+                    <option value="WHS72">WHS72 StandartPlus 72мм</option>
+                    <option value="WHS60">WHS60 60мм</option>
+                    </optgroup>
+                    <optgroup label="Выведеные из оборота">
+                    <option value="BasicPlus">Базовый+ 70мм</option>
+                    <option value="Lux">Люкс 70мм</option>
+                    <option value="Optima">Оптима 60мм</option>
+                    <option value="TermoPlus">Термоплюс 80мм</option>
+                    </optgroup>
+                </select>
+
+                <select name="glass-depth" id="gdepth" class="gldepth" onclick="this.style.opacity = 1">
+                    <option class="odepth" value="28" selected>28 mm</option>
+                    <option class="odepth" value="24">24 mm</option>
+                    <option class="odepth" value="30">30 mm</option>
+                    <option class="odepth" value="32">32 mm</option>
+                    <option class="odepth" value="36">36 mm</option>
+                    <option class="odepth" value="38">38 mm</option>
+                    <option class="odepth" value="40">40 mm</option>
+                    <option class="odepth" value="52">52 mm</option>
+                </select>
+            </div>
+
+            <div class="head-item ztypebtn" id="ztype" onclick="tt()">Isolite</div>
+
+            <input type="list" tabindex="5" list="zhlist" class="head-item" name="zhlist" id="zlist" placeholder="Цвет" oninput="setgr()">
+            <span class="resetv zc" onclick="resetvals()">&#9746;</span>
+            <datalist id="zhlist">
+            </datalist>
+
+            <div id="zgrp" class="head-item"></div>
+
+            <button class="calc-btn hand-item" onclick="gonow()" id="calc-btn">Calculate</button>
+
+        </div>
+
+
+    </header>
+
+    <div class="disc abs">
+        <label for="discount">Скидка: <span>40%</span></label>
+        <input type="range" name="discount" id="discount" min="0" max="90" step="1" value="40">
+    </div>
+
+    <div id="cfgbox" class="cfg-gridbox">
+        <div class="cfg-item" data-cfg="fff" onclick="resizeWin('fff')"><span>Трешка</span> </div>
+        <div class="cfg-item" data-cfg="ff" onclick="resizeWin('ff')"><span> Двушка </span></div>
+        <div class="cfg-item" data-cfg="f" onclick="resizeWin('f')"><span>Адынушка</span></div>
+        <div class="cfg-item" data-cfg="d-f" onclick="resizeWin('df')"><span>Б/Блок-1</span></div>
+        <div class="cfg-item" data-cfg="d-ff" onclick="resizeWin('dff')"><span>Б/Блок-2</span> </div>
+        <div class="cfg-item" data-cfg="f-d-f" onclick="resizeWin('fdf')"><span>Чебурашка</span></div>
+    </div>
+
+    <!-- *цвет короба-->
+    <div class="ktype" id="korob" oninput="setgr()">
+        <b>Цвет короба: </b>
+        <input type="radio" value="white" id="whiteK" name="KorColor" checked>
+        <label for="whiteK">Белый</label>
+        <input type="radio" value="lamin" id="laminK" name="KorColor" class="show">
+        <label for="laminK" class="show">золото/махагон</label>
+        <input type="radio" value="color" id="colorK" name="KorColor">
+        <label for="colorK">Kоричневый/бежевый/серебро</label>
+    </div>
+    <!--*контейнер для кнопок право-лево, картинки рамы и створок, ввод размеров-->
+    <div class="cont" id="maincont">
+
+        <!--! BACKGROUNF FON IMG-->
+        <div class="imgbox" id="imgbox" data-isbb="false" data-rama-step="3" wintype="fff">
+            <img src="img/fff.svg" alt="nope" class="fon" id="fon" data-rama-step="3" wintype="fff">
+            <img src="img/s3.svg" alt="nope" class="s1 anim" id="s1" onclick="opaopa(s1)" data-isfix="1">
+            <img src="img/s3.svg" alt="nope" class="s2 anim" id="s2" onclick="opaopa(s2)" data-isfix="1">
+            <img src="img/s3.svg" alt="nope" class="s3 anim" id="s3" onclick="opaopa(s3)" data-isfix="1">
+            <img src="img/door-imp.svg" alt="nope" class="sd anim" id="sd" onclick="opaopa(sd)" data-isfix="1">
+
+            <div class="sizebox" id="sizebox">
+                <input type="text" tabindex="3" class="size" name="sizes" id="levo" min="0" placeholder="лево" autocomplete="on" value="600">
+                <input type="text" tabindex="4" class="size" name="sizes" id="pravo" min="0" placeholder="право" autocomplete="on" value="600">
+                <input type="text" tabindex="1" class="size" name="sizes" id="h" min="0" placeholder="высота" autocomplete="on" value="1400">
+                <input type="text" tabindex="2" class="size" name="sizes" id="w" min="0" placeholder="ширина" autocomplete="on" value="1800">
+                <input type="text" tabindex="6" class="size" name="sizes" id="hpr" min="0" placeholder="высота пр" autocomplete="on" value="1400">
+                <input type="text" tabindex="7" class="size" name="sizes" id="hlv" min="0" placeholder="высота лев" autocomplete="on" value="1400">
+                <input type="text" tabindex="5" class="size" name="sizes" id="himp" min="0" placeholder="импоста" autocomplete="on" value="800">
+            </div>
+
+
+        </div>
+
+        <div class="current">
+            <div id="outside">
+            </div>
+        </div>
+    </div>
+    <!--!кнопка СБРОС-->
+    <img src="img/reset.jpg" alt="reset" id="reset" class="resbtn" onclick="fullreset()">
+
+
+    <div class="btn__cont" id="btn__cont">
+        <div class="btn__thumb" data-calc-state="close" onclick="toggle_rs_calc(this)"></div>
+    </div>
+
+
+    <img src="img/devbtn.jpg" alt="reset" id="show_calc" class="resbtn" onclick="toggleCalc()">
+
+    <div class="rs__maincalc" id="rs__calc" data-rs-calc="hide">
+
+    </div>
+    <script>
+        addListener();
+        td();
+        tt();
+        tl();
+        showdisc();
+    </script>
+
+
+</body>
+
+</html>

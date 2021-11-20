@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="door" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 150 420.032" style="enable-background:new 0 0 150 420.032;" xml:space="preserve">
+<g>
+	<g>
+		<rect x="-0.65" y="-0.65" style="fill:#FFFFFF;" width="151.3" height="421.3"/>
+		<path d="M150,0v420H0V0H150 M151.3-1.3H150H0h-1.3V0v420v1.3H0h150h1.3V420V0V-1.3L151.3-1.3z"/>
+	</g>
+	<g>
+		<rect x="7.129" y="8.099" style="fill:#FFFFFF;" width="136.267" height="404.2"/>
+		<path d="M142.896,8.598v403.2H7.629V8.598H142.896 M143.896,7.598h-1H7.629h-1v1v403.2v1h1h135.267h1v-1V8.598V7.598
+			L143.896,7.598z"/>
+	</g>
+	<g>
+		<rect x="21.363" y="22.499" style="fill:#FFFFFF;" width="107.2" height="374.733"/>
+		<path d="M128.062,22.999v373.733h-106.2V22.999H128.062 M129.062,21.999h-1h-106.2h-1v1v373.733v1h1h106.2h1v-1V22.999V21.999
+			L129.062,21.999z"/>
+	</g>
+	<polyline style="fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;" points="0,0 7.629,8.598 21.862,22.998 	"/>
+	<polyline style="fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;" points="128.062,22.998 142.896,8.598 150,0 	"/>
+	<polyline style="fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;" points="150,420 142.896,411.798 128.062,396.732 	"/>
+	<polyline style="fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;" points="21.862,396.732 7.629,411.798 0,420 	"/>
+	
+		<line style="fill:none;stroke:#000000;stroke-width:0.3;stroke-miterlimit:10;" x1="21.862" y1="22.998" x2="128.062" y2="209.865"/>
+	<g>
+		
+			<line style="fill:none;stroke:#000000;stroke-width:0.3;stroke-miterlimit:10;" x1="104.434" y1="251.441" x2="21.862" y2="396.732"/>
+	</g>
+	<g>
+		
+			<line style="fill:none;stroke:#000000;stroke-width:0.3;stroke-miterlimit:10;" x1="128.062" y1="209.865" x2="104.434" y2="251.441"/>
+	</g>
+	<polygon style="fill:#FFFFFF;stroke:#000000;stroke-width:0.8;stroke-miterlimit:10;" points="136.029,207.998 132.296,207.998 
+		121.229,207.998 121.229,211.598 136.029,211.598 	"/>
+	<polyline style="fill:none;stroke:#000000;stroke-width:0.8;stroke-miterlimit:10;" points="132.296,207.998 132.229,199.932 
+		139.829,199.932 139.829,219.798 132.229,219.798 132.229,211.598 	"/>
+	
+		<rect x="21.862" y="251.132" transform="matrix(-1 -4.490953e-11 4.490953e-11 -1 149.925 519.4636)" style="fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;" width="106.2" height="17.2"/>
+</g>
+</svg>

@@ -1,0 +1,121 @@
+/* ! ================rama change button */
+
+.show {
+    display: block;
+}
+
+.zc {
+    left: 730px;
+    top: 65px;
+}
+
+.remlast {
+    right: -30px;
+}
+
+.resetv {
+    display: block;
+    position: absolute;
+    color: black;
+    /* background-color: coral; */
+    border-radius: 50%;
+    text-align: center;
+    font-size: 35px;
+    line-height: 40px;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.resetv:hover {
+    font-size: 40px;
+}
+
+.resetv:hover:active {
+    color: white;
+    font-size: 30px;
+}
+
+.resbtn {
+    display: block;
+    position: absolute;
+    width: 170px;
+    height: auto;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+#show_calc.resbtn {
+    display: none;
+    visibility: visible;
+    left: 580px;
+    border-radius: 30px;
+    top: 10px;
+    width: 130px;
+}
+
+#reset.resbtn {
+    display: none;
+    left: 680px;
+    top: 365px;
+    transform: rotate(270deg);
+}
+
+.resbtn:hover {
+    transform: scaleX(1.15) scaleY(1.15);
+}
+
+#reset.resbtn:hover {
+    transform: scaleX(1.05) scaleY(1.15);
+}
+
+.resbtn:hover:active {
+    transform: scaleX(.9) scaleY(.9) rotateZ(-15deg);
+    top: 25px;
+}
+
+#reset.resbtn:hover:active {
+    transform: scaleX(.8) scaleY(.9);
+    top: 10px;
+}
+
+.current::-webkit-scrollbar {
+    display: block;
+    transition: all .4s;
+    margin: 1px auto;
+    width: 7px;
+}
+
+.current::-webkit-scrollbar-track {
+    position: absolute;
+    background-color: beige;
+    height: 800px;
+}
+
+.current::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-radius: 10px;
+    background-color: coral;
+    visibility: visible;
+}
+
+.gridbox {
+    display: grid;
+    border: 1px solid black;
+    white-space: nowrap;
+}
+
+.gridwrapper {
+    display: grid;
+    /* gap: 5px 10px; */
+}
+
+.gridwrapper.cols {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gridwrapper.rows {
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-rows: repeat(2, 1fr);
+    font-size: 20px;
+    font-weight: 600;
+}

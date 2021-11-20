@@ -1,0 +1,45 @@
+.selector {
+    display: block;
+    position: relative;
+    width: 80px;
+    height: auto;
+    /* background-color: green; */
+    border: 2px solid rgb(99, 99, 99);
+    border-radius: 5px;
+    margin: 0px auto;
+}
+
+.selector>select {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(30, 174, 210);
+    color: antiquewhite;
+    border-radius: 2px;
+}
+
+.hidden {
+    display: none;
+}
+
+.selector .sel_list[close] {
+    display: none;
+}
+
+.selector .sel_list[open] {
+    display: block;
+    /* position: absolute; */
+    background-color: aquamarine;
+    padding-left: 0;
+    text-align: center;
+    border-radius: 4px;
+    width: inherit;
+}
+
+.sel_list>ul {
+    appearance: none;
+    list-style: none;
+}
+
+.sel_list>li:hover {
+    background-color: brown;
+}

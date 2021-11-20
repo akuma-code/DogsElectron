@@ -1,0 +1,209 @@
+.tps_main {
+    display: grid;
+    position: absolute;
+    width: 500px;
+    height: 620px;
+    background-color: #2e3766;
+    left: var(--pos-tps-left);
+    top: var(--pos-tps-top);
+    grid-template-columns: 80px 1fr 1fr 100px 100px;
+    grid-template-rows: 3rem 2rem 30px 25px 25px 25px 64px 64px 64px 130px 64px;
+    grid-template-areas: "head head head head head""sys sys dpt out out""btn1 btn1 btn1 out out""btn2 btn2 btn2 out out""btn3 btn3 btn3 out out""btn4 btn4 btn4 out out""btnr btnr btnr btns btns"". we img img ."". sizeh img img . "". . img img ."". . sizew  sizew . ";
+    grid-gap: 5px 10px;
+    border-radius: 15px;
+    border: 1px solid #000;
+}
+
+.tps_head {
+    grid-area: head;
+    /* background-color: brown; */
+}
+
+.tps_head>h2 {
+    text-align: center;
+    color: #add8e6;
+    margin-top: 5px;
+}
+
+div.tps_head>a {
+    transition: color .2s ease-in;
+    text-align: left;
+    font-size: 1.3rem;
+    padding-left: 10px;
+}
+
+div.tps_head>a:hover {
+    color: rgb(204, 235, 65);
+}
+
+.tps_sys {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: sys;
+    position: relative;
+    background-color: darkgray;
+    cursor: pointer;
+    font-size: larger;
+    font-weight: bolder;
+    margin-left: 5px;
+    border-radius: 3px;
+}
+
+.tps_sys::after {
+    content: url(../assets/arrows/Стрелка_2.svg);
+    position: absolute;
+    width: 22px;
+    right: 3px;
+    top: 5px;
+    transition: all .2s ease-out;
+}
+
+.tps_sys:hover::after {
+    transform: rotate(-90deg);
+}
+
+.btn1 {
+    grid-area: btn1;
+}
+
+.btn2 {
+    grid-area: btn2;
+}
+
+.btn3 {
+    grid-area: btn3;
+}
+
+.btn4 {
+    grid-area: btn4;
+}
+
+:is(.btn1, .btn2, .btn3, .btn4) {
+    margin-left: 5px;
+}
+
+.grid_btn_rama {
+    grid-area: btnr;
+}
+
+.grid_btn_svet {
+    grid-area: btns;
+}
+
+.tps_sys_content {
+    display: none;
+    /* padding-top: 0.8rem; */
+}
+
+.drop_content li {
+    border-top: 2px solid rgb(110, 110, 110);
+    border-bottom: 2px solid #000000;
+    text-align: center;
+}
+
+:is(.tps_sys, .tps_dpt)>.drop_content {
+    display: none;
+    opacity: 0;
+}
+
+:is(.tps_sys, .tps_dpt):hover .drop_content {
+    display: flex;
+    transition: all cubic-bezier(.62, .01, 10s, -0.09);
+    position: absolute;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    top: 100%;
+    width: 100%;
+    height: max-content;
+    background-color: #3b3b3b;
+    color: aliceblue;
+    z-index: 100;
+    opacity: 1;
+}
+
+.drop_content li:hover:not(.selected) {
+    background-color: #e79418;
+    color: #3b3b3b;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 101;
+    /* margin: 3px 0; */
+}
+
+
+/** Тут переключатель списков выбора*/
+
+.selected {
+    background-color: rgba(146, 146, 146, 0.459);
+    color: black;
+    font-weight: bolder;
+    /* font-size: .8rem; */
+    display: none;
+}
+
+.tps_dpt {
+    grid-area: dpt;
+    background-color: darkgray;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tps_gweight {
+    grid-area: we;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    place-content: flex-start;
+    justify-content: center;
+    margin-right: 5px;
+}
+
+.tps_tgl {
+    /* background-color: darkred; */
+    /* grid-area: tgl */
+}
+
+.tps_img {
+    display: grid;
+    grid-area: img;
+    background-color: transparent;
+    place-items: center;
+}
+
+.target_output {
+    display: flex;
+    position: relative;
+    left: 20px;
+    top: 65%;
+    width: 450px;
+    height: max-content;
+    background-color: darkseagreen;
+    text-align: stretch;
+    flex-flow: column nowrap;
+}
+
+.html_output {
+    display: flex;
+    position: absolute;
+    left: 485px;
+    top: 82px;
+    background-color: aqua;
+    flex-flow: column wrap;
+}
+
+[data-output*=html_] {
+    display: flex;
+    flex-direction: column;
+}

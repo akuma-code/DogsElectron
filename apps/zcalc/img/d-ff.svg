@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 398 420" style="enable-background:new 0 0 398 420;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#08FFEA;}
+	.st2{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#000000;stroke-width:0.3;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#000000;stroke-width:0.8;stroke-miterlimit:10;}
+	.st5{fill:none;}
+	.st6{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st7{display:none;}
+	.st8{display:inline;}
+	.st9{display:inline;fill:none;stroke:#000000;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st10{fill:#FFFFFF;stroke:#000000;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st11{fill:none;stroke:#000000;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st12{display:inline;fill:#FFFFFF;stroke:#000000;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<g id="door">
+	<g>
+		<g>
+			<rect x="0.6" y="0.6" class="st0" width="148.7" height="418.7"/>
+			<path d="M148.7,1.3v417.4H1.3V1.3H148.7 M150,0H0v420h150V0L150,0z"/>
+		</g>
+		<g>
+			<rect x="8.1" y="9.1" class="st0" width="134.3" height="402.2"/>
+			<path d="M141.9,9.6v401.2H8.6V9.6H141.9 M142.9,8.6H7.6v403.2h135.3V8.6L142.9,8.6z"/>
+		</g>
+		<g>
+			<rect x="22.4" y="23.5" class="st1" width="105.2" height="372.7"/>
+			<path d="M127.1,24v371.7H22.9V24H127.1 M128.1,23H21.9v373.7h106.2V23L128.1,23z"/>
+		</g>
+		<polyline class="st2" points="0,0 7.6,8.6 21.9,23 		"/>
+		<polyline class="st2" points="128.1,23 142.9,8.6 150,0 		"/>
+		<polyline class="st2" points="150,420 142.9,411.8 128.1,396.7 		"/>
+		<polyline class="st2" points="21.9,396.7 7.6,411.8 0,420 		"/>
+		<line class="st3" x1="21.9" y1="23" x2="128.1" y2="209.9"/>
+		<g>
+			<line class="st3" x1="104.4" y1="251.4" x2="21.9" y2="396.7"/>
+		</g>
+		<g>
+			<line class="st3" x1="128.1" y1="209.9" x2="104.4" y2="251.4"/>
+		</g>
+		<g>
+			<rect x="121.6" y="208.4" class="st0" width="14" height="2.8"/>
+			<path d="M135.2,208.8v2H122v-2h10.3H135.2 M136,208h-3.7h-11.1v3.6H136V208L136,208z"/>
+		</g>
+		<polyline class="st4" points="132.3,208 132.2,199.9 139.8,199.9 139.8,219.8 132.2,219.8 132.2,211.6 		"/>
+		<g>
+			<rect x="21.9" y="251.1" class="st5" width="106.2" height="17.2"/>
+		</g>
+	</g>
+</g>
+<g id="ff-r">
+	<g>
+		<rect x="150.5" y="0.5" class="st0" width="249" height="289"/>
+		<path d="M399,1v288H151V1H399 M400,0H150v290h250V0L400,0z"/>
+	</g>
+	<g>
+		<rect x="165.4" y="15.4" class="st1" width="219.3" height="259"/>
+		<path d="M384.1,15.9v258H165.9v-258L384.1,15.9 M385.1,14.9H164.9v260h220.3L385.1,14.9L385.1,14.9z"/>
+	</g>
+	<rect x="265.6" y="15.4" class="st2" width="17.7" height="258.6"/>
+	<line class="st6" x1="150" y1="0" x2="164.9" y2="14.9"/>
+	<line class="st6" x1="400" y1="0" x2="385.1" y2="14.9"/>
+	<line class="st6" x1="400" y1="290" x2="385.1" y2="274.9"/>
+	<line class="st6" x1="164.9" y1="274.9" x2="150" y2="290"/>
+</g>
+<g id="Layer_3" class="st7">
+	<g class="st8">
+		<g id="f">
+			<g id="s1_2_" class="st7">
+				<line class="st9" x1="173.8" y1="22" x2="157.7" y2="4.7"/>
+				<g class="st8">
+					<g>
+						<g id="XMLID_11_">
+							<g>
+								<g>
+									<path class="st0" d="M256.5,155.5v-6h7.5c0.3,0,0.5-0.2,0.5-0.5v-8c0-0.3-0.2-0.5-0.5-0.5h-7.5v-8h10v23H256.5z"/>
+									<path d="M266,133v22h-9v-5h7c0.6,0,1-0.4,1-1v-8c0-0.6-0.4-1-1-1h-7v-7H266 M267,132h-11v9h8v8h-8v7h11V132L267,132z"/>
+								</g>
+								<g>
+									<path class="st0" d="M256.5,148.5v-2l4.1,0c0.1,0,0.3-0.1,0.4-0.2c0.1-0.1,0.1-0.2,0.1-0.4l0-2c0-0.3-0.2-0.5-0.5-0.5h-4.1
+										v-2h7v7L256.5,148.5L256.5,148.5z"/>
+									<path d="M263,142v6h-6v-1l3.6,0c0.3,0,0.5-0.1,0.7-0.3s0.3-0.5,0.3-0.7l0-2c0-0.5-0.5-1-1-1H257v-1L263,142 M264,141h-8v3
+										h4.6l0,2l-4.6,0v3h8V141L264,141z"/>
+								</g>
+								<g>
+									<path class="st0" d="M245.5,148.5v-7l9,0v2H247c-0.3,0-0.5,0.2-0.5,0.5v2c0,0.3,0.2,0.5,0.5,0.5l8.5,0v2L245.5,148.5
+										L245.5,148.5z"/>
+									<path d="M254,142v1h-7c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1l8,0v1h-9v-6L254,142 M255,141l-10,0v8h11v-3l-9,0v-2h8V141
+										L255,141z"/>
+								</g>
+							</g>
+							<g>
+								<g>
+									<rect x="155.5" y="4.5" class="st0" width="115" height="281"/>
+									<path d="M270,5v280H156V5H270 M271,4H155v282h116V4L271,4z"/>
+								</g>
+								<polyline class="st10" points="254,149 254,268 171,268 171.5,22 254,21.3 254,141 								"/>
+								<g>
+									<path class="st0" d="M256.5,155.5V149c0-0.3-0.2-0.5-0.5-0.5h-10.5v-7.9l8.6,0.9l1.9,0c0.3,0,0.5-0.2,0.5-0.5v-8.5h10v23
+										H256.5z"/>
+									<path d="M266,133v22h-9v-6c0-0.6-0.4-1-1-1h-1.8H246v-6.9l8.1,0.9c0,0,0.1,0,0.1,0h1.8c0.6,0,1-0.4,1-1v-8H266 M267,132
+										h-11v9h-1.8l-9.2-1v9h9.2h1.8v7h11V132L267,132z"/>
+								</g>
+								<polyline class="st10" points="256,141 264,141 264,149 256,149 								"/>
+							</g>
+						</g>
+					</g>
+					<line class="st11" x1="271.2" y1="285.5" x2="254.2" y2="268.4"/>
+					<line class="st11" x1="171" y1="268.4" x2="155.4" y2="285.5"/>
+					<line class="st11" x1="171.5" y1="22" x2="155.4" y2="4"/>
+					<line class="st11" x1="254" y1="21.3" x2="271.2" y2="4.1"/>
+				</g>
+				<polyline class="st12" points="275,290 150,290.4 150,0 275,0 				"/>
+				<g class="st8">
+					<path class="st0" d="M150,0v290V0z"/>
+					<path d="M150,0v290V0z"/>
+				</g>
+				<line class="st9" x1="275" y1="0" x2="275" y2="290"/>
+			</g>
+			<g>
+				<rect x="150.5" y="0.5" class="st0" width="134" height="289"/>
+				<path d="M284,1v288H151V1H284 M285,0H150v290h135V0L285,0z"/>
+			</g>
+			<g>
+				<rect x="166.5" y="15.5" class="st0" width="102" height="259"/>
+				<path d="M268,16v258H167V16H268 M269,15H166v260h103V15L269,15z"/>
+			</g>
+			<g>
+				<path class="st0" d="M269.1,274.6c-0.1-0.1-0.2-0.1-0.3-0.1H166.2c-0.1,0-0.2,0-0.3,0.1l-15.3,14.2V1.5l15.4,13.9
+					c0.1,0.1,0.2,0.1,0.3,0.1l102.6,0c0.1,0,0.2,0,0.3-0.1l15.4-13.9v287.4L269.1,274.6z"/>
+				<path d="M151,2.6l14.5,13.1c0.2,0.2,0.4,0.3,0.7,0.3l102.6,0c0.2,0,0.5-0.1,0.7-0.3L284,2.6v285.1l-14.5-13.4
+					c-0.2-0.2-0.4-0.3-0.7-0.3H166.2c-0.3,0-0.5,0.1-0.7,0.3L151,287.7V2.6 M285,0.3L268.8,15l-102.6,0L150,0.3V290l16.2-15h102.6
+					l16.2,15V0.3L285,0.3z"/>
+			</g>
+		</g>
+		<line class="st11" x1="269" y1="15" x2="269" y2="275"/>
+		<line class="st11" x1="166" y1="15" x2="166" y2="275"/>
+	</g>
+</g>
+</svg>
