@@ -1,22 +1,54 @@
 {
-  "name": "dog-app",
+  "name": "akuma-apps",
   "version": "1.0.0",
   "description": "doghouse @electron",
   "main": "main.js",
   "dependencies": {
-    "electron": "^16.0.0",
     "nodemon": "^2.0.15"
   },
   "scripts": {
-    "try": "nodemon main.js",
+    "make": "electron-forge make",
     "start": "electron ."
   },
   "keywords": [
-    "dogs"
+    "zcalc",
+    "tps"
   ],
   "author": "akuma",
   "license": "ISC",
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.61"
+    "@electron-forge/cli": "^6.0.0-beta.61",
+    "@electron-forge/maker-deb": "^6.0.0-beta.61",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.61",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
+    "@electron-forge/maker-zip": "^6.0.0-beta.61",
+    "electron": "^16.0.1"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "launcher-package"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }

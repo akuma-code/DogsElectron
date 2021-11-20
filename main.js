@@ -45,26 +45,6 @@ app.whenReady().then((resolve) => {
         }
         if (arg == 'tps') {
             openLink(650, 750).loadFile(path.join(__dirname, "apps/tps", "index.html"));
-        };
+        }
     })
-
 })
-// .then((result) => {
-//     console.log('zzzz:', result)
-//     if (result == 'zcalc') {
-//         openLink({
-//             width: 600,
-//             height: 800,
-//             useContentSize: false
-//         }).loadFile("/apps/zcalc/zindex.html");
-
-//     };
-//     if (result == 'tps') {
-//         () => openLink({
-//             width: 900,
-//             height: 500,
-//             useContentSize: false
-//         }).loadFile("/apps/tps/index.html");
-
-//     };
-// })
