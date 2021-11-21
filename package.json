@@ -1,13 +1,14 @@
 {
   "name": "akuma-apps",
-  "version": "1.0.0",
-  "description": "doghouse @electron",
+  "version": "1.0.2",
+  "description": "Калькулятор жалюзев и техпомощь стайл калькулятор",
   "main": "main.js",
   "dependencies": {
     "nodemon": "^2.0.15"
   },
   "scripts": {
     "make": "electron-forge make",
+    "makex86": "electron-forge make --arch=ia32",
     "start": "electron ."
   },
   "keywords": [
@@ -22,7 +23,10 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.61",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
     "@electron-forge/maker-zip": "^6.0.0-beta.61",
-    "electron": "^16.0.1"
+    "electron": "^16.0.1",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-winstaller": "^5.0.0",
+    "grunt-electron-installer": "^2.1.0"
   },
   "config": {
     "forge": {
@@ -31,7 +35,8 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "launcher-package"
+            "name": "attik-apps",
+            "version": "1.0.2"
           }
         },
         {

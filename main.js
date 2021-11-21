@@ -1,13 +1,40 @@
 const {
-    app,
+    app
+} = require('electron');
+const {
+    handleSquirrelEvent
+} = require("./handleSquirrelEvent");
+if (handleSquirrelEvent()) {
+    // squirrel event handled and app will exit in 1000ms, so don't do anything else
+    return;
+}
+// // if (require('electron-squirrel-startup')) return app.quit();
+
+const {
+
     BrowserWindow,
     ipcMain,
-    webPreferences
 } = require('electron')
 const path = require('path');
 
-const ROOT_PATH = `${path.join(__dirname)}`;
-const DOGS_PATH = `${ROOT_PATH}/dogs`;
+// async function onInstall() {
+//     // NB: Use this syntax within an async function, Node does not have support for
+//     //     top-level await as of Node 12.
+//     try {
+//         await electronInstaller.createWindowsInstaller({
+//             appDirectory: 'apps',
+//             outputDirectory: '../D:/APPS',
+//             authors: 'My App Inc.',
+//             exe: 'myapp.exe'
+//         });
+//         console.log('It worked!');
+//     } catch (e) {
+//         console.log(`No dice: ${e.message}`);
+//     }
+
+// }
+// exports.onInstall = onInstall;
+
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -23,7 +50,7 @@ function createWindow() {
 }
 
 function openLink(w, h) {
-    const app = new BrowserWindow({
+    const aapp = new BrowserWindow({
         width: w,
         height: h,
         webPreferences: {
@@ -31,10 +58,10 @@ function openLink(w, h) {
             contextIsolation: false,
         }
     });
-    return app
+    return aapp
 }
 
-app.whenReady().then((resolve) => {
+app.whenReady().then(() => {
     createWindow().loadFile("public/homepage.html")
     ipcMain.on('msg', (_, arg) => {
 
@@ -48,3 +75,5 @@ app.whenReady().then((resolve) => {
         }
     })
 })
+
+// onInstall()
