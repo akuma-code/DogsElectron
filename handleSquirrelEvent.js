@@ -70,6 +70,6 @@ function handleSquirrelEvent() {
 
 
 module.exports = {
-    handleSquirrelEvent,
+    handleSquirrelEvent
 
 }
