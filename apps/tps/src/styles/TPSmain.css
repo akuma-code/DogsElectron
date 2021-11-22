@@ -51,7 +51,7 @@ div.tps_head>a:hover {
 }
 
 .tps_sys::after {
-    content: url(../assets/arrows/Стрелка_2.svg);
+    content: url(../assets/arrows/arrow_2.svg);
     position: absolute;
     width: 22px;
     right: 3px;

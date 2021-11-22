@@ -65,7 +65,7 @@
 }
 
 .btn_rama::after {
-    content: url(../assets/arrows/Стрелка_1.svg);
+    content: url(../assets/arrows/arrow_1.svg);
     position: absolute;
     display: block;
     width: 46px;
