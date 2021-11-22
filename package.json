@@ -1,6 +1,6 @@
 {
-  "name": "akuma-apps",
-  "version": "1.0.2",
+  "name": "akumas-apps",
+  "version": "1.1.3",
   "description": "Калькулятор жалюзев и техпомощь стайл калькулятор",
   "main": "main.js",
   "dependencies": {
@@ -8,6 +8,7 @@
   },
   "scripts": {
     "make": "electron-forge make",
+    "pack": "electron-forge package",
     "makex86": "electron-forge make --arch=ia32",
     "start": "electron ."
   },
@@ -35,8 +36,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "attik-apps",
-            "version": "1.0.2"
+            "setupExe": "InstallAkumaApps.exe"
           }
         },
         {

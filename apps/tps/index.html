@@ -32,19 +32,18 @@
                     <li>WHS72</li>
                 </ul>
             </div>
-            <div class="tps_dpt">
+            <!-- <div class="tps_dpt">
                 <span output="depth" data-stdb="depth">depth</span>
                 <ul class="drop_content" data-side="depth"></ul>
-            </div>
-            <div class="btn1"><button><a href="./zcalc/zindex.html" target="_blank">Калькулятор
-                        жалюзёв!</a></button></div>
-            <div class="btn2" id="savebtn"><button data-action="saveCalc">Сохранить расчет</button></div>
+            </div> -->
+            <div class="btn1"><button disabled>Калькулятер жалюзёв</button></div>
+            <div class="btn2" id="savebtn"><button data-action="saveCalc" disabled>Сохранить расчет</button></div>
             <div class="btn3" id="updatebtn"><button data-action="updateLS" disabled>Update LocalStorage</button></div>
             <div class="btn4" id="clearbtn"><button data-action="clear" disabled>Clear LocalStorage</button></div>
             <div class="tps_gweight">
-                <label for="gweight">Стеклопакет</label>
                 <input type="text" name="gweight" id="gweight" data-handler="updWeight" data-handler-type="input"
-                    placeholder="толщина" tabindex="3"></input>
+                    placeholder="стекла" tabindex="3"></input>
+                <label for="gweight">Стекла, мм</label>
             </div>
 
             <div class="tps_size_w" data-handler-type='click' data-handler='updSides'>
@@ -102,11 +101,7 @@
 
         </div>
 
-        <div class="target_output disp_none">
-            <button onclick="toggle_target('.target_list')">Show Status</button>
-            <ul class="target_list" hidden> </ul>
 
-        </div>
     </div>
     <div class="html_output" data-output="html_out" data-htmlout-type=''></div>
     <script src='src/loader.js' defer></script>

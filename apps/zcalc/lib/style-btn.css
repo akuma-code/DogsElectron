@@ -38,7 +38,7 @@
 .resbtn {
     display: block;
     position: absolute;
-    width: 170px;
+    width: 200px;
     height: auto;
     transition: all .3s;
     cursor: pointer;
@@ -55,9 +55,8 @@
 
 #reset.resbtn {
     display: none;
-    left: 680px;
-    top: 365px;
-    transform: rotate(270deg);
+    left: 10px;
+    top: 590px;
 }
 
 .resbtn:hover {
@@ -75,7 +74,7 @@
 
 #reset.resbtn:hover:active {
     transform: scaleX(.8) scaleY(.9);
-    top: 10px;
+    /* top: 10px; */
 }
 
 .current::-webkit-scrollbar {

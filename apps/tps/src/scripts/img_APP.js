@@ -46,7 +46,7 @@ const Detailslist = {
 }
 
 //! ОБЩИЙ ОБРАБОТЧИК (onClick Listener)
-$main.addEventListener('click', function(e) {
+$main.addEventListener('click', function (e) {
     let target = e.target;
     //! выделение строки списка
     if (target.matches('li')) {
@@ -59,21 +59,22 @@ $main.addEventListener('click', function(e) {
         target.classList.add('selected');
     }
     //! толщина ст-пакета
-    if (target.matches('[data-side=system] li')) {
-        document.querySelector('[data-side=depth]').innerHTML = '';
-        document.querySelector('[data-side=depth]').innerHTML = setDepth(target.textContent);
+    //* отключено!
+    // if (target.matches('[data-side=system] li')) {
+    //     document.querySelector('[data-side=depth]').innerHTML = '';
+    //     document.querySelector('[data-side=depth]').innerHTML = setDepth(target.textContent);
 
-        $StatusCheck.system = target.textContent
-    }
+    //     $StatusCheck.system = target.textContent
+    // }
 
-    if (target.matches('[data-side=depth] *')) {
-        $StatusCheck.depth = target.textContent
-    }
+    // if (target.matches('[data-side=depth] *')) {
+    //     $StatusCheck.depth = target.textContent
+    // }
 
 
 }, true);
 
-$tgl_rama.addEventListener('click', function(event) {
+$tgl_rama.addEventListener('click', function (event) {
     let t = event.target;
     const el_active = Array.from(document.getElementsByClassName('ts'));
     if (t.matches('[data-tgl-status]')) {
@@ -89,7 +90,7 @@ $tgl_rama.addEventListener('click', function(event) {
     };
 
 }, true)
-$tgl_svet.addEventListener('click', function(event) {
+$tgl_svet.addEventListener('click', function (event) {
     let t = event.target;
     const el_active = Array.from(document.getElementsByClassName('ts'));
     if (t.matches('[data-tgl-status]')) {

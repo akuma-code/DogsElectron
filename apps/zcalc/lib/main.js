@@ -18,16 +18,18 @@ function gonow() {
     if (store.has('summ')) {
         let temp = store.get('summ') + sum;
         store.set('summ', temp);
-    } else { store.set('summ', sum) }
+    } else {
+        store.set('summ', sum)
+    }
 
     store.set(box.key, box.data);
 
     console.log(`Стекла: ${glasses}`);
     console.log(`Жалюзи: ${zh}`);
-    stylelog(`Price: ${prices}
-Summary: ${sum} rub`);
+    stylelog(`Price: ${prices} Summary: ${sum} rub`);
 
     document.getElementById('calc-btn').innerHTML = `${Math.ceil(store.get("summ") * (1-disc/100))} руб.`;
+    // document.getElementById('calc-btn').innerHTML = `${Math.ceil(sum * (1-disc/100))} руб.`;
     document.getElementById('outside').insertAdjacentHTML('beforeend', `<div class="summ">Скидка ${disc}%: <b>${Math.round(sum*(1-disc/100))} руб.</b></div> `);
 
     return console.log(`Stored elements: ${store.size - 1}`);
@@ -55,6 +57,7 @@ ${$w.value}мм x ${$h.value}мм<br>
 function resetvals() {
     document.getElementById('zlist').value = "";
     document.getElementById('zgrp').textContent = "";
+
 }
 
 
@@ -64,6 +67,8 @@ function fullreset() {
     document.getElementById('zlist').value = ""; //! цвет жалюзи
     document.getElementById('zgrp').innerText = ""; //! группа жалюзи
     document.getElementById("reset").style.display = "none";
+    document.getElementById('calc-btn').innerHTML = "Calculate"; //! возврат кнопки к исходному значению
+    store.set("summ", 0); //! обнуление общей стоимости в хранилище
     // document.getElementById('gsout').innerHTML = "";
     // document.getElementById('zsout').innerHTML = "";
     // document.getElementById('sysout').innerHTML = "";
@@ -80,8 +85,5 @@ function reload() {
     td();
     tl();
     tt();
-    // td();
-    // document.getElementById('zlist').value = "Лилли Сатин"; //! цвет жалюзи
-    // document.getElementById('zgrp').innerText = "1"; //! группа жалюзи
-    // document.getElementById('ztype').textContent = "Rollite"
+
 }

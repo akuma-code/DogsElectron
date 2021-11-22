@@ -24,7 +24,9 @@ const rgroupE = {
         "Ганни(Зебра)",
         "Симпл(Зебра)",
     ],
-    setKat() { return "E" }
+    setKat() {
+        return "E"
+    }
 };
 
 const rgroup1 = {
@@ -69,7 +71,9 @@ const rgroup1 = {
         "НАТУРАЛ(Зебра)",
         "СТРИП(Зебра)",
     ],
-    setKat() { return 1 }
+    setKat() {
+        return 1
+    }
 };
 
 const rgroup2 = {
@@ -113,7 +117,9 @@ const rgroup2 = {
         "СЕВИЛЛА(Зебра)",
         "ТОЛЕДО(Зебра)",
     ],
-    setKat() { return 2 }
+    setKat() {
+        return 2
+    }
 }
 
 const rgroup3 = {
@@ -135,7 +141,9 @@ const rgroup3 = {
         "ФИОРИ",
         "ЭКО",
     ],
-    setKat() { return 3 }
+    setKat() {
+        return 3
+    }
 };
 
 
@@ -151,7 +159,9 @@ const rgroup4 = {
         "СКРИН СИЛЬВЕР НГ 5 %",
 
     ],
-    setKat() { return 4 }
+    setKat() {
+        return 4
+    }
 };
 
 
@@ -167,7 +177,9 @@ const rgroup5 = {
         "РИНГО ",
         "ШАДЕ Б/О",
     ],
-    setKat() { return 5 }
+    setKat() {
+        return 5
+    }
 };
 
 
@@ -271,5 +283,5 @@ const igroup3 = {
     },
 }
 
-let groupsR = [rgroupE, rgroup1, rgroup2, rgroup3, rgroup4, rgroup5, ];
+let groupsR = [rgroupE, rgroup1, rgroup2, rgroup3, rgroup4, rgroup5];
 let groupsI = [igroup0, igroup1, igroup2, igroup3];

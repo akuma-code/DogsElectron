@@ -202,7 +202,7 @@ async function setgr() {
 
 //!@togglelist переключает списки выбора цвета жалюзи роллайт/изолайт
 async function tl() {
-    let type = await document.getElementById('ztype').textContent;
+    let type = document.getElementById('ztype').textContent;
     let list = document.getElementById('zhlist');
     let groups = (type == "Isolite") ? groupsI : groupsR;
 

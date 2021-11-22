@@ -1,39 +1,22 @@
 const {
     app
 } = require('electron');
-const {
-    handleSquirrelEvent
-} = require("./handleSquirrelEvent");
-if (handleSquirrelEvent()) {
-    // squirrel event handled and app will exit in 1000ms, so don't do anything else
-    return;
-}
-// // if (require('electron-squirrel-startup')) return app.quit();
+// const {
+//     handleSquirrelEvent
+// } = require("./handleSquirrelEvent");
+// if (handleSquirrelEvent()) {
+//     // squirrel event handled and app will exit in 1000ms, so don't do anything else
+//     return;
+// }
+// if (require('electron-squirrel-startup')) return app.quit();
 
 const {
-
     BrowserWindow,
     ipcMain,
 } = require('electron')
 const path = require('path');
 
-// async function onInstall() {
-//     // NB: Use this syntax within an async function, Node does not have support for
-//     //     top-level await as of Node 12.
-//     try {
-//         await electronInstaller.createWindowsInstaller({
-//             appDirectory: 'apps',
-//             outputDirectory: '../D:/APPS',
-//             authors: 'My App Inc.',
-//             exe: 'myapp.exe'
-//         });
-//         console.log('It worked!');
-//     } catch (e) {
-//         console.log(`No dice: ${e.message}`);
-//     }
 
-// }
-// exports.onInstall = onInstall;
 
 
 function createWindow() {
@@ -63,6 +46,8 @@ function openLink(w, h) {
 
 app.whenReady().then(() => {
     createWindow().loadFile("public/homepage.html")
+
+
     ipcMain.on('msg', (_, arg) => {
 
         console.log('arg: ', arg)
@@ -75,5 +60,3 @@ app.whenReady().then(() => {
         }
     })
 })
-
-// onInstall()
