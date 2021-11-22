@@ -2,9 +2,7 @@ const {
     app
 } = require('electron');
 
-const {
-    electronInstaller
-} = require('electron-winstaller');
+
 
 function handleSquirrelEvent() {
     if (process.argv.length === 1) {
@@ -38,7 +36,7 @@ function handleSquirrelEvent() {
     const squirrelEvent = process.argv[1];
     switch (squirrelEvent) {
         case '--squirrel-install':
-            // onInstall();
+            spawnUpdate(['--createShortcut', exeName]);
             setTimeout(app.quit, 1000);
             return true;
         case '--squirrel-updated':
@@ -70,25 +68,8 @@ function handleSquirrelEvent() {
     }
 }
 
-async function onInstall() {
-    // NB: Use this syntax within an async function, Node does not have support for
-    //     top-level await as of Node 12.
-    try {
-        await electronInstaller.createWindowsInstaller({
-            appDirectory: 'apps',
-            outputDirectory: '../D:/APPS',
-            authors: 'My App Inc.',
-            exe: 'myapp.exe'
-        });
-        console.log('It worked!');
-    } catch (e) {
-        console.log(`No dice: ${e.message}`);
-    }
 
-}
-// onInstall()
-// module.handleSquirrelEvent = handleSquirrelEvent
 module.exports = {
     handleSquirrelEvent,
-    onInstall
+
 }

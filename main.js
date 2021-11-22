@@ -1,13 +1,14 @@
 const {
     app
 } = require('electron');
-// const {
-//     handleSquirrelEvent
-// } = require("./handleSquirrelEvent");
-// if (handleSquirrelEvent()) {
-//     // squirrel event handled and app will exit in 1000ms, so don't do anything else
-//     return;
-// }
+const {
+    handleSquirrelEvent
+} = require("./handleSquirrelEvent");
+if (handleSquirrelEvent()) {
+    // squirrel event handled and app will exit in 1000ms, so don't do anything else
+    console.log('STOPPED!')
+    return;
+}
 // if (require('electron-squirrel-startup')) return app.quit();
 
 const {
