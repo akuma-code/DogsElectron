@@ -36,7 +36,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "setupExe": "InstallAkumaApps.exe"
+            "setupExe": "TPS_zCalc_setup.exe"
           }
         },
         {
