@@ -105,11 +105,14 @@
 
             <div class="head-item ztypebtn" id="ztype" onclick="tt()">Isolite</div>
 
-            <input type="list" tabindex="5" list="zhlist" class="head-item" name="zhlist" id="zlist" placeholder="Цвет"
+            <select tabindex="5" class="head-item" name="zlist" id="zlist" placeholder="Цвет" onclick="setgr()">
+            </select>
+            <span class="resetv zc" onclick="resetvals()">&#9746;</span>
+            <!-- <input type="list" tabindex="5" list="zhlist" class="head-item" name="zlist" id="zlist" placeholder="Цвет"
                 oninput="setgr()">
             <span class="resetv zc" onclick="resetvals()">&#9746;</span>
             <datalist id="zhlist">
-            </datalist>
+            </datalist> -->
 
             <div id="zgrp" class="head-item"></div>
 
@@ -198,7 +201,9 @@
         addListener();
         td();
         tt();
-        tl();
+        // tl();
+        listSelector();
+        setgr()
         showdisc();
     </script>
 
@@ -207,12 +212,12 @@
 
 </html>
 
-//TODO: поменять кнопку ресет
-//TODO: добавить стрелку на тип жалюзей
-//TODO: удаление из корзины отдельного расчета
-//TODO: прокрутка при выборе цвета
-//TODO: скидка
-//TODO: подсказка на катеогрию
-//TODO: добавить отдельную дверь
-//TODO: выравнивание текста для длинного названия
-//TODO: переименовать кальк в расчет
+<!-- TODO: поменять кнопку ресет
+TODO: добавить стрелку на тип жалюзей
+TODO: удаление из корзины отдельного расчета
+TODO: прокрутка при выборе цвета
+TODO: скидка
+TODO: подсказка на катеогрию
+TODO: добавить отдельную дверь
+TODO: выравнивание текста для длинного названия
+TODO: переименовать кальк в расчет -->

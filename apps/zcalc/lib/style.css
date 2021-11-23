@@ -4,6 +4,7 @@
 @import url("r_side.css");
 @import url("btn-tgl.css");
 @import url('tooltip.css');
+
 :root {
     --main-color: chocolate;
     --main-bg-color: coral;
@@ -377,6 +378,14 @@ strong {
     text-align: center;
     font-weight: bolder;
     font-size: 15px;
+    cursor: pointer;
+
+
+}
+
+#zlist>option {
+    /* text-align: left; */
+    margin-left: 0.5rem;
 }
 
 #zlist:focus {
@@ -392,7 +401,7 @@ div.head-item:first-child {
     display: flex;
     position: absolute;
     z-index: 2;
-    left: 219px;
+    left: 170px;
     top: 150px;
     background-color: chocolate;
     border-radius: 5px;

@@ -138,18 +138,21 @@ async function tt() {
     let elem = document.getElementById('ztype');
 
     let showelems = document.getElementsByClassName("show");
+
     if (elem.textContent == "Rollite") {
         elem.textContent = "Isolite";
         elem.style.color = "white";
         elem.style.transform = "rotateX(0deg)";
         type = "Isolite";
-        tl()
+        // tl()
+        listSelector();
     } else {
         elem.style.color = "black";
         elem.textContent = "Rollite";
         elem.style.transform = "rotateX(360deg)";
         type = "Rollite";
-        tl();
+        // tl();
+        listSelector()
     }
     for (let el of showelems) {
         el.style.display = (type == "Isolite") ? "block" : "none";
@@ -218,6 +221,23 @@ async function tl() {
             list.appendChild(option)
         }
     }
+}
+
+function listSelector() {
+    let type = document.getElementById('ztype').textContent;
+    let list = document.getElementById('zlist');
+    let groups = (type == "Isolite") ? groupsI : groupsR;
+
+    document.getElementById('zlist').value = "";
+    document.getElementById('zgrp').innerText = "";
+    list.innerHTML = "";
 
 
+    for (let gr of groups) {
+        for (let name of gr.name) {
+            let option = document.createElement("option");
+            option.textContent = name;
+            list.appendChild(option)
+        }
+    }
 }
