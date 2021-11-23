@@ -1,9 +1,13 @@
 const {
+    BrowserWindow,
+    ipcMain,
     app
 } = require('electron');
+
 const {
     handleSquirrelEvent
 } = require("./handleSquirrelEvent");
+
 if (handleSquirrelEvent()) {
     // squirrel event handled and app will exit in 1000ms, so don't do anything else
     console.log('STOPPED!')
@@ -11,10 +15,7 @@ if (handleSquirrelEvent()) {
 }
 // if (require('electron-squirrel-startup')) return app.quit();
 
-const {
-    BrowserWindow,
-    ipcMain,
-} = require('electron')
+
 const path = require('path');
 
 
@@ -54,10 +55,10 @@ app.whenReady().then(() => {
         console.log('arg: ', arg)
         // event.sender.send('msg', arg)
         if (arg == 'zcalc') {
-            openLink(1350, 900).loadFile(path.join(__dirname, "apps/zcalc", "zindex.html"))
+            openLink(1400, 900).loadFile(path.join(__dirname, "apps/zcalc", "zindex.html"))
         }
         if (arg == 'tps') {
-            openLink(650, 750).loadFile(path.join(__dirname, "apps/tps", "index.html"));
+            openLink(630, 750).loadFile(path.join(__dirname, "apps/tps", "index.html"));
         }
     })
 })

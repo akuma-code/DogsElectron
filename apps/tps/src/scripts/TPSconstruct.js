@@ -1,4 +1,4 @@
-//@ts-check
+// @ts-nocheck
 // console.log(`TPS constructor Loaded`);
 class TPSapp {
     /**
