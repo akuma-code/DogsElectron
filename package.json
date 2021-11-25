@@ -1,6 +1,6 @@
 {
   "name": "akumas-apps",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Калькулятор жалюзев и техпомощь стайл калькулятор",
   "main": "main.js",
   "dependencies": {
@@ -31,12 +31,15 @@
   },
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "icon.ico"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "setupExe": "TPS_zCalc_setup.exe"
+            "setupExe": "TPS_zCalc_setup.exe",
+            "setupIcon": "icon.ico"
           }
         },
         {
