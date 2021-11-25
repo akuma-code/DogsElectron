@@ -52,7 +52,7 @@ app.whenReady().then(() => {
 
     ipcMain.on('msg', (_, arg) => {
 
-        console.log('arg: ', arg)
+        console.log('app: ', arg)
         // event.sender.send('msg', arg)
         if (arg == 'zcalc') {
             openLink(1400, 900).loadFile(path.join(__dirname, "apps/zcalc", "zindex.html"))
