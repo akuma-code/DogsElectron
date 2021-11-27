@@ -13,7 +13,6 @@ if (handleSquirrelEvent()) {
     console.log('STOPPED!')
     return;
 }
-// if (require('electron-squirrel-startup')) return app.quit();
 
 
 const path = require('path');

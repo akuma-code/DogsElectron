@@ -231,9 +231,8 @@ input[name='tps_h'] {
 input[name="gweight"] {
     appearance: none;
     width: 55px;
-    height: 28px;
+    height: 20px;
     text-align: center;
-    margin-bottom: 5px;
 }
 
 .tps_button {
