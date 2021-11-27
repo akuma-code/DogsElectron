@@ -23,13 +23,13 @@ const path = require('path');
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 350,
-        height: 300,
+        width: 310,
+        height: 220,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
         },
-        useContentSize: false
+        useContentSize: true
     });
     return win
 }
@@ -60,5 +60,6 @@ app.whenReady().then(() => {
         if (arg == 'tps') {
             openLink(630, 750).loadFile(path.join(__dirname, "apps/tps", "index.html"));
         }
+
     })
 })
