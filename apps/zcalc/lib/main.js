@@ -67,17 +67,8 @@ function fullreset() {
     document.getElementById('zlist').value = ""; //! цвет жалюзи
     document.getElementById('zgrp').innerText = ""; //! группа жалюзи
     document.getElementById("reset").style.display = "none";
-    document.getElementById('calc-btn').innerHTML = "Calculate"; //! возврат кнопки к исходному значению
+    document.getElementById('calc-btn').innerHTML = "Рассчитать"; //! возврат кнопки к исходному значению
     store.set("summ", 0); //! обнуление общей стоимости в хранилище
-    // document.getElementById('gsout').innerHTML = "";
-    // document.getElementById('zsout').innerHTML = "";
-    // document.getElementById('sysout').innerHTML = "";
-    // document.getElementById('zhout').innerHTML = "";
-
-    // let sizebox = document.getElementsByClassName("size");
-    // for (const currentsize of sizebox) {
-    //     currentsize.value = ""
-    // };
 
 }
 
@@ -85,5 +76,4 @@ function reload() {
     td();
     tl();
     tt();
-
 }

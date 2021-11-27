@@ -1,14 +1,14 @@
 .tps_main {
     display: grid;
     position: absolute;
-    width: 500px;
+    width: 520px;
     height: 620px;
     background-color: #2e3766;
     left: var(--pos-tps-left);
     top: var(--pos-tps-top);
     grid-template-columns: 80px 1fr 1fr 100px 100px;
     grid-template-rows: 3rem 2rem 30px 25px 25px 25px 64px 64px 64px 130px 64px;
-    grid-template-areas: "head head head head head""sys sys we out out""btn1 btn1 we out out""btn2 btn2 btn2 out out""btn3 btn3 btn3 out out""btn4 btn4 btn4 out out""btnr btnr btnr btns btns"". . img img ."". sizeh img img . "". . img img ."". . sizew  sizew . ";
+    grid-template-areas: "head head head head head""sys sys we out out""sys sys we out out""hp hp hp out out""hp hp hp out out""hp hp hp out out""btnr btnr btnr btns btns"". . img img ."". sizeh img img . "". . img img ."". . sizew  sizew . ";
     grid-gap: 5px 10px;
     border-radius: 15px;
     border: 1px solid #000;
@@ -40,11 +40,11 @@ div.tps_head>a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    grid-area: sys;
+    /* grid-area: sys; */
     position: relative;
     background-color: darkgray;
     cursor: pointer;
-    font-size: larger;
+    font-size: large;
     font-weight: bolder;
     margin-left: 5px;
     border-radius: 3px;
@@ -53,9 +53,9 @@ div.tps_head>a:hover {
 .tps_sys::after {
     content: url(../assets/arrows/arrow_2.svg);
     position: absolute;
-    width: 22px;
+    width: 15px;
     right: 3px;
-    top: 5px;
+    top: 2px;
     transition: all .2s ease-out;
 }
 
@@ -159,7 +159,7 @@ div.tps_head>a:hover {
 }
 
 .tps_gweight {
-    grid-area: we;
+    /* grid-area: we; */
     display: flex;
     flex-direction: column;
     align-content: space-between;
@@ -207,4 +207,32 @@ div.tps_head>a:hover {
 [data-output*=html_] {
     display: flex;
     flex-direction: column;
+}
+
+.help_panel {
+    grid-area: hp;
+    width: max-content;
+    height: max-content;
+    border: 1px solid #000;
+    margin-left: 5px;
+}
+
+.help_panel ol {
+    appearance: none;
+    color: #fff;
+    padding-right: 1.2rem;
+}
+
+.sys {
+    grid-area: sys;
+    height: 47px;
+}
+
+.gwe {
+    grid-area: we;
+    height: 47px;
+}
+
+:is(.sys, .gwe)>legend {
+    color: #fff;
 }

@@ -9,7 +9,6 @@
   "scripts": {
     "make": "electron-forge make",
     "pack": "electron-forge package",
-    "makex86": "electron-forge make --arch=ia32",
     "start": "electron ."
   },
   "keywords": [

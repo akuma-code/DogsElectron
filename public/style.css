@@ -4,8 +4,8 @@ body {
 }
 
 .cont {
-    display: block;
-    position: absolute;
+    display: flex;
+    position: relative;
     place-items: center;
 }
 

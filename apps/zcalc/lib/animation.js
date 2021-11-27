@@ -136,7 +136,7 @@ function opaopa(item) {
  */
 async function tt() {
     let elem = document.getElementById('ztype');
-
+    let type;
     let showelems = document.getElementsByClassName("show");
 
     if (elem.textContent == "Rollite") {
@@ -146,6 +146,7 @@ async function tt() {
         type = "Isolite";
         // tl()
         listSelector();
+
     } else {
         elem.style.color = "black";
         elem.textContent = "Rollite";
@@ -240,4 +241,5 @@ function listSelector() {
             list.appendChild(option)
         }
     }
+    setgr()
 }

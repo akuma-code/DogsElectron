@@ -41,6 +41,6 @@ class TPSapp {
 
 }
 
-new TPSapp('savebtn');
-new TPSapp('updatebtn');
-new TPSapp('clearbtn');
+// new TPSapp('savebtn');
+// new TPSapp('updatebtn');
+// new TPSapp('clearbtn');
