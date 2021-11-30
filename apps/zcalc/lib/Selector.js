@@ -9,7 +9,10 @@ class GLS {
     }
 
     get obj() {
-        return { w: this.w, h: this.h }
+        return {
+            w: this.w,
+            h: this.h
+        }
     }
 
     applyDelta(delta, gls = this.arr) {
@@ -61,11 +64,15 @@ function getSizes() {
 
 //! === Контейнер для выбора дельты стекла в зависимости от положения в раме
 const Delta_selector = {
-    sys() { return document.getElementById('prof').value },
+    sys() {
+        return document.getElementById('prof').value
+    },
 
     //! === glass type 0 === [r-r] -> рама-рама
     rr(isfix) {
-        if (isfix > 1 || isfix < 0) { return console.log(`Неверный isfix_rr, указан: ${isfix}`) };
+        if (isfix > 1 || isfix < 0) {
+            return console.log(`Неверный isfix_rr, указан: ${isfix}`)
+        };
 
         dH = (isfix) ? SizeDB.d_rr(this.sys()) : SizeDB.d_rs(this.sys());
         dW = (isfix) ? SizeDB.d_rr(this.sys()) : SizeDB.d_rs(this.sys());
@@ -75,7 +82,9 @@ const Delta_selector = {
 
     //! === glass type 1 === [r-i] -> рама - импост
     ri(isfix) {
-        if (isfix > 1 || isfix < 0) { return console.log(`Неверный isfix_ri, указан: ${isfix}`) };
+        if (isfix > 1 || isfix < 0) {
+            return console.log(`Неверный isfix_ri, указан: ${isfix}`)
+        };
 
         dH = (isfix) ? SizeDB.d_rr(this.sys()) : SizeDB.d_rs(this.sys());
         dW = (isfix) ? SizeDB.d_ri(this.sys()) : SizeDB.d_sisr(this.sys());
@@ -84,7 +93,9 @@ const Delta_selector = {
 
     //! === glass type 2 === [i-i] -> импост - импост
     ii(isfix) {
-        if (isfix > 1 || isfix < 0) { return console.log(`Неверный isfix_ii, указан: ${isfix}`) };
+        if (isfix > 1 || isfix < 0) {
+            return console.log(`Неверный isfix_ii, указан: ${isfix}`)
+        };
 
         dH = (isfix) ? SizeDB.d_rr(this.sys()) : SizeDB.d_rs(this.sys());
         dW = (isfix) ? SizeDB.d_ii(this.sys()) : SizeDB.d_sisi(this.sys());
@@ -92,7 +103,9 @@ const Delta_selector = {
     },
 
     door(isfix) {
-        if (isfix > 1 || isfix < 0) { return console.log(`Неверный isfix_door, указан: ${isfix}`) };
+        if (isfix > 1 || isfix < 0) {
+            return console.log(`Неверный isfix_door, указан: ${isfix}`)
+        };
 
         dH = (isfix) ? SizeDB.d_rs(this.sys()) : SizeDB.d_doori(this.sys());
         dW = SizeDB.d_rs(this.sys());
@@ -191,7 +204,7 @@ const IdSelector = {
     }
 
 }
-
+//!FIX: ПЕРЕДЕЛАТЬ MAIN SELECTOR! 
 class Outputer {
     constructor() {
         this.sys = document.getElementById('prof').value;
@@ -203,7 +216,7 @@ class Outputer {
     }
 
 
-    toDiv(array) {
+    toDiv(array = []) {
         let div = document.createElement('div');
         let stuff = "";
         div.classList.add('cls-out');
