@@ -8,7 +8,7 @@ const Scripts = [
     'src/scripts/module/calc/sizeModule.js',
     'src/scripts/module/calc/handlersModule.js',
     'src/scripts/tgl_btn.js',
-    'src/scripts/module/SaveModule.js',
+    // 'src/scripts/module/SaveModule.js',
     'src/scripts/TPSconstruct.js',
     // 'src/scripts/testclass.js',
     'src/scripts/img_APP.js',

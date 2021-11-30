@@ -6,9 +6,9 @@
     background-color: #2e3766;
     left: var(--pos-tps-left);
     top: var(--pos-tps-top);
-    grid-template-columns: 80px 1fr 1fr 100px 100px;
+    grid-template-columns: 80px 1fr 1fr 100px 120px;
     grid-template-rows: 3rem 2rem 30px 25px 25px 25px 64px 64px 64px 130px 64px;
-    grid-template-areas: "head head head head head""sys sys we out out""sys sys we out out""hp hp hp out out""hp hp hp out out""hp hp hp out out""btnr btnr btnr btns btns"". . img img ."". sizeh img img . "". . img img ."". . sizew  sizew . ";
+    grid-template-areas: "head head head head head""sys sys we out out""sys sys we out out""hp hp hp out out""hp hp hp out out""hp hp hp out out""btnr btnr btnr btns btns"". . img img ."". . img img sizeh "". . img img ."". . sizew  sizew . ";
     grid-gap: 5px 10px;
     border-radius: 15px;
     border: 1px solid #000;
@@ -40,6 +40,7 @@ div.tps_head>a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: nowrap;
     /* grid-area: sys; */
     position: relative;
     background-color: darkgray;
@@ -221,12 +222,15 @@ div.tps_head>a:hover {
     appearance: none;
     color: #fff;
     padding-right: 1.2rem;
+    margin: 0;
 }
 
 .sys {
     grid-area: sys;
     height: 47px;
 }
+
+
 
 .gwe {
     grid-area: we;
@@ -235,4 +239,5 @@ div.tps_head>a:hover {
 
 :is(.sys, .gwe)>legend {
     color: #fff;
+    font-size: .9rem;
 }

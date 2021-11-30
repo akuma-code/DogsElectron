@@ -9,24 +9,24 @@ class SizeItem {
 const Map2Obj = (obj) => Object.fromEntries(obj);
 const DSO = Object.fromEntries;
 
-class Storage2 {
-    constructor() {
-        this.data = DataStorage;
-    }
+// class Storage2 {
+//     constructor() {
+//         this.data = DataStorage;
+//     }
 
-    get obj() {
-        return Object.fromEntries(this.data)
-    };
+//     get obj() {
+//         return Object.fromEntries(this.data)
+//     };
 
-    glass(obj = this.data) {
-        const str = JSON.stringify(Object.fromEntries(obj));
-        JSON.parse(str, (key, value) => {
-            if (key === "gw" || key === 'gh') console.log(`${key}: ${value}`);
-        });
-    }
-};
+//     glass(obj = this.data) {
+//         const str = JSON.stringify(Object.fromEntries(obj));
+//         JSON.parse(str, (key, value) => {
+//             if (key === "gw" || key === 'gh') console.log(`${key}: ${value}`);
+//         });
+//     }
+// };
 
-const s2 = new Storage2();
+// const s2 = new Storage2();
 
 class StorageModule {
     constructor() {
@@ -131,7 +131,10 @@ class DeltaCalcModule extends StorageModule {
         const glasses = Array.from($weight.value || 0).join(',').split(',');
         const sumOfGlasses = glasses.reduce((sum, current) => sum + parseInt(current), 0);
         let MS = SS(w, h);
-        MS.weight = getWeight({ gw: w, gh: h }, sumOfGlasses);
+        MS.weight = getWeight({
+            gw: w,
+            gh: h
+        }, sumOfGlasses);
 
         // let MS = SS(this.storage.get('w'), this.storage.get('h'));
         this.storage.set('MS', MS);
@@ -156,12 +159,12 @@ class ListenerModule extends DeltaCalcModule {
         }
         const inputs = document.querySelectorAll('input[data-handler]');
         for (let input of inputs) {
-            input.addEventListener('contextmenu', function(e) {
+            input.addEventListener('contextmenu', function (e) {
                 e.preventDefault();
                 input.value = '';
             }, true);
             //! Костыль для того, шоб размеры обновлялись в реальном времени, по-другому чет они этого делать не хотят... */
-            input.addEventListener('input', function() {
+            input.addEventListener('input', function () {
                 const btnClick = () => document.querySelector(`[data-type_sel=${getState().type}]`).click();
                 setTimeout(btnClick, 0)
             })
@@ -187,7 +190,10 @@ class ListenerModule extends DeltaCalcModule {
 
     updSizes() {
         getState();
-        const { w, h } = new SizeItem();
+        const {
+            w,
+            h
+        } = new SizeItem();
         this.storage.set('w', w)
             .set('h', h);
         $StatusCheck.width = w;
@@ -232,7 +238,7 @@ function Send2HTML(storageObj = DSO(DataStorage)) {
             const fixIgnore = ['skf', 'simple']
             if (type === 'fix' && fixIgnore.includes(item.type)) item.div = '';
             if (type === 'stv' && system === 'WHS' && item.type === 'skf') {
-                item.div = '<div  style="margin-top: 20px; font-weight: 100; color: #fff"><span>#SKF на WHS не ставится!</span></div>'
+                item.div = /*html*/ `<div  style="margin-top: 20px; font-weight: 100; color: #fff"><span>#SKF на WHS не ставится!</span></div>`
             };
             $out.insertAdjacentHTML("beforeend", item.div)
         });
@@ -248,38 +254,38 @@ function Send2HTML(storageObj = DSO(DataStorage)) {
 
 const MSoutputModel = (MS) => [{
         type: 'skf',
-        div: `<div><span>#SKF:</span>${spanResult(MS.skf.w, MS.skf.h)}</div>`
+        div: /*html*/ `<div><span>#SKF:</span>${spanResult(MS.skf.w, MS.skf.h)}</div>`
     },
     {
         type: 'simple',
-        div: `<div><span>#Простая:</span>${spanResult(MS.simple.w, MS.simple.h)}</div>`
+        div: /*html*/ `<div><span>#Простая:</span>${spanResult(MS.simple.w, MS.simple.h)}</div>`
     },
     {
         type: 'simple_whs',
-        div: `<div style='margin-top: 20px'><span># на WHS:</span>${spanResult(MS.simple_whs.w, MS.simple_whs.h)}</div>`
+        div: /*html*/ `<div style='margin-top: 20px'><span># на WHS:</span>${spanResult(MS.simple_whs.w, MS.simple_whs.h)}</div>`
     },
     {
         type: 'weight',
-        div: `<div style='margin-top: 20px; color: #fff'><span>Вес ст/п:</span>${spanWeight(MS.weight || 0)}</div>`
+        div: /*html*/ `<div style='margin-top: 20px; color: #fff'><span>Вес ст/п:</span>${spanWeight(MS.weight || 0)}</div>`
     },
 ];
 
 const RamaOutputModel = (sizes) => [{
     type: 'glass',
-    div: `<div><span>Стеклопакет:</span>${spanResult(sizes.glass.gw, sizes.glass.gh)}</div>`
+    div: /*html*/ `<div><span>Стеклопакет:</span>${spanResult(sizes.glass.gw, sizes.glass.gh)}</div>`
 }, {
     type: 'square',
-    div: `<div><span>Площадь ст/п:</span>${sqResult(sizes.glass.gw, sizes.glass.gh)}</div>`
+    div: /*html*/ `<div><span>Площадь ст/п:</span>${sqResult(sizes.glass.gw, sizes.glass.gh)}</div>`
 }, {
     type: 'weight',
-    div: `<div style='color: #fff'><span>Вес ст/п:</span>${spanWeight(sizes.weight || 0)}</div>`
+    div: /*html*/ `<div style='color: #fff'><span>Вес ст/п:</span>${spanWeight(sizes.weight || 0)}</div>`
 }, {
     type: 'shtap',
-    div: `<div><span>Штапик:</span>${spanResult(sizes.glass.gw+10, sizes.glass.gh+10)}</div>`
+    div: /*html*/ `<div><span>Штапик:</span>${spanResult(sizes.glass.gw+10, sizes.glass.gh+10)}</div>`
 }, {
     type: 'skf',
-    div: `<div style='margin-top: 20px'><span>#SKF:</span>${spanResult(sizes.stv_ms.skf.w, sizes.stv_ms.skf.h)}</div>`
+    div: /*html*/ `<div style='margin-top: 20px'><span>#SKF:</span>${spanResult(sizes.stv_ms.skf.w, sizes.stv_ms.skf.h)}</div>`
 }, {
     type: 'simple',
-    div: `<div><span>#М/С:</span>${spanResult(sizes.stv_ms.simple.w, sizes.stv_ms.simple.h)}</div>`
+    div: /*html*/ `<div><span>#М/С:</span>${spanResult(sizes.stv_ms.simple.w, sizes.stv_ms.simple.h)}</div>`
 }, ];
