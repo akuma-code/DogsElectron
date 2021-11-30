@@ -1,6 +1,6 @@
 function gonow() {
-    let wt = document.getElementById('fon').getAttribute('wintype');
     document.getElementById('reset').style.display = "block";
+    let wt = document.getElementById('fon').getAttribute('wintype');
     let disc = document.getElementById('discount').value;
 
     let glasses = new MainSelector()[wt]();

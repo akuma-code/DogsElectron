@@ -54,10 +54,12 @@ app.whenReady().then(() => {
         console.log('app: ', arg)
         // event.sender.send('msg', arg)
         if (arg == 'zcalc') {
-            openLink(1400, 900).loadFile(path.join(__dirname, "apps/zcalc", "zindex.html"))
+            openLink(1400, 900)
+                .loadFile(path.join(__dirname, "apps/zcalc", "zindex.html"))
         }
         if (arg == 'tps') {
-            openLink(630, 750).loadFile(path.join(__dirname, "apps/tps", "index.html"));
+            openLink(630, 750)
+                .loadFile(path.join(__dirname, "apps/tps", "index.html"));
         }
 
     })
