@@ -4,6 +4,7 @@
   "description": "Калькулятор жалюзев и техпомощь стайл калькулятор",
   "main": "main.js",
   "dependencies": {
+    "@electron/build-tools": "^1.0.4",
     "nodemon": "^2.0.15"
   },
   "scripts": {

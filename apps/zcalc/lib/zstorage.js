@@ -64,5 +64,51 @@ class SavedInstance {
 
 const zkeep = new SavedInstance()
 
-// zkeep.save(makeZh(myZ1))
-// zkeep.save(makeZh(myZ2))
+const resulted = {
+    id: `R01-7977`,
+    color: "Аллегро(2.0)",
+    size: [{
+        zw: 504,
+        zh: 1296
+    }, {
+        zw: 525,
+        zh: 1296
+    }, {
+        zw: 504,
+        zh: 1296
+    }],
+    price: [
+        2659,
+        2659,
+        2659
+    ]
+}
+
+function remakeZitem(zitem) {
+    console.log(zitem);
+
+    function count() {
+        let counter = 0
+        return function () {
+            return counter++
+        }
+    }
+    const idcount = count()
+    const sizeToObj = ([w, h]) => {
+        return {
+            zw: w,
+            zh: h
+        }
+    }
+    const summ = zitem.price.reduce(( /** @type {number} */ a, /** @type {number} */ b) => a + b)
+    // @ts-ignore
+    const sizes = zitem.size.map(sizeArr => sizeToObj(sizeArr))
+    const setid = zitem.type[0] + idcount() + '-' + summ
+    const result = {
+        id: setid,
+        color: zitem.color,
+        size: sizes,
+        summ: summ
+    }
+    return result
+}
