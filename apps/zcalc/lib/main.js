@@ -1,3 +1,6 @@
+// import SI from './zstorage.js';
+// console.log(SI)
+
 function gonow() {
     document.getElementById('reset').style.display = "block";
     let wt = document.getElementById('fon').getAttribute('wintype');
@@ -23,6 +26,8 @@ function gonow() {
     }
 
     store.set(box.key, box.data);
+    zkeep.save(makeZh(box.data));
+
 
     console.log(`Стекла: ${glasses}`);
     console.log(`Жалюзи: ${zh}`);
@@ -32,7 +37,9 @@ function gonow() {
     // document.getElementById('calc-btn').innerHTML = `${Math.ceil(sum * (1-disc/100))} руб.`;
     document.getElementById('outside').insertAdjacentHTML('beforeend', `<div class="summ">Скидка ${disc}%: <b>${Math.round(sum*(1-disc/100))} руб.</b></div> `);
 
-    return console.log(`Stored elements: ${store.size - 1}`);
+    console.log(`Stored elements: ${store.size - 1}`);
+
+    return zkeep.info
 }
 
 function calc_rs() {

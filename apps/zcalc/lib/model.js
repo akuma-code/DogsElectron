@@ -5,16 +5,29 @@ const model = {
         <div class="rs_calc_res" id="calc_res"></div>`,
 
     props(details = []) {
-        const { type: type, color: color } = details;
+        const {
+            type: type,
+            color: color
+        } = details;
         return `<div class="rs_calc_props" id="rs_props">${type}, ${color}</div>`
     },
 
 
 };
-// `<div class="rs_out">${$w.value} x ${$h.value} ::: ${calc.type}</div>
-// <div class="rs_out bb"><b>${$color} :::  ${Math.round(calc.calcIt($w.value, $h.value)*$disc)} руб.</b></div>`
-// 
-// 
-// class Render{
-//     constructor()
-// }
+
+const myZ1 = {
+    color: "Standart 0225",
+    size: {
+        w: 500,
+        h: 1170
+    },
+    price: 2459
+}
+const myZ2 = {
+    color: "Standart 4077",
+    size: {
+        w: 400,
+        h: 1070
+    },
+    price: 2200
+}

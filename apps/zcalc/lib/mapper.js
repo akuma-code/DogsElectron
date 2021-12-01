@@ -21,10 +21,10 @@ function zbox(sizes = [], prices = []) {
     }
 
     return {
-        key: counter(),
+        key: $ztype.innerText + '-' + counter(),
         data: {
             type: $ztype.innerText,
-            col: $color.value,
+            color: $color.value,
             grp: $grp.innerText,
             size: sizes,
             price: prices,
