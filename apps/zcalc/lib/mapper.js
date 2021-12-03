@@ -17,11 +17,14 @@ function zbox(sizes = [], prices = []) {
     // console.log(`Current sum: ${ sum }`);
 
     function counter() {
-        return count++
+        let c = 0
+        return function () {
+            return count++
+        }
     }
-
+    const numb = counter();
     return {
-        key: $ztype.innerText + '-' + counter(),
+        key: $ztype.innerText[0] + numb() + '-' + sum,
         data: {
             type: $ztype.innerText,
             color: $color.value,
