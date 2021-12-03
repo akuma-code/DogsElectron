@@ -64,5 +64,10 @@ class SavedInstance {
 
 const zkeep = new SavedInstance()
 
-// zkeep.save(makeZh(myZ1))
-// zkeep.save(makeZh(myZ2))
+
+function removeID(array = [], id = '') {
+    const arrID = array.map(item => item.id);
+    const removeIndex = arrID.indexOf(id);
+    array.splice(removeIndex, 1);
+    return array
+}
