@@ -40,6 +40,8 @@ function gonow() {
     console.log(`Stored elements: ${store.size - 1}`);
 
     return
+
+
 }
 
 function calc_rs() {
