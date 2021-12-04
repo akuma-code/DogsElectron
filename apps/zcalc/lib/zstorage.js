@@ -12,7 +12,7 @@ function getActiveState(sizes = [], prices = []) {
 
     return {
         //@ts-ignore
-        id: $color.value + '-' + counter(),
+        id: $color.value + '_' + counter(),
         data: {
             type: $ztype.innerText,
             grp: $grp.innerText,

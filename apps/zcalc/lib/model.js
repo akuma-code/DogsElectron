@@ -10,50 +10,5 @@ const model = {
             color: color
         } = details;
         return `<div class="rs_calc_props" id="rs_props">${type}, ${color}</div>`
-    },
-
-
+    }
 };
-
-const myZ1 = {
-    color: "Standart 0225",
-    size: {
-        w: 500,
-        h: 1170
-    },
-    price: 2459
-}
-const myZ2 = {
-    color: "Standart 4077",
-    size: {
-        w: 400,
-        h: 1070
-    },
-    price: 2200
-}
-
-const rol1 = {
-    "type": "Rollite",
-    "color": "Аллегро(2.0)",
-    "grp": "E",
-    "size": [
-        [
-            504,
-            1296
-        ],
-        [
-            525,
-            1296
-        ],
-        [
-            504,
-            1296
-        ]
-    ],
-    "price": [
-        2659,
-        2659,
-        2659
-    ],
-    "sum": 7977
-}

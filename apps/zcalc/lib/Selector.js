@@ -223,7 +223,8 @@ class Outputer {
         stuff += `<div class='sys-line'>${count}) ${this.sys}(${this.gdepth} mm)</div>`;
         stuff += `<div class='color-line'>${this.zcolor} (<b>гр. ${this.zgrp}</b>)</div>`;
         for (let line of array) {
-            stuff += `<div class='size-line'> ${line[0]} x ${line[1]} (${this.pricer.calcIt(...line)} руб.)</div>`
+            const [zw, zh] = line
+            stuff += `<div class='size-line'> ${zw} x ${zh} (${this.pricer.calcIt(...line)} руб.)</div>`
         };
         div.innerHTML = stuff;
         document.getElementById('outside').append(div);

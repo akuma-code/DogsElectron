@@ -29,8 +29,8 @@ function gonow() {
     // zkeep.save(makeZh(box.data));
 
 
-    console.log(`Стекла: ${glasses}`);
-    console.log(`Жалюзи: ${zh}`);
+    console.log(`Стекла: `, glasses);
+    console.log(`Жалюзи: `, zh);
     stylelog(`Price: ${prices} Summary: ${sum} rub`);
 
     document.getElementById('calc-btn').innerHTML = `${Math.floor(store.get("summ") * (1-disc/100))} руб.`;
