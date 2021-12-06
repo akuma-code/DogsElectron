@@ -12,3 +12,50 @@ const model = {
         return `<div class="rs_calc_props" id="rs_props">${type}, ${color}</div>`
     }
 };
+
+
+function zTemplate() {
+
+    function outdiv() {
+        const outdiv = document.createElement('div');
+        outdiv.classList.add('cls-out');
+        outdiv.innerHTML = '';
+
+        const _sizes = (...zsizes) => {
+            const toTHML = zsizes.map((sizes = []) => {
+                const [w, h] = sizes
+                return `<div class = "size-line" >${w}mm x ${h}mm</div>`
+            })
+
+            return toTHML
+        }
+
+        const _head = (header = {}) => {
+
+            const {
+                system = `###`,
+                    depth = `###`,
+                    color = null
+            } = header;
+            return {
+                system,
+                depth,
+                color
+            }
+        }
+
+        const res = (sizes, head) => {
+            const {
+                sys,
+                dpt
+            } = head
+            let text = `<div class="sys-line">${sys}-${dpt}</div>
+<div class="color-line">${_head.color} (<b>гр. E</b>)' </div>`
+            text += sizes
+            return text
+        }
+
+        outdiv.insertAdjacentHTML("beforeend", )
+    }
+
+}
