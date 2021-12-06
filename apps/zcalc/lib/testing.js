@@ -58,7 +58,7 @@ const test_calcData = {
 class InstanceBlock {
     constructor(maindata, calcdata) {
         this.inputs = this.getMainData(maindata);
-        this.result = this.getCalcedData(calcdata);
+        this.calced = this.getCalcedData(calcdata);
     }
 
     getMainData(main = test_inputData) {
@@ -95,3 +95,31 @@ class InstanceBlock {
 }
 
 const testItem = new InstanceBlock(test_inputData, test_calcData);
+
+class OutBlockZ extends InstanceBlock {
+    constructor() {
+        super();
+    }
+
+    makeDivBlock() {
+        let mainDiv = document.createElement('div')
+        const html = {
+            head: '',
+            body: '',
+            footer: ''
+        }
+        const zhals = (zhlist = this.calced.zh_sizes) => zhlist.map(item => `${item.zw} x ${item.zh}`);
+        const {
+            system,
+            ztype,
+            zcolor,
+            depth
+        } = this.inputs;
+
+        mainDiv.classList.add('cls-out');
+
+        html.head = `<div class='sys-line'>${system}(${depth} mm)</div>`;
+
+
+    }
+}
