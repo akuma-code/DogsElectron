@@ -21,13 +21,19 @@ function zTemplate() {
         outdiv.classList.add('cls-out');
         outdiv.innerHTML = '';
 
-        const _sizes = (...zsizes) => {
-            const toTHML = zsizes.map((sizes = []) => {
-                const [w, h] = sizes
-                return `<div class = "size-line" >${w}mm x ${h}mm</div>`
-            })
-
-            return toTHML
+        const _sizes = (zsizes) => {
+            const obj = [];
+            obj.push(zsizes.map(size => {
+                const [
+                    zw,
+                    zh
+                ] = size
+                return [
+                    zw,
+                    zh
+                ]
+            }))
+            return obj
         }
 
         const _head = (header = {}) => {
