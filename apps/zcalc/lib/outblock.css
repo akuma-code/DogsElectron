@@ -1,0 +1,31 @@
+.outblock {
+    display: grid;
+    width: 240px;
+    height: fit-content;
+    grid-template-areas: "head"
+        "body"
+        "footer";
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-columns: 1fr;
+    background-color: aqua;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.out_head {
+    grid-area: head;
+    display: flex;
+
+}
+
+.out_body {
+    display: flex;
+    grid-area: body;
+}
+
+.out_footer {
+    display: flex;
+    grid-area: footer;
+}

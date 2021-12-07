@@ -4,6 +4,8 @@
 @import url("r_side.css");
 @import url("btn-tgl.css");
 @import url('tooltip.css');
+@import url('outblock.css');
+
 
 :root {
     --main-color: chocolate;

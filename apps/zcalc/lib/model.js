@@ -12,56 +12,76 @@ const model = {
         return `<div class="rs_calc_props" id="rs_props">${type}, ${color}</div>`
     }
 };
+/**@return {glasses} array of mainselector result as array of objects*/
+const _sizes = (...zsizes) => {
+    let converted = [];
+    zsizes.map(zsize => {
 
+        const {
+            gw,
+            gh
+        } = zsize
+        converted.push({
+            gw,
+            gh
+        })
+        const {
+            zw,
+            zh
+        } = zsize;
+        converted.push({
+            zw,
+            zh
+        })
+    })
+    return converted
+}
 
 function zTemplate() {
 
-    function outdiv() {
-        const outdiv = document.createElement('div');
-        outdiv.classList.add('cls-out');
-        outdiv.innerHTML = '';
 
-        const _sizes = (zsizes) => {
-            const obj = [];
-            obj.push(zsizes.map(size => {
-                const [
-                    zw,
-                    zh
-                ] = size
-                return [
-                    zw,
-                    zh
-                ]
-            }))
-            return obj
+    const outdiv = document.createElement('div');
+    outdiv.classList.add('cls-out');
+
+
+    outdiv.innerHTML = /*html*/ `
+<div class="out_header" data-outblock = header></div>
+<div class="out_body" data-outblock = body> </div>
+<div class="out_footer" data-outblock = footer> </div>
+`
+
+    const _head = (header = {}) => {
+        const {
+            system = `###`,
+                depth = `###`,
+                color = null
+        } = header;
+
+        return {
+            system,
+            depth,
+            color
         }
+    };
 
-        const _head = (header = {}) => {
+    const _body = (bodycontent = test_calcData) => {
+        const {
+            prices,
+            glasses,
+            zh_sizes
+        } = bodycontent
+        const sizes = _sizes(zh_sizes);
+    }
 
-            const {
-                system = `###`,
-                    depth = `###`,
-                    color = null
-            } = header;
-            return {
-                system,
-                depth,
-                color
-            }
-        }
-
-        const res = (sizes, head) => {
-            const {
-                sys,
-                dpt
-            } = head
-            let text = `<div class="sys-line">${sys}-${dpt}</div>
+    const res = (sizes, head) => {
+        const {
+            sys,
+            dpt
+        } = head
+        let text = `<div class="sys-line">${sys}-${dpt}</div>
 <div class="color-line">${_head.color} (<b>гр. E</b>)' </div>`
-            text += sizes
-            return text
-        }
-
-        outdiv.insertAdjacentHTML("beforeend", )
+        text += sizes
+        return text
     }
 
 }
