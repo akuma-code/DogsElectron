@@ -7,12 +7,12 @@ function gonow() {
     let disc = document.getElementById('discount').value;
 
     let glasses = new MainSelector()[wt]();
+
     let out = new Outputer();
     let pricer = new PriceCalculator();
 
     let zh = applyZs(glasses);
     let prices = pricer.calc(zh);
-
     out.toDiv(zh);
 
     let box = zbox(zh, prices);
@@ -24,7 +24,7 @@ function gonow() {
     } else {
         store.set('summ', sum)
     }
-    console.log(remakeZitem(box.data));
+    console.log("remakeZ: ", remakeZitem(box.data));
     store.set(box.key, box.data);
     // zkeep.save(makeZh(box.data));
 

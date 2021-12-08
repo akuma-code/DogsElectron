@@ -8,21 +8,30 @@ class GLS {
         return [this.w, this.h]
     }
 
-    get obj() {
-        return {
-            w: this.w,
-            h: this.h
-        }
+    subtract(delta) {
+        const [dW, dH] = delta;
+
+        let out = {
+            w,
+            h
+        };
+
+        out.w = (this.w - dW)
+        out.h = (this.h - dH)
+
+        return out
     }
 
-    applyDelta(delta, gls = this.arr) {
+    applyDelta(delta) {
+        const gls = this.arr
         if (gls.length !== delta.length) console.log(`разная длинна массивов ${gls.length} : ${delta.length}`);
         let out = [];
         out.length = 0;
         for (let i = 0; i < gls.length; i++) {
-            out.push([gls[i] - delta[i]])
+            out.push(gls[i] - delta[i])
         };
-        return out.join(",").split(",")
+
+        return out
     }
 
 }

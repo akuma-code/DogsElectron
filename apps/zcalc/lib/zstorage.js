@@ -1,26 +1,104 @@
 //@ts-check
+function _SizeTypeSet(type) {
+    const {
+        w = Number,
+            h = Number,
+            himp = Number,
+            hlv = Number,
+            hpr = Number,
+            levo = Number,
+            pravo = Number
+    } = SizeList();
 
-function getActiveState(sizes = [], prices = []) {
+
+    const select = {
+        f: [{
+            w: +w,
+            h: +h
+        }],
+        ff: [{
+            w: +w,
+            h: +h
+        }, {
+            w: +w - levo,
+            h: +h
+        }],
+        fff: [{
+            w: +levo,
+            h: +h
+        }, {
+            w: +w - levo - pravo,
+            h: +h
+        }, {
+            w: +pravo,
+            h: +h
+        }],
+        df: [{
+            w: +w,
+            h: +h,
+            himp: +himp
+        }, {
+            w: +levo,
+            h: +hpr,
+        }],
+        dff: [{
+            w: +w,
+            h: +h,
+            himp: +himp
+        }, {
+            w: +levo,
+            h: +hpr
+        }, {
+            w: +pravo,
+            h: +hpr
+        }],
+        fdf: [{
+                w: +levo,
+                h: +hlv
+            },
+            {
+                w: +w,
+                h: +h,
+                himp: +himp
+            },
+            {
+                w: +pravo,
+                h: +hpr
+            }
+        ],
+    };
+
+    return select[type]
+
+}
+const SizeList = () => {
+    let $sizes = document.getElementsByClassName("size");
+    let sizepool = {};
+    for (const size of $sizes) {
+        //@ts-ignore
+        sizepool[size.id] = size.value;
+    };
+    return sizepool
+}
+
+function getInstanceData() {
+    const type = document.getElementById('fon').getAttribute('wintype')
     const $ztype = document.getElementById('ztype');
     const $color = document.getElementById('zlist');
     const $grp = document.getElementById('zgrp');
-
-
-    function counter() {
-        return count++
-    }
+    const sizeset = _SizeTypeSet(type).map(item => new GLS(item.w, item.h));
 
     return {
         //@ts-ignore
-        id: $color.value + '_' + counter(),
-        data: {
-            type: $ztype.innerText,
-            grp: $grp.innerText,
-            size: sizes,
-            price: prices
-        }
+        color: $color.value,
+        type: $ztype.innerText,
+        grp: $grp.innerText,
+        sizes: sizeset,
     }
 }
+
+
+
 class SingleZ {
     constructor({
         color = '',
@@ -49,15 +127,11 @@ class SavedInstance {
     }
 
     save(zpack) {
-        const JSONed = JSON.stringify(zpack);
         this.saved.push(zpack);
-        this.savedJSON.push(JSONed);
-        return JSON.parse(JSONed)
+        return this.saved
     }
-
     get info() {
-        const result = this.savedJSON.map(item => JSON.parse(item))
-        console.log("jsoned: ", result)
+
         return console.log("saved: ", this.saved)
     }
 }
@@ -93,7 +167,6 @@ const resulted = {
 }
 
 function remakeZitem(zitem) {
-    console.log(zitem);
 
     function count() {
         let counter = 0

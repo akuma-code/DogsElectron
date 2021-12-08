@@ -12,26 +12,14 @@ const model = {
         return `<div class="rs_calc_props" id="rs_props">${type}, ${color}</div>`
     }
 };
-/**@return {glasses} array of mainselector result as array of objects*/
-const _sizes = (...zsizes) => {
+/**@return {glasses, zhals} array of mainselector result as array of objects*/
+const _sizes = (zsizes) => {
     let converted = [];
     zsizes.map(zsize => {
-
-        const {
-            gw,
-            gh
-        } = zsize
+        const [w, h] = zsize
         converted.push({
-            gw,
-            gh
-        })
-        const {
-            zw,
-            zh
-        } = zsize;
-        converted.push({
-            zw,
-            zh
+            w: parseInt(w),
+            h: parseInt(h)
         })
     })
     return converted
