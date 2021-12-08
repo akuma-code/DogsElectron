@@ -1,14 +1,18 @@
 //@ts-check
-function _SizeTypeSet(type) {
+/**@function _sizetype возвращает размеры в виде {w:w, h:h} */
+function _SizeTypeSet(type = null) {
+    if (!type) {
+        return _SizeList()
+    }
     const {
-        w = Number,
-            h = Number,
-            himp = Number,
-            hlv = Number,
-            hpr = Number,
-            levo = Number,
-            pravo = Number
-    } = SizeList();
+        w,
+        h,
+        himp,
+        hlv,
+        hpr,
+        levo,
+        pravo
+    } = _SizeList();
 
 
     const select = {
@@ -46,7 +50,7 @@ function _SizeTypeSet(type) {
             h: +h,
             himp: +himp
         }, {
-            w: +levo,
+            w: +levo - pravo,
             h: +hpr
         }, {
             w: +pravo,
@@ -71,7 +75,8 @@ function _SizeTypeSet(type) {
     return select[type]
 
 }
-const SizeList = () => {
+
+function _SizeList() {
     let $sizes = document.getElementsByClassName("size");
     let sizepool = {};
     for (const size of $sizes) {
@@ -86,7 +91,11 @@ function getInstanceData() {
     const $ztype = document.getElementById('ztype');
     const $color = document.getElementById('zlist');
     const $grp = document.getElementById('zgrp');
+
+
     const sizeset = _SizeTypeSet(type).map(item => new GLS(item.w, item.h));
+    const glasses_mainS = new MainSelector()[type]();
+    const zhalset = applyZs(glasses_mainS);
 
     return {
         //@ts-ignore
@@ -94,6 +103,8 @@ function getInstanceData() {
         type: $ztype.innerText,
         grp: $grp.innerText,
         sizes: sizeset,
+        glasses: glasses_mainS.map(item => new GLS(item[0], item[1])),
+        zhals: zhalset
     }
 }
 
@@ -192,4 +203,8 @@ function remakeZitem(zitem) {
         summ: summ
     }
     return result
+}
+
+function applyHandler(target, handler) {
+    return handler.call(this, target)
 }
