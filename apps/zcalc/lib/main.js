@@ -16,6 +16,8 @@ function gonow() {
     let prices = pricer.calc(zh);
     out.toDiv(zh);
 
+    const summary = getInstanceData() //! summary data here
+
     let box = zbox(zh, prices);
     let sum = prices.reduce((prev, current) => current + prev);
 
@@ -39,9 +41,8 @@ function gonow() {
     document.getElementById('outside').insertAdjacentHTML('beforeend', `<div class="summ">Скидка ${disc}%: <b>${Math.round(sum*(1-disc/100))} руб.</b></div> `);
 
     console.log(`Stored elements: ${store.size - 1}`);
-    const summary = getInstanceData()
     saveToLocalStorage()
-    console.log("data: ", summary)
+    //* console.log("data: ", summary)
     return summary
 }
 
