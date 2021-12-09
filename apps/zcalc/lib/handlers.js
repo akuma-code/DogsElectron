@@ -26,6 +26,26 @@ function addListener() { //добавляет на поля ввода разм�
     });
 
 }
+window.addEventListener("load", () => restoreInputs)
+window.addEventListener('beforeunload', () => saveToLocalStorage);
+
+function restoreInputs() {
+    if (!localStorage.getItem('zcalc_inputs')) {
+        return 'Nothing to restore'
+    }
+    const SavedInputs = JSON.parse(localStorage.getItem('zcalc_inputs')) || [];
+    const $sizes = Array.from(document.getElementsByClassName('size'));
+    $sizes.map(item => {
+        //@ts-ignore
+        item.value = SavedInputs[item.id] || ''
+    })
+    return 'Restored'
+}
+
+function saveToLocalStorage() {
+    const sizes = _SizeList();
+    localStorage.setItem('zcalc_inputs', JSON.stringify(sizes))
+}
 
 function showdisc() {
     const disc = document.getElementById('discount');

@@ -102,12 +102,16 @@ function getInstanceData() {
         color: $color.value,
         type: $ztype.innerText,
         grp: $grp.innerText,
-        sizes: sizeset,
-        glasses: glasses_mainS.map(item => new GLS(item[0], item[1])),
+        PARTS_sizes: sizeset,
+        glasses_OLD: glasses_mainS.map(( /** @type {Array} */ item) => {
+            return {
+                gw: item[0],
+                gh: item[1]
+            }
+        }),
         zhals: zhalset
     }
 }
-
 
 
 class SingleZ {
