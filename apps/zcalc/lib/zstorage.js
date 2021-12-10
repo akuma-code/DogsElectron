@@ -95,17 +95,21 @@ function getInstanceData() {
 
     const sizeset = _SizeTypeSet(type).map(item => new GLS(item.w, item.h));
     const glasses_mainS = new MainSelector()[type]();
-    const glasses_OLD = glasses_mainS.map(( /** @type {Array} */ item) => {
-        const [gw, gh] = item
+    const glasses_OLD = glasses_mainS.map(( /** @type {Array} */ [gw, gh]) => {
+        // const [gw, gh] = item
         return {
             gw: gw,
             gh: gh
         }
     })
-    const zhalset = applyZs(glasses_mainS);
+    const zhalset = applyZs(glasses_mainS).map(([w, h]) => {
+        return {
+            zw: w,
+            zh: h
+        }
+    });
 
     const InstData = {
-
         //@ts-ignore
         color: $color.value,
         type: $ztype.innerText,
