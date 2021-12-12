@@ -40,7 +40,7 @@ function addListener() { //добавляет на поля ввода разм�
             return
         }
 
-
+        document.getElementById("reset").style.display = "block";
     })
 
 }
