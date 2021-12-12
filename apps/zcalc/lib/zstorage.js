@@ -91,12 +91,17 @@ function getInstanceData() {
     const $ztype = document.getElementById('ztype');
     const $color = document.getElementById('zlist');
     const $grp = document.getElementById('zgrp');
+    const $system = document.getElementById('prof');
+    const $gdepth = document.getElementById('gdepth')
 
 
     const sizeset = _SizeTypeSet(type).map(item => new GLS(item.w, item.h));
     const glasses_mainS = new MainSelector()[type]();
+    const getPrice = ({
+        zw,
+        zh
+    }) => new PriceCalculator().calcIt(zw, zh);
     const glasses_OLD = glasses_mainS.map(( /** @type {Array} */ [gw, gh]) => {
-        // const [gw, gh] = item
         return {
             gw: gw,
             gh: gh
@@ -105,18 +110,28 @@ function getInstanceData() {
     const zhalset = applyZs(glasses_mainS).map(([w, h]) => {
         return {
             zw: w,
-            zh: h
+            zh: h,
+            price: getPrice({
+                zw: w,
+                zh: h
+            })
         }
     });
-
+    const priceset = zhalset.map(getPrice)
+    const instSumm = priceset.reduce((current, next) => next + current, 0)
     const InstData = {
         //@ts-ignore
         color: $color.value,
         type: $ztype.innerText,
         grp: $grp.innerText,
+        // @ts-ignore
+        system: $system.value,
+        // @ts-ignore
+        gdepth: $gdepth.value,
         PARTS_sizes: sizeset,
         glasses_OLD: glasses_OLD,
-        zhals: zhalset
+        zhals: zhalset,
+        prices: instSumm
     }
 
     return InstData
@@ -190,15 +205,17 @@ const resulted = {
     ]
 }
 
+function countID() {
+    let counter = 0
+    return function () {
+        return counter++
+    }
+}
+
 function remakeZitem(zitem) {
 
-    function count() {
-        let counter = 0
-        return function () {
-            return counter++
-        }
-    }
-    const idcount = count()
+
+    const idcount = countID()
     const sizeToObj = ([w, h]) => {
         return {
             zw: w,

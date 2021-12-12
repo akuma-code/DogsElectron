@@ -25,6 +25,24 @@ function addListener() { //добавляет на поля ввода разм�
 
     });
 
+    document.getElementById('calc-btn').addEventListener('click', (event) => {
+        const inst = getInstanceData();
+        const block = BC.makeBlock(inst)
+        BC.addBlock(block);
+        BC.updateOUT()
+        saveToLocalStorage()
+
+        if (event.altKey) {
+            //! gonow()
+            event.preventDefault()
+            gonow()
+            // document.querySelector('#outside').insertAdjacentElement('afterbegin', newblock.toDIV)
+            return
+        }
+
+
+    })
+
 }
 window.addEventListener("load", () => restoreInputs)
 window.addEventListener('beforeunload', () => saveToLocalStorage);
@@ -42,10 +60,47 @@ function restoreInputs() {
     return 'Restored'
 }
 
+function restoreInstance() {
+    const dataToRestore = localStorage.getItem('z_last_inst') || null;
+    if (!dataToRestore) return 'Nothing to restore'
+    const data = JSON.parse(dataToRestore);
+    console.log(data);
+    data.map(elem => {
+        const {
+            elemID,
+            value
+        } = elem;
+    })
+}
+
 function saveToLocalStorage() {
     const sizes = _SizeList();
+    const $inst = document.querySelector('#showinst');
+    $inst.innerHTML = '<ul>';
     localStorage.setItem('zcalc_inputs', JSON.stringify(sizes))
+    const $savedElems = Array.from(document.querySelectorAll('[data-stls]')) || [];
+    const toLS = $savedElems.map(element => {
+        const {
+            stls: elemID
+        } = element.dataset;
+        const value = element.value || element.textContent || element.getAttribute('wintype');
+        return {
+            elemID,
+            value
+        }
+    })
+    const savedCont = Object.values(BC.cont);
+    BC.cont.forEach(elem => {
+        $inst.querySelector('ul').insertAdjacentHTML('beforeend', `<li>${elem.id}: ${elem.data.color}`)
+    })
+    toLS.push({
+        sizes
+    })
+    localStorage.setItem('z_last_inst', JSON.stringify(toLS))
+    localStorage.setItem('saved_zBlocks', JSON.stringify(savedCont));
 }
+
+
 
 function showdisc() {
     const disc = document.getElementById('discount');
@@ -53,13 +108,7 @@ function showdisc() {
     disc.addEventListener("input", function () {
         elem.innerHTML = `Скидка: <span>${disc.value}%</span>`
     });
-    // elem.addEventListener("click", function (event) {
-    //     event.preventDefault();
-    //     let inp = prompt("Укажите скидку вручную", disc.value);
-    //     if (inp > 90) return alert("Number!");
-    //     disc.value = inp;
-    //     this.innerHTML = `Скидка: <span>${disc.value}%</span>`;
-    // })
+
 }
 
 function show_calc(block = "") {

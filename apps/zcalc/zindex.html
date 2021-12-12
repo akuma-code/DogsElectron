@@ -35,6 +35,7 @@
             "lib/zstorage.js",
             "lib/model.js",
             "lib/testing.js",
+            "lib/handlers.js",
         ];
 
         function load(src) {
@@ -74,7 +75,7 @@
         <div class="headcont">
 
             <div class="head-item">
-                <select name="veka" id="prof" oninput="td()" onclick="td()">
+                <select name="veka" id="prof" oninput="td()" onclick="td()" data-stls="system">
                     <optgroup label="Основные">
                         <option value="Proline" selected>Proline Comfort 70мм</option>
                         <option value="Softline">Softline ComfortPlus 70мм</option>
@@ -93,7 +94,8 @@
                     </optgroup>
                 </select>
 
-                <select name="glass-depth" id="gdepth" class="gldepth" onclick="this.style.opacity = 1">
+                <select name="glass-depth" id="gdepth" class="gldepth" onclick="this.style.opacity = 1"
+                    data-stls="gdepth">
                     <option class="odepth" value="28" selected>28 mm</option>
                     <option class="odepth" value="24">24 mm</option>
                     <option class="odepth" value="30">30 mm</option>
@@ -105,15 +107,16 @@
                 </select>
             </div>
 
-            <div class="head-item ztypebtn" id="ztype" onclick="tt()">Isolite</div>
+            <div class="head-item ztypebtn" id="ztype" onclick="tt()" data-stls="ztype">Isolite</div>
 
-            <select tabindex="5" class="head-item" name="zlist" id="zlist" placeholder="Цвет" onclick="setgr()">
+            <select tabindex="5" class="head-item" name="zlist" id="zlist" placeholder="Цвет" onclick="setgr()"
+                data-stls="zcolor">
             </select>
             <span class="resetv zc" onclick="resetvals()">&#9746;</span>
 
             <div id="zgrp" class="head-item"></div>
 
-            <button class="calc-btn hand-item" onclick="gonow()" id="calc-btn">Рассчитать</button>
+            <button class="calc-btn hand-item" id="calc-btn">Рассчитать</button>
 
         </div>
 
@@ -122,7 +125,7 @@
 
     <div class="disc abs">
         <label for="discount">Скидка: <span>40%</span></label>
-        <input type="range" name="discount" id="discount" min="0" max="90" step="1" value="40">
+        <input type="range" name="discount" id="discount" min="0" max="90" step="1" value="40" data-stls="discount">
     </div>
 
     <div id="cfgbox" class="cfg-gridbox">
@@ -149,7 +152,7 @@
 
         <!--! BACKGROUNF FON IMG-->
         <div class="imgbox" id="imgbox" data-isbb="false" data-rama-step="3" wintype="fff">
-            <img src="img/fff.svg" alt="nope" class="fon" id="fon" data-rama-step="3" wintype="fff">
+            <img src="img/fff.svg" alt="nope" class="fon" id="fon" data-rama-step="3" wintype="fff" data-stls="wintype">
             <img src="img/s3.svg" alt="nope" class="s1 anim" id="s1" onclick="opaopa(s1)" data-isfix="1">
             <img src="img/s3.svg" alt="nope" class="s2 anim" id="s2" onclick="opaopa(s2)" data-isfix="1">
             <img src="img/s3.svg" alt="nope" class="s3 anim" id="s3" onclick="opaopa(s3)" data-isfix="1">
@@ -185,7 +188,7 @@
     <!--!кнопка СБРОС-->
     <img src="img/reset.jpg" alt="reset" id="reset" class="resbtn" onclick="fullreset()">
 
-
+    <div class="show_inst abs" id="showinst" style="top:700px; left:10px"></div>
     <div class="btn__cont" id="btn__cont">
         <div class="btn__thumb" data-calc-state="close" onclick="toggle_rs_calc(this)"></div>
     </div>
@@ -205,7 +208,17 @@
         setgr()
         showdisc();
     </script>
-
+    <!-- <div class="outblock abs"> -->
+    <!-- <div class="outblock_head">
+            <span data-outblock="system"></span><span data-outblock="gdepth"></span>
+        </div>
+        <div class="outblock_body">
+            <div class="out_color"><span data-outblock="zcolor"></span><span data-outblock="zgrp"></span></div>
+            <div class="out_sizes"><span data-outblock="size"></span><span data-outblock="price"> </span> </div>
+        </div>
+        <div class="outblock_footer"><button>export</button><button>delete</button>
+        </div> -->
+    </div>
 
 </body>
 
