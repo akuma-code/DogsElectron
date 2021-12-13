@@ -432,21 +432,24 @@ div#outside>span:-moz-first-node {
 
 .disc {
     display: flex;
-    left: 805px;
-    top: 20px;
-    justify-content: space-between;
+    left: 765px;
+    top: 12px;
+    font-size: 2em;
+    justify-content: space-evenly;
     align-items: center;
     align-content: center;
     flex-direction: column;
     flex-wrap: nowrap;
-    width: 200px;
+    width: 240px;
 }
 
 #discount {
-    width: 180px;
+    font-size: 1.7rem;
+    text-align: center;
+    width: 50px;
 }
 
-#discount::after {
+/* #discount::after {
     content: "90%";
     position: absolute;
     left: 192px;
@@ -456,11 +459,11 @@ div#outside>span:-moz-first-node {
     content: "0%";
     position: absolute;
     right: 192px;
-}
+} */
 
 .disc span {
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .disc>label {
@@ -472,6 +475,20 @@ div#outside>span:-moz-first-node {
     border-radius: 10px;
     cursor: pointer;
     transition: all .4s;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+label.usedisc {
+    display: flex;
+    background: transparent;
+    height: .8em;
+    font-size: .7em;
+    margin-top: 2px;
+    justify-content: flex-start;
+    gap: .5em;
+
 }
 
 .disc>label:hover {

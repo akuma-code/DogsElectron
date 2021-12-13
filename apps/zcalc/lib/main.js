@@ -80,6 +80,7 @@ function fullreset() {
     document.getElementById("reset").style.display = "none";
     document.getElementById('calc-btn').innerHTML = "Рассчитать"; //! возврат кнопки к исходному значению
     store.set("summ", 0); //! обнуление общей стоимости в хранилище
+    BC.cont.lenght = 0;
 
 }
 

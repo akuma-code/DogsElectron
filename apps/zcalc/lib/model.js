@@ -94,14 +94,15 @@ class OutBlockMain {
             zhals,
             prices
         }) {
+            let discPrice = _applyDiscount(prices)
             let out = '<div class=outblock_body>';
-            out += `<div class = "out_color"><span>${color}</span><span>${prices} руб.</span></div>`
+            out += `<div class = "out_color"><span>${color}</span><span>${discPrice} руб.</span></div>`
             zhals.forEach(({
                 zw,
                 zh,
                 price
             }) => {
-                out += `<div class="out_sizes"><span>${zw} x ${zh} мм</span><span>(${price}руб.)</span></div>`
+                out += `<div class="out_sizes"><span>${zw} x ${zh} мм</span><span>(${_applyDiscount(price)} руб.)</span></div>`
             })
             out += `</div>`
             return out
@@ -126,6 +127,12 @@ class OutBlockMain {
 
 }
 
+function _applyDiscount(price) {
+    const rate = getDiscount();
+    const isDisc = document.querySelector('input#isdisc').checked
+    const result = (isDisc) ? Math.floor(price * rate) : price
+    return result
+}
 class OutContainer {
     constructor() {
         this.cont = [];
@@ -158,10 +165,10 @@ class OutContainer {
 
     addBlock(block) {
         this.cont.push(block);
-
-        // this.divBlocks.push(this.makeDivs(this.cont));
         this.getInfo()
     }
+
+
     _addListeners(elem = HTMLDivElement) {
         elem.addEventListener('click', (event) => {
             const target = event.target;

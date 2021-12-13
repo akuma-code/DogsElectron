@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <link rel='stylesheet' href='lib/style.css' />
     <script src="lib/handlers.js"></script>
+    <script src="lib/priceDB.js"></script>
     <script src='lib/SizeDB.js'></script>
     <script src='lib/zDB.js'></script>
     <script src='lib/animation.js'></script>
@@ -29,13 +30,11 @@
     <script defer>
         const scripts = [
             "lib/funcprice.js",
-            "lib/priceDB.js",
             "lib/Selector.js",
             "lib/mapper.js",
             "lib/zstorage.js",
             "lib/model.js",
             "lib/testing.js",
-            "lib/handlers.js",
         ];
 
         function load(src) {
@@ -124,8 +123,13 @@
     </header>
 
     <div class="disc abs">
-        <label for="discount">Скидка: <span>40%</span></label>
-        <input type="range" name="discount" id="discount" min="0" max="90" step="1" value="40" data-stls="discount">
+        <label for="discount"><span>Скидка:</span>
+            <input type="number" name="discount" id="discount" min="0" max="90" step="1" value="40"
+                data-stls="discount">%
+        </label>
+        <label for="isdisc" class="usedisc"><input type="checkbox" name="usedisc" id="isdisc" checked
+                data-stls="discount">
+            Применять?</label>
     </div>
 
     <div id="cfgbox" class="cfg-gridbox">
@@ -206,7 +210,7 @@
         // tl();
         listSelector();
         setgr()
-        showdisc();
+        // showdisc();
     </script>
     <!-- <div class="outblock abs"> -->
     <!-- <div class="outblock_head">

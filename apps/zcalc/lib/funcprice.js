@@ -11,20 +11,20 @@ class PriceCalculator {
 
     }
     get price() {
-            if (this.grp == "") return alert(`Укажите цвет жалюзи!`);
-            // @ts-ignore
-            return zPrice[this.type][this.grp]
-        }
-        /**
-         * 
-         * @param {number} w ширина жалюзей
-         * @param {number} h высота жалюзей
-         * @returns наценку на жалюзи Изолайт
-         */
+        if (this.grp == "") return alert(`Укажите цвет жалюзи!`);
+        // @ts-ignore
+        return zPrice[this.type][this.grp]
+    }
+    /**
+     * 
+     * @param {number} w ширина жалюзей
+     * @param {number} h высота жалюзей
+     * @returns наценку на жалюзи Изолайт
+     */
     S_rate(w, h) {
 
         let S = Math.round((w * h) / 1e4) / 100
-            // console.log({ S });
+        // console.log({ S });
         if (this.type === 'Rollite') return 1
         return (S <= 1) ? 1 : S
     }
@@ -38,39 +38,39 @@ class PriceCalculator {
     getind(width, height) {
 
 
-            if (this.type === "Rollite") {
-                if (height < 500) height = 500;
-                if (width < 400) width = 400;
-                if (height > 2400) return alert(`Высота выходит за гарантийные размеры (${height} мм)`);
-                if (width > 1500) return alert(`Ширина выходит за гарантийные размеры (${width} мм)`);
-            };
-            if (this.type === "Isolite") {
-                if (height < 300) height = 300;
-                if (width < 300) width = 300;
-                if (height > 2400) return alert(`Высота выходит за гарантийные размеры (${height} мм)`);
-                if (width > 1800) return alert(`Ширина выходит за гарантийные размеры (${width} мм)`);
-            }
-
-            let indH = this.sizepool.h.indexOf((Math.ceil(height / 100)) / 10);
-            let indW = this.sizepool.w.indexOf((Math.ceil(width / 100)) / 10);
-            return [indH, indW]
+        if (this.type === "Rollite") {
+            if (height < 500) height = 500;
+            if (width < 400) width = 400;
+            if (height > 2400) return alert(`Высота выходит за гарантийные размеры (${height} мм)`);
+            if (width > 1500) return alert(`Ширина выходит за гарантийные размеры (${width} мм)`);
+        };
+        if (this.type === "Isolite") {
+            if (height < 300) height = 300;
+            if (width < 300) width = 300;
+            if (height > 2400) return alert(`Высота выходит за гарантийные размеры (${height} мм)`);
+            if (width > 1800) return alert(`Ширина выходит за гарантийные размеры (${width} мм)`);
         }
-        /**
-         * 
-         * @param {number} zw ширина жалюзи
-         * @param {number} zh высота жалюзи
-         * @returns цену
-         */
+
+        let indH = this.sizepool.h.indexOf((Math.ceil(height / 100)) / 10);
+        let indW = this.sizepool.w.indexOf((Math.ceil(width / 100)) / 10);
+        return [indH, indW]
+    }
+    /**
+     * 
+     * @param {number} zw ширина жалюзи
+     * @param {number} zh высота жалюзи
+     * @returns цену
+     */
     calcIt(zw, zh) {
 
-            let index = this.getind(zw, zh);
-            return this.price[index[0]][index[1]] * this.S_rate(zw, zh)
-        }
-        /**
-         * 
-         * @param {array} sizes массив размеров 
-         * @returns массив цен
-         */
+        let index = this.getind(zw, zh);
+        return this.price[index[0]][index[1]] * this.S_rate(zw, zh)
+    }
+    /**
+     * 
+     * @param {array} sizes массив размеров 
+     * @returns массив цен
+     */
     calc(sizes) {
         let result = [];
         for (let size of sizes) {
@@ -86,7 +86,9 @@ class PriceCalculator {
 
 class ActualPrice {
     // @ts-ignore
-    get rate() { return rdo.rate }
+    get rate() {
+        return rdo.rate
+    }
 
     scale(priceGroup = []) {
         const result = [];
@@ -99,16 +101,16 @@ class ActualPrice {
 
     // @ts-ignore
     rolMap(pl = Pricelist.Rollite) {
-            let rMap = new Map();
-            for (let key in pl) {
-                // console.log(`group:${key}`);
-                rMap.set(key, this.scale(pl[key]))
-            }
-
-            // console.log(`Rolllite: ${rMap.size} groups`);
-            return Object.fromEntries(rMap)
+        let rMap = new Map();
+        for (let key in pl) {
+            // console.log(`group:${key}`);
+            rMap.set(key, this.scale(pl[key]))
         }
-        // @ts-ignore
+
+        // console.log(`Rolllite: ${rMap.size} groups`);
+        return Object.fromEntries(rMap)
+    }
+    // @ts-ignore
     isoMap(pl = Pricelist.Isolite) {
         let iMap = new Map();
         for (let key in pl) {
@@ -119,4 +121,9 @@ class ActualPrice {
         return Object.fromEntries(iMap)
     }
 
+}
+
+let zPrice = {
+    "Rollite": new ActualPrice().rolMap(Pricelist.Rollite),
+    "Isolite": new ActualPrice().isoMap(Pricelist.Isolite),
 }

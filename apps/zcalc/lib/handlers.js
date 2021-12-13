@@ -90,9 +90,9 @@ function saveToLocalStorage() {
         }
     })
     const savedCont = Object.values(BC.cont);
-    BC.cont.forEach(elem => {
-        $inst.querySelector('ul').insertAdjacentHTML('beforeend', `<li>${elem.id}: ${elem.data.color}`)
-    })
+    // BC.cont.forEach(elem => {
+    //     $inst.querySelector('ul').insertAdjacentHTML('beforeend', `<li>${elem.id}: ${elem.data.color}`)
+    // })
     toLS.push({
         sizes
     })
@@ -102,13 +102,10 @@ function saveToLocalStorage() {
 
 
 
-function showdisc() {
+function getDiscount() {
     const disc = document.getElementById('discount');
-    const elem = document.querySelector("body > div.disc.abs > label");
-    disc.addEventListener("input", function () {
-        elem.innerHTML = `Скидка: <span>${disc.value}%</span>`
-    });
-
+    const rate = (100 - disc.value) / 100;
+    return rate
 }
 
 function show_calc(block = "") {

@@ -451,7 +451,7 @@ const Pricelist = {
     }
 }
 
-const zPrice = {
-    "Rollite": new ActualPrice().rolMap(),
-    "Isolite": new ActualPrice().isoMap(),
-}
+// const zPrice = {
+//     "Rollite": new ActualPrice().rolMap(),
+//     "Isolite": new ActualPrice().isoMap(),
+// }
