@@ -195,13 +195,15 @@ class OutContainer {
             const items = cont.map(item => item.HTML);
             return items
         }
+        const summaryALL = this.cont.map(item => item.data.prices);
+        const summ = _applyDiscount(summaryALL.reduce((a, b) => a + b));
         const $out = document.getElementById('outside');
-        const blocks = makeDivs(this.cont)
+        const blocks = makeDivs(this.cont);
         $out.innerHTML = '';
         blocks.forEach(block => {
-
             $out.insertAdjacentElement('beforeend', block)
         })
+        document.querySelector('#calc-btn').textContent = summ + ' руб.'
     }
     getInfo() {
         console.log(`BlockBox[${this.cont.length}]: `, this.cont);

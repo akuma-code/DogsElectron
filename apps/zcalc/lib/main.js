@@ -50,9 +50,9 @@ function calc_rs() {
     const $w = document.querySelector('#rs__calc > input.rs_calc_w.rs_size');
     const $h = document.querySelector('#rs__calc > input.rs_calc_h.rs_size');
     const $color = document.getElementById('zlist').value;
-    const $disc = 1 - document.getElementById('discount').value / 100;
+    // const $disc = 1 - document.getElementById('discount').value / 100;
     const calc = new PriceCalculator();
-    const result = Math.round(calc.calcIt($w.value, $h.value) * $disc);
+    const result = Math.round(calc.calcIt($w.value, $h.value));
 
 
     const $output = document.getElementById('calc_res');
@@ -60,7 +60,7 @@ function calc_rs() {
     $output.insertAdjacentHTML("beforeend",
         `<div class="rs_out">${calc.type} ಄ ${$color}<br>
 ${$w.value}мм x ${$h.value}мм<br>
-<b>${result} руб.</b> (${Math.round((1-$disc)*100)}%)</div>`);
+<b>${_applyDiscount(result)} руб.</b> </div>`);
 }
 
 
@@ -80,7 +80,7 @@ function fullreset() {
     document.getElementById("reset").style.display = "none";
     document.getElementById('calc-btn').innerHTML = "Рассчитать"; //! возврат кнопки к исходному значению
     store.set("summ", 0); //! обнуление общей стоимости в хранилище
-    BC.cont.lenght = 0;
+    BC.cont.length = 0;
 
 }
 
