@@ -86,3 +86,9 @@
     align-items: center;
     flex-wrap: nowrap;
 }
+
+.out_sizes span:last-child {
+    background-color: rgba(255, 127, 80, 0.623);
+    border-radius: 3px;
+    padding: 1px 5px;
+}

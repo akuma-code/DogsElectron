@@ -1,3 +1,9 @@
+<!-- TODO: поменять кнопку ресет
+TODO: добавить стрелку на тип жалюзей
+TODO: подсказка на катеогрию
+TODO: добавить отдельную дверь
+*TODO: выравнивание текста для длинного названия-->
+
 <!DOCTYPE HTML>
 <html>
 
@@ -6,9 +12,10 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <link rel='stylesheet' href='lib/style.css' />
     <script src="lib/handlers.js"></script>
-    <script src="lib/priceDB.js"></script>
+    <script src="lib/priceDB.js" defer></script>
     <script src='lib/SizeDB.js'></script>
     <script src='lib/zDB.js'></script>
+    <script src='lib/stateloader.js'></script>
     <script src='lib/animation.js'></script>
     <script src='lib/main.js'></script>
     <script>
@@ -74,7 +81,7 @@
         <div class="headcont">
 
             <div class="head-item">
-                <select name="veka" id="prof" oninput="td()" onclick="td()" data-stls="system">
+                <select name="veka" id="prof" oninput="td()" onclick="td()" data-stls="system" data-loadstate="system">
                     <optgroup label="Основные">
                         <option value="Proline" selected>Proline Comfort 70мм</option>
                         <option value="Softline">Softline ComfortPlus 70мм</option>
@@ -94,7 +101,7 @@
                 </select>
 
                 <select name="glass-depth" id="gdepth" class="gldepth" onclick="this.style.opacity = 1"
-                    data-stls="gdepth">
+                    data-stls="gdepth" data-loadstate="gdepth">
                     <option class="odepth" value="28" selected>28 mm</option>
                     <option class="odepth" value="24">24 mm</option>
                     <option class="odepth" value="30">30 mm</option>
@@ -106,10 +113,11 @@
                 </select>
             </div>
 
-            <div class="head-item ztypebtn" id="ztype" onclick="tt()" data-stls="ztype">Isolite</div>
+            <div class="head-item ztypebtn" id="ztype" onclick="tt()" data-stls="ztype" data-loadstate="ztype">Isolite
+            </div>
 
             <select tabindex="5" class="head-item" name="zlist" id="zlist" placeholder="Цвет" onclick="setgr()"
-                data-stls="zcolor">
+                data-stls="zcolor" data-loadstate="zcolor">
             </select>
             <span class="resetv zc" onclick="resetvals()">&#9746;</span>
 
@@ -155,7 +163,8 @@
 
         <!--! BACKGROUNF FON IMG-->
         <div class="imgbox" id="imgbox" data-isbb="false" data-rama-step="3" wintype="fff">
-            <img src="img/fff.svg" alt="nope" class="fon" id="fon" data-rama-step="3" wintype="fff" data-stls="wintype">
+            <img src="img/fff.svg" alt="nope" class="fon" id="fon" data-rama-step="3" wintype="fff" data-stls="wintype"
+                data-loadstate="wintype">
             <img src="img/s3.svg" alt="nope" class="s1 anim" id="s1" onclick="opaopa(s1)" data-isfix="1">
             <img src="img/s3.svg" alt="nope" class="s2 anim" id="s2" onclick="opaopa(s2)" data-isfix="1">
             <img src="img/s3.svg" alt="nope" class="s3 anim" id="s3" onclick="opaopa(s3)" data-isfix="1">
@@ -221,16 +230,8 @@
         </div>
         <div class="outblock_footer"><button>export</button><button>delete</button>
         </div> -->
-    </div>
+    <!-- </div> -->
 
 </body>
 
 </html>
-
-<!-- TODO: поменять кнопку ресет
-TODO: добавить стрелку на тип жалюзей
-TODO: удаление из корзины отдельного расчета
-TODO: скидка
-TODO: подсказка на катеогрию
-TODO: добавить отдельную дверь
-TODO: выравнивание текста для длинного названия-->

@@ -95,14 +95,18 @@ class OutBlockMain {
             prices
         }) {
             let discPrice = _applyDiscount(prices)
+            const isDisc = document.querySelector('#isdisc').checked;
+
             let out = '<div class=outblock_body>';
-            out += `<div class = "out_color"><span>${color}</span><span>${discPrice} руб.</span></div>`
+            out += (isDisc) ? `<div class = "out_color"><span>${color}</span><span style="color:#f7f0a4">${discPrice} руб.</span></div>` :
+                `<div class = "out_color"><span>${color}</span><span>${discPrice} руб.</span></div>`
             zhals.forEach(({
                 zw,
                 zh,
                 price
             }) => {
-                out += `<div class="out_sizes"><span>${zw} x ${zh} мм</span><span>(${_applyDiscount(price)} руб.)</span></div>`
+                out += (isDisc) ? `<div class="out_sizes"><span>${zw} x ${zh} мм</span><span style="color:#ffffff">${_applyDiscount(price)} руб.</span></div>` :
+                    `<div class="out_sizes"><span>${zw} x ${zh} мм</span><span>${_applyDiscount(price)} руб.</span></div>`
             })
             out += `</div>`
             return out
@@ -187,7 +191,8 @@ class OutContainer {
         const arrID = this.cont.map(item => item.id);
         const removeIndex = arrID.indexOf(id);
         this.cont.splice(removeIndex, 1);
-        console.log("Deleted: ", id)
+        console.log("Deleted: ", id);
+        this.updateOUT()
         return this.getInfo()
     }
     updateOUT() {

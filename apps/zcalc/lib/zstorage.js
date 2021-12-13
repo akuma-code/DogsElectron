@@ -1,4 +1,6 @@
 //@ts-check
+
+
 /**@function _sizetype возвращает размеры в виде {w:w, h:h} */
 function _SizeTypeSet(type = null) {
     if (!type) {
@@ -97,10 +99,9 @@ function getInstanceData() {
 
     const sizeset = _SizeTypeSet(type).map(item => new GLS(item.w, item.h));
     const glasses_mainS = new MainSelector()[type]();
-    const getPrice = ({
-        zw,
-        zh
-    }) => new PriceCalculator().calcIt(zw, zh);
+
+    //@ts-ignore
+    const getPrice = (zw, zh) => new PriceCalculator().calcIt(zw, zh);
     const glasses_OLD = glasses_mainS.map(( /** @type {Array} */ [gw, gh]) => {
         return {
             gw: gw,
@@ -111,17 +112,15 @@ function getInstanceData() {
         return {
             zw: w,
             zh: h,
-            price: getPrice({
-                zw: w,
-                zh: h
-            })
+            price: getPrice(w, h)
         }
     });
-    const priceset = zhalset.map(getPrice)
+    const priceset = zhalset.map(item => item.price)
     const instSumm = priceset.reduce((current, next) => next + current, 0)
     const InstData = {
         //@ts-ignore
         color: $color.value,
+        wintype: type,
         type: $ztype.innerText,
         grp: $grp.innerText,
         // @ts-ignore
