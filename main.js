@@ -30,6 +30,7 @@ function createWindow() {
         },
         useContentSize: true
     });
+    win.title = `Выбор приложения (ver. ${app.getVersion()})`
     return win
 }
 
