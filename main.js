@@ -30,7 +30,7 @@ function createWindow() {
         },
         useContentSize: true
     });
-    win.title = `Выбор приложения (ver. ${app.getVersion()})`
+    win.title = `Akuma's apps <ver. ${app.getVersion()}>`
     return win
 }
 
@@ -45,7 +45,7 @@ function openLink(w, h) {
     });
     return aapp
 }
-
+module.exports = openLink
 app.whenReady().then(() => {
     createWindow().loadFile("public/homepage.html")
 

@@ -38,3 +38,19 @@ body {
     background: #800000;
     color: azure;
 }
+
+#vers {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 5
+}
+
+#vers>a {
+    /* appearance: none; */
+    position: relative
+}
+
+#vers>a:hover {
+    cursor: pointer;
+}
