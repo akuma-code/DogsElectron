@@ -1,5 +1,5 @@
 const {
-    ipcRenderer
+    ipcRenderer,
 } = require("electron");
 
 document.querySelector('#zcalc').addEventListener('click', (event) => {

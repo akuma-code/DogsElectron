@@ -1,6 +1,6 @@
 {
   "name": "akumas-apps",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Калькулятор жалюзев и техпомощь стайл калькулятор",
   "main": "main.js",
   "dependencies": {

@@ -48,7 +48,6 @@ function openLink(w, h) {
 app.whenReady().then(() => {
     createWindow().loadFile("public/homepage.html")
 
-
     ipcMain.on('msg', (_, arg) => {
 
         console.log('app: ', arg)

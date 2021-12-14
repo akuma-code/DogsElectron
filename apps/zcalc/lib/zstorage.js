@@ -95,11 +95,18 @@ function getInstanceData() {
     const $grp = document.getElementById('zgrp');
     const $system = document.getElementById('prof');
     const $gdepth = document.getElementById('gdepth')
-
+    const $stv = ['1', '2', '3', 'd'].map(id => {
+        let state = document.getElementById(`s${id}`).style.opacity || 0;
+        return {
+            id: 's' + id,
+            state: state
+        }
+    })
 
     const sizeset = _SizeTypeSet(type).map(item => new GLS(item.w, item.h));
     const glasses_mainS = new MainSelector()[type]();
 
+    const sizeList = _SizeList();
     //@ts-ignore
     const getPrice = (zw, zh) => new PriceCalculator().calcIt(zw, zh);
     const glasses_OLD = glasses_mainS.map(( /** @type {Array} */ [gw, gh]) => {
@@ -121,6 +128,7 @@ function getInstanceData() {
         //@ts-ignore
         color: $color.value,
         wintype: type,
+        fixes: $stv,
         type: $ztype.innerText,
         grp: $grp.innerText,
         // @ts-ignore
@@ -130,7 +138,8 @@ function getInstanceData() {
         PARTS_sizes: sizeset,
         glasses_OLD: glasses_OLD,
         zhals: zhalset,
-        prices: instSumm
+        prices: instSumm,
+        idSizeList: sizeList
     }
 
     return InstData

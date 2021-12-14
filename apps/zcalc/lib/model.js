@@ -12,57 +12,7 @@ const model = {
         return `<div class="rs_calc_props" id="rs_props">${type}, ${color}</div>`
     }
 };
-/**@return {glasses, zhals} array of mainselector result as array of objects*/
-// const _sizes = (zsizes) => {
-//     let converted = [];
-//     zsizes.map(zsize => {
-//         const [w, h] = zsize
-//         converted.push({
-//             w: parseInt(w),
-//             h: parseInt(h)
-//         })
-//     })
-//     return converted
-// }
-// class OutBlockInst {
-//     constructor(data = getInstanceData) {
-//         this.data = data()
-//     }
-// }
 
-// function DivNewBlock(block = OutBlockInst) {
-//     const divblock = document.createElement('div');
-//     divblock.classList.add('outblock');
-//     const {
-//         system,
-//         gdepth,
-//         color,
-//         grp
-//     } = block;
-//     const toHTML = ({
-//         zhals
-//     }) => {
-//         let out = '';
-//         zhals.forEach(({
-//             zw,
-//             zh
-//         }) => {
-//             out += `<div class="out_sizes"><span>${zw}x${zh}</span></div>`
-//         })
-//         return out
-//     }
-//     divblock.innerHTML = /*html*/ `
-// <div class = "outblock_head">
-//     <span>${system}</span><span>${gdepth}</span>
-// </div>
-// <div class = "outblock_body" >
-//     <div class = "out_color"><span>${color}</span><span>${grp}</span></div>
-//     ${toHTML(block)}
-// </div>
-// `
-//     return divblock
-
-// }
 
 class OutBlockMain {
     constructor(block = getInstanceData) {
@@ -115,7 +65,7 @@ class OutBlockMain {
 
         function _outfooter() {
             return `<div class="outblock_footer">
-    <button data-outbtn="export" disabled>export</button><button data-outbtn="delete">delete</button>
+    <button data-outbtn="load">load state</button><button data-outbtn="delete">delete</button>
         </div>`
         };
 
@@ -176,17 +126,27 @@ class OutContainer {
     _addListeners(elem = HTMLDivElement) {
         elem.addEventListener('click', (event) => {
             const target = event.target;
+            const {
+                id
+            } = elem.dataset.outblock_id
             if (target.matches('[data-outbtn=delete]')) {
                 elem.remove()
                 this.removeBlock(elem.dataset.outblock_id)
             }
-            if (target.matches('[data-outbtn=export]')) {
-                console.log('EXPORT')
+            if (target.matches('[data-outbtn=load]')) {
+                console.log('LOAD');
+                this.loadBlockState(elem.dataset.outblock_id)
             }
         })
         // console.log('Listeners added!')
     }
+    loadBlockState(id) {
+        const arrID = this.cont.map(item => item.id);
+        const loadIndex = arrID.indexOf(id);
 
+
+        return loadState(this.cont[loadIndex].data)
+    }
     removeBlock(id) {
         const arrID = this.cont.map(item => item.id);
         const removeIndex = arrID.indexOf(id);
