@@ -13,9 +13,96 @@ const model = {
     }
 };
 
+class OutContainer {
+    constructor() {
+        this.cont = [];
+        // this.divBlocks = [];
+        this.startcount = 0;
+    }
 
-class OutBlockMain {
+    makeBlock(block = getInstanceData) {
+        let n = (this.startcount++).toString()
+        if (n.length == 1) n = '0' + n
+
+        const type = block.type
+        const bID = (n, type) => {
+            let lett = type.toString()
+            return `${n}_${(lett[0]+lett[1]+lett[2]).toUpperCase()}`
+        }
+        const newblock = new OutBlockMain(block);
+        const tempDiv = newblock.toDIV;
+        tempDiv.dataset.outblock_id = bID(n, type);
+
+        this._addListeners(tempDiv);
+
+        return {
+            id: bID(n, type),
+            data: newblock.data,
+            HTML: tempDiv
+        }
+
+    }
+
+    addBlock(block) {
+        this.cont.push(block);
+        this.getInfo()
+    }
+
+
+    _addListeners(elem = HTMLDivElement) {
+        elem.addEventListener('click', (event) => {
+            const target = event.target;
+            const id = elem.dataset.outblock_id
+            if (target.matches('[data-outbtn=delete]')) {
+                elem.remove()
+                this.removeBlock(id)
+                // this.removeBlock(elem.dataset.outblock_id)
+            }
+            if (target.matches('[data-outbtn=load]')) {
+                console.log('LOAD');
+                this.loadBlockState(elem.dataset.outblock_id)
+            }
+        })
+        // console.log('Listeners added!')
+    }
+    loadBlockState(id) {
+        const arrID = this.cont.map(item => item.id);
+        const loadIndex = arrID.indexOf(id);
+
+
+        return loadState(this.cont[loadIndex].data)
+    }
+    removeBlock(id) {
+        const arrID = this.cont.map(item => item.id);
+        const removeIndex = arrID.indexOf(id);
+        this.cont.splice(removeIndex, 1);
+        console.log("Deleted: ", id);
+        this.updateOUT()
+        return this.getInfo()
+    }
+    updateOUT() {
+        function makeDivs(cont = this.cont) {
+            const items = cont.map(item => item.HTML);
+            return items
+        }
+        const summaryALL = this.cont.map(item => item.data.prices);
+        const summ = _applyDiscount(summaryALL.reduce((a, b) => a + b, 0));
+        const $out = document.getElementById('outside');
+        const blocks = makeDivs(this.cont);
+        $out.innerHTML = '';
+        blocks.forEach(block => {
+            $out.insertAdjacentElement('beforeend', block)
+        })
+        document.querySelector('#calc-btn').textContent = summ + ' руб.'
+    }
+    getInfo() {
+        console.log(`BlockBox[${this.cont.length}]: `, this.cont);
+        // console.log('DivBlocks: ', this.divBlocks);
+    }
+}
+class OutBlockMain extends OutContainer {
     constructor(block = getInstanceData) {
+        super()
         this.data = block;
         this.toDIV;
     };
@@ -64,13 +151,16 @@ class OutBlockMain {
         div.innerHTML += _outbody(this.data);
 
         function _outfooter() {
-            return `<div class="outblock_footer">
-    <button data-outbtn="load">load state</button><button data-outbtn="delete">delete</button>
-        </div>`
+            const footer = document.createElement('div');
+            footer.classList.add('outblock_footer')
+            footer.innerHTML = `
+    <button data-outbtn="load">load state</button><button data-outbtn="delete">delete</button>`
+            //      </div>
+            //<div class="outblock_footer">
+            return footer
         };
 
-        div.insertAdjacentHTML("beforeend", _outfooter());
-
+        div.insertAdjacentElement("beforeend", _outfooter());
         div.classList.add('outblock');
         // div.dataset.outblock_id = '';
 
@@ -87,93 +177,6 @@ function _applyDiscount(price) {
     const result = (isDisc) ? Math.floor(price * rate) : price
     return result
 }
-class OutContainer {
-    constructor() {
-        this.cont = [];
-        // this.divBlocks = [];
-        this.startcount = 0;
-    }
 
-    makeBlock(block = getInstanceData) {
-        let n = (this.startcount++).toString()
-        if (n.length == 1) n = '0' + n
-
-        const type = block.type
-        const bID = (n, type) => {
-            let lett = type.toString()
-            return `${n}_${(lett[0]+lett[1]+lett[2]).toUpperCase()}`
-        }
-        const newblock = new OutBlockMain(block);
-        const tempDiv = newblock.toDIV;
-        tempDiv.dataset.outblock_id = bID(n, type);
-
-        this._addListeners(tempDiv);
-
-        return {
-            id: bID(n, type),
-            data: newblock.data,
-            HTML: tempDiv
-        }
-
-    }
-
-    addBlock(block) {
-        this.cont.push(block);
-        this.getInfo()
-    }
-
-
-    _addListeners(elem = HTMLDivElement) {
-        elem.addEventListener('click', (event) => {
-            const target = event.target;
-            const {
-                id
-            } = elem.dataset.outblock_id
-            if (target.matches('[data-outbtn=delete]')) {
-                elem.remove()
-                this.removeBlock(elem.dataset.outblock_id)
-            }
-            if (target.matches('[data-outbtn=load]')) {
-                console.log('LOAD');
-                this.loadBlockState(elem.dataset.outblock_id)
-            }
-        })
-        // console.log('Listeners added!')
-    }
-    loadBlockState(id) {
-        const arrID = this.cont.map(item => item.id);
-        const loadIndex = arrID.indexOf(id);
-
-
-        return loadState(this.cont[loadIndex].data)
-    }
-    removeBlock(id) {
-        const arrID = this.cont.map(item => item.id);
-        const removeIndex = arrID.indexOf(id);
-        this.cont.splice(removeIndex, 1);
-        console.log("Deleted: ", id);
-        this.updateOUT()
-        return this.getInfo()
-    }
-    updateOUT() {
-        function makeDivs(cont = this.cont) {
-            const items = cont.map(item => item.HTML);
-            return items
-        }
-        const summaryALL = this.cont.map(item => item.data.prices);
-        const summ = _applyDiscount(summaryALL.reduce((a, b) => a + b));
-        const $out = document.getElementById('outside');
-        const blocks = makeDivs(this.cont);
-        $out.innerHTML = '';
-        blocks.forEach(block => {
-            $out.insertAdjacentElement('beforeend', block)
-        })
-        document.querySelector('#calc-btn').textContent = summ + ' руб.'
-    }
-    getInfo() {
-        console.log(`BlockBox[${this.cont.length}]: `, this.cont);
-        // console.log('DivBlocks: ', this.divBlocks);
-    }
-}
 
 const BC = new OutContainer();

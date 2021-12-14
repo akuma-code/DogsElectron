@@ -1,6 +1,3 @@
-//@ts-check
-
-
 /**@function _sizetype возвращает размеры в виде {w:w, h:h} */
 function _SizeTypeSet(type = null) {
     if (!type) {
@@ -146,45 +143,6 @@ function getInstanceData() {
 }
 
 
-class SingleZ {
-    constructor({
-        color = '',
-        size = [],
-        price = ''
-    }) {
-        this.color = color;
-        this.size = size;
-        this.price = price
-    }
-}
-const makeZh = ({
-    size,
-    price,
-    color
-}) => new SingleZ({
-    color,
-    size,
-    price
-})
-
-class SavedInstance {
-    constructor() {
-        this.saved = []
-        this.savedJSON = []
-    }
-
-    save(zpack) {
-        this.saved.push(zpack);
-        return this.saved
-    }
-    get info() {
-
-        return console.log("saved: ", this.saved)
-    }
-}
-
-const zkeep = new SavedInstance()
-
 
 function removeID(array = [], id = '') {
     const arrID = array.map(item => item.id);
@@ -193,25 +151,6 @@ function removeID(array = [], id = '') {
     return array
 }
 
-const resulted = {
-    id: `R01-7977`,
-    color: "Аллегро(2.0)",
-    size: [{
-        zw: 504,
-        zh: 1296
-    }, {
-        zw: 525,
-        zh: 1296
-    }, {
-        zw: 504,
-        zh: 1296
-    }],
-    price: [
-        2659,
-        2659,
-        2659
-    ]
-}
 
 function countID() {
     let counter = 0
