@@ -1,21 +1,47 @@
-class ZApp {
+class zBlock {
     constructor() {
-        this.InstBlockStorage = []
+        this.id = null
+        this.data = null
     }
+    get HTML() {
+        return `NOT DEFINED!`
+    }
+}
 
+class ZApp {
+    constructor(model = []) {
+        this.blocks = model
+    }
+    init() {
+        const outmodule = new OutputModule('#outside');
+        outmodule.renderOut(this.blocks)
+
+        const updateOUT
+    }
 
 
 }
 
-class AppStorage extends ZApp {
+class OutputModule {
+    constructor(selector) {
+        this.$out = document.querySelector(selector)
+    }
+
+    renderOut(blocks) {
+        this.$out.innerHTML = '';
+        blocks.forEach(block => {
+            this.$out.insertAdjacentElement('beforeend', block)
+        });
+    }
+}
+
+class BlocksFF {
     constructor() {
-        super()
+        this.items = []
     }
-
-    addDataBlock(datablock = getInstanceData) {
-        this.InstBlockStorage.push(datablock);
-        console.log('Storage Size: ', this.InstBlockStorage.length)
+    getBlocks(conteiner = OutContainer.cont) {
+        this.blocks = conteiner.map(item => item.HTML)
+        return this.blocks
     }
-
 
 }

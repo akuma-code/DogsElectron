@@ -9,7 +9,7 @@ function addListener() { //добавляет на поля ввода разм�
             if (event.keyCode === 13) {
 
                 event.preventDefault();
-                document.getElementById("calc-btn").focus();
+                // document.getElementById("calc-btn").focus();
                 document.getElementById("calc-btn").click();
             }
         });

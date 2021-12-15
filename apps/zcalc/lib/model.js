@@ -42,7 +42,9 @@ class OutContainer {
         }
 
     }
-
+    _copy(obj = {}) {
+        return JSON.parse(JSON.stringify(obj))
+    }
     addBlock(block) {
         this.cont.push(block);
         this.getInfo()
