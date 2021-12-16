@@ -64,6 +64,10 @@
     background: right 50% / 35% 50% no-repeat url("../img/d-f.svg");
 }
 
+.cfg-item[data-cfg="d"] {
+    background: right 50% / 35% 50% no-repeat url("../img/door-clr.svg");
+}
+
 .cfg-item:hover {
     background-color: chocolate;
     /* left: -90px; */

@@ -22,13 +22,26 @@ function resizeWin(wintype) {
 
     let fon = document.getElementById("fon");
     let img = document.getElementById('imgbox');
+
+    const resize = (isbb, wintype, src, width, height) => {
+        img.dataset.isbb = isbb;
+        img.dataset.ramaStep = "1";
+        fon.setAttribute("wintype", wintype);
+        img.setAttribute("wintype", wintype);
+
+        fon.src = src;
+
+        fon.style.width = width + 'px';
+        fon.style.height = height + 'px';
+    }
+
+
     switch (wintype) {
         case "f":
             img.dataset.isbb = 'false';
             img.dataset.ramaStep = "1";
             fon.setAttribute("wintype", "f");
             img.setAttribute("wintype", "f");
-            // fon.dataset.ramaStep = "1";
 
             fon.src = "img/f.svg";
 
@@ -70,6 +83,10 @@ function resizeWin(wintype) {
 
             break;
 
+        case "d":
+            resize(true, "d", "img/door-clr.svg", 125, 415)
+
+            break;
         case "df":
             img.dataset.isbb = 'true';
             img.dataset.ramaStep = "4";

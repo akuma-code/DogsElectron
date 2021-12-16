@@ -1,9 +1,11 @@
 body {
     background: rgb(243, 217, 177);
+    overflow-y: auto;
 
 }
 
 .cont {
+    height: max-content;
     display: flex;
     position: relative;
     place-items: center;
@@ -53,4 +55,33 @@ body {
 
 #vers>a:hover {
     cursor: pointer;
+}
+
+.notes {
+    width: 500px;
+    /* border: 1px solid #000; */
+}
+
+.todo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 99%;
+    background: #c0c0c0;
+    padding: 5px 5px;
+    overflow-y: auto;
+}
+
+.todo span {
+    margin-left: 45px;
+    font-weight: bold;
+}
+
+
+:is(.todo, .notes) h3 {
+    padding-bottom: 5px;
+    position: relative;
+    margin-bottom: 5px;
+    left: 35%;
 }

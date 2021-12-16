@@ -60,18 +60,7 @@ function restoreInputs() {
     return 'Restored'
 }
 
-function restoreInstance() {
-    const dataToRestore = localStorage.getItem('z_last_inst') || null;
-    if (!dataToRestore) return 'Nothing to restore'
-    const data = JSON.parse(dataToRestore);
-    console.log(data);
-    data.map(elem => {
-        const {
-            elemID,
-            value
-        } = elem;
-    })
-}
+
 
 function saveToLocalStorage() {
     const sizes = _SizeList();
@@ -90,9 +79,7 @@ function saveToLocalStorage() {
         }
     })
     const savedCont = Object.values(BC.cont);
-    // BC.cont.forEach(elem => {
-    //     $inst.querySelector('ul').insertAdjacentHTML('beforeend', `<li>${elem.id}: ${elem.data.color}`)
-    // })
+
     toLS.push({
         sizes
     })
@@ -100,7 +87,12 @@ function saveToLocalStorage() {
     localStorage.setItem('saved_zBlocks', JSON.stringify(savedCont));
 }
 
-
+function loadDB(src, cb) {
+    const script = document.createElement('script');
+    const DB = ['lib/priceDB.js', 'lib/SizeDB.js', 'lib/funcprice.js', 'lib/zDB.js'];
+    script.src = src;
+    script.onload = () => cb(script);
+}
 
 function getDiscount() {
     const disc = document.getElementById('discount');

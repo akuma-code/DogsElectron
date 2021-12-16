@@ -24,15 +24,15 @@ TODO: добавить отдельную дверь
             script.src = src;
             document.head.append(script);
             script.onload = () => callback(script);
-            // stylelog(`>>>HTML Started<<<`)
         }
-
-        let source = "lib/handlers.js";
-
-        // loadScript(source, script => {
-        //     return console.log(`Done!`);
-
-        // });
+        // async function loadDB() {
+        //     const script = document.createElement('script');
+        //     const DB = ['lib/priceDB.js', 'lib/SizeDB.js', 'lib/funcprice.js', 'lib/zDB.js'];
+        //     DB.forEach(src => {
+        //         script.src = await src;
+        //         document.head.append(script)
+        //     })
+        // }
     </script>
     <script defer>
         const scripts = [
@@ -52,14 +52,11 @@ TODO: добавить отдельную дверь
             document.head.append(script);
         };
 
-
-
         function loader() {
             for (let i = 0; i < scripts.length; i++) {
                 load(scripts[i]);
             };
             console.log(`${scripts.length} scripts loaded`);
-
         }
 
         stylelog("HTML IS READY");
@@ -67,6 +64,7 @@ TODO: добавить отдельную дверь
 
     <script defer>
         loader()
+        // loadDB()
     </script>
 
     <title>Калькулятор жалюзей</title>
@@ -143,6 +141,7 @@ TODO: добавить отдельную дверь
         <div class="cfg-item" data-cfg="fff" onclick="resizeWin('fff')" data-loadstate="fff"><span>Трешка</span> </div>
         <div class="cfg-item" data-cfg="ff" onclick="resizeWin('ff')" data-loadstate="ff"><span> Двушка </span></div>
         <div class="cfg-item" data-cfg="f" onclick="resizeWin('f')" data-loadstate="f"><span>Адынушка</span></div>
+        <div class="cfg-item" data-cfg="d" onclick="resizeWin('d')" data-loadstate="d"><span>Дверка</span></div>
         <div class="cfg-item" data-cfg="d-f" onclick="resizeWin('df')" data-loadstate="df"><span>Б/Блок-1</span></div>
         <div class="cfg-item" data-cfg="d-ff" onclick="resizeWin('dff')" data-loadstate="dff"><span>Б/Блок-2</span>
         </div>

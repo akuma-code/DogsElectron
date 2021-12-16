@@ -15,8 +15,6 @@ class ZApp {
     init() {
         const outmodule = new OutputModule('#outside');
         outmodule.renderOut(this.blocks)
-
-        const updateOUT
     }
 
 
