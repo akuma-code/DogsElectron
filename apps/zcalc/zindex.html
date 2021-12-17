@@ -33,6 +33,7 @@ TODO: добавить отдельную дверь
         //         document.head.append(script)
         //     })
         // }
+
     </script>
     <script defer>
         const scripts = [
@@ -42,6 +43,7 @@ TODO: добавить отдельную дверь
             "lib/zstorage.js",
             "lib/model.js",
             "lib/testing.js",
+            "lib/expTable.js",
         ];
 
         function load(src) {
@@ -60,11 +62,13 @@ TODO: добавить отдельную дверь
         }
 
         stylelog("HTML IS READY");
+
     </script>
 
     <script defer>
         loader()
         // loadDB()
+
     </script>
 
     <title>Калькулятор жалюзей</title>
@@ -190,6 +194,7 @@ TODO: добавить отдельную дверь
             <script>
                 restoreInputs()
                 load('zApp.js')
+
             </script>
         </div>
 
@@ -220,6 +225,7 @@ TODO: добавить отдельную дверь
         listSelector();
         setgr()
         // showdisc();
+
     </script>
     <div class="exptab">
         <table>
