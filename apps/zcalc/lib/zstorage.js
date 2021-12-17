@@ -92,10 +92,10 @@ function getInstanceData() {
     const $grp = document.getElementById('zgrp');
     const $system = document.getElementById('prof');
     const $gdepth = document.getElementById('gdepth')
-    const $stv = ['1', '2', '3', 'd'].map(id => {
-        let state = document.getElementById(`s${id}`).style.opacity || 0;
+    const $stv = ['s1', 's2', 's3', 'sd'].map(id => {
+        let state = document.getElementById(`${id}`).style.opacity || 0;
         return {
-            id: 's' + id,
+            id: id,
             state: state
         }
     })
@@ -159,29 +159,172 @@ function countID() {
     }
 }
 
-function remakeZitem(zitem) {
 
+class OutContainer {
+    constructor() {
+        this.cont = [];
+        // this.divBlocks = [];
+        this.startcount = 0;
+    }
 
-    const idcount = countID()
-    const sizeToObj = ([w, h]) => {
-        return {
-            zw: w,
-            zh: h
+    makeBlock(block = getInstanceData) {
+        let n = (this.startcount++).toString()
+        if (n.length == 1) n = '0' + n
+
+        const type = block.type
+        const bID = (n, type) => {
+            let lett = type.toString()
+            return `${n}_${(lett[0]+lett[1]+lett[2]).toUpperCase()}`
         }
+        const newblock = new OutBlockMain(block);
+        const tempDiv = newblock.toDIV;
+        tempDiv.dataset.outblock_id = bID(n, type);
+
+        this._addListeners(tempDiv);
+
+        return {
+            id: bID(n, type),
+            data: newblock.data,
+            HTML: tempDiv
+        }
+
     }
-    const summ = zitem.price.reduce(( /** @type {number} */ a, /** @type {number} */ b) => a + b)
-    // @ts-ignore
-    const sizes = zitem.size.map(sizeArr => sizeToObj(sizeArr))
-    const setid = zitem.type[0] + idcount() + '-' + summ
-    const result = {
-        id: setid,
-        color: zitem.color,
-        size: sizes,
-        summ: summ
+    _copy(obj = {}) {
+        return JSON.parse(JSON.stringify(obj))
     }
+    addBlock(block) {
+        this.cont.push(block);
+        this.getInfo()
+    }
+
+
+    _addListeners(elem = HTMLDivElement) {
+        elem.addEventListener('click', (event) => {
+            const target = event.target;
+            const id = elem.dataset.outblock_id
+            if (target.matches('[data-outbtn=delete]')) {
+                elem.remove()
+                this.removeBlock(id)
+                // this.removeBlock(elem.dataset.outblock_id)
+            }
+            if (target.matches('[data-outbtn=load]')) {
+                console.log('LOAD');
+                this.loadBlockState(elem.dataset.outblock_id)
+            }
+        })
+        // console.log('Listeners added!')
+    }
+    loadBlockState(id) {
+        const arrID = this.cont.map(item => item.id);
+        const loadIndex = arrID.indexOf(id);
+
+
+        return loadState(this.cont[loadIndex].data)
+    }
+    removeBlock(id) {
+        const arrID = this.cont.map(item => item.id);
+        const removeIndex = arrID.indexOf(id);
+        this.cont.splice(removeIndex, 1);
+        console.log("Deleted: ", id);
+        this.updateOUT()
+        return this.getInfo()
+    }
+    updateOUT() {
+        function makeDivs(cont = this.cont) {
+            const items = cont.map(item => item.HTML);
+            return items
+        }
+        const summaryALL = this.cont.map(item => item.data.prices);
+        const summ = _applyDiscount(summaryALL.reduce((a, b) => a + b, 0));
+        const $out = document.getElementById('outside');
+        const blocks = makeDivs(this.cont);
+        $out.innerHTML = '';
+        blocks.forEach(block => {
+            $out.insertAdjacentElement('beforeend', block)
+        })
+        document.querySelector('#calc-btn').textContent = summ + ' руб.'
+    }
+    getInfo() {
+        console.log(`BlockBox[${this.cont.length}]: `, this.cont);
+        // console.log('DivBlocks: ', this.divBlocks);
+    }
+}
+class OutBlockMain extends OutContainer {
+    constructor(block = getInstanceData) {
+        super()
+        this.data = block;
+        this.toDIV;
+    };
+
+    get toDIV() {
+        return this._div()
+    }
+
+    _div() {
+        const div = document.createElement('div');
+        div.innerHTML = '';
+
+        function _outhead({
+            system,
+            gdepth
+        }) {
+            return `<div class = "outblock_head">
+                <span>${system}</span><span>(${gdepth}мм)</span>
+                </div>`
+        }
+        div.innerHTML += _outhead(this.data);
+
+        function _outbody({
+            color,
+            grp,
+            zhals,
+            prices
+        }) {
+            let discPrice = _applyDiscount(prices)
+            const isDisc = document.querySelector('#isdisc').checked;
+
+            let out = '<div class=outblock_body>';
+            out += (isDisc) ? `<div class = "out_color"><span>${color}</span><span style="color:#f7f0a4">${discPrice} руб.</span></div>` :
+                `<div class = "out_color"><span>${color}</span><span>${discPrice} руб.</span></div>`
+            zhals.forEach(({
+                zw,
+                zh,
+                price
+            }) => {
+                out += (isDisc) ? `<div class="out_sizes"><span>${zw} x ${zh} мм</span><span style="color:#ffffff">${_applyDiscount(price)} руб.</span></div>` :
+                    `<div class="out_sizes"><span>${zw} x ${zh} мм</span><span>${_applyDiscount(price)} руб.</span></div>`
+            })
+            out += `</div>`
+            return out
+        }
+        div.innerHTML += _outbody(this.data);
+
+        function _outfooter() {
+            const footer = document.createElement('div');
+            footer.classList.add('outblock_footer')
+            footer.innerHTML = `
+    <button data-outbtn="load">load state</button><button data-outbtn="delete">delete</button>`
+
+            return footer
+        };
+
+        div.insertAdjacentElement("beforeend", _outfooter());
+        div.classList.add('outblock');
+        // div.dataset.outblock_id = '';
+
+        return div
+    }
+
+
+
+}
+
+function _applyDiscount(price) {
+    const rate = getDiscount();
+    const isDisc = document.querySelector('input#isdisc').checked
+    const result = (isDisc) ? Math.floor(price * rate) : price
     return result
 }
 
-function applyHandler(target, handler) {
-    return handler.call(this, target)
-}
+
+const BC = new OutContainer();
