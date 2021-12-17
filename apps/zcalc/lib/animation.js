@@ -38,94 +38,28 @@ function resizeWin(wintype) {
 
     switch (wintype) {
         case "f":
-            img.dataset.isbb = 'false';
-            img.dataset.ramaStep = "1";
-            fon.setAttribute("wintype", "f");
-            img.setAttribute("wintype", "f");
+            resize(false, "f", "img/f.svg", 125, 290)
 
-            fon.src = "img/f.svg";
-
-            fon.style.width = "125px";
-            fon.style.height = "290px";
-
-
-            // rama = "x1";
             break;
-
         case "ff":
-            img.dataset.isbb = 'false';
-            img.dataset.ramaStep = "2";
-            // fon.dataset.ramaStep = "2";
-
-            fon.src = "img/ff.svg";
-            fon.setAttribute("wintype", "ff");
-            img.setAttribute("wintype", "ff");
-
-            fon.style.width = "250px";
-            fon.style.height = "290px";
-
+            resize(false, "ff", "img/ff.svg", 250, 290)
 
             break;
-
         case "fff":
-            img.dataset.isbb = 'false';
-            img.dataset.ramaStep = "3";
-            // fon.dataset.ramaStep = "3";
-
-            fon.src = "img/fff.svg";
-            fon.setAttribute("wintype", "fff");
-            img.setAttribute("wintype", "fff");
-
-            fon.style.width = "375px";
+            resize(false, "fff", "img/fff.svg", 375, 290)
             fon.style.top = "0px"
-
-            fon.style.height = "290px";
-
             break;
-
         case "d":
             resize(true, "d", "img/door-clr.svg", 125, 415)
-
             break;
         case "df":
-            img.dataset.isbb = 'true';
-            img.dataset.ramaStep = "4";
-            // fon.dataset.ramaStep = "4";
-
-            fon.src = "img/d-f.svg";
-            fon.setAttribute("wintype", "df");
-            img.setAttribute("wintype", "df");
-
-            fon.style.width = "290px";
-            fon.style.height = "415px";
-
-
+            resize(true, "df", "img/d-f.svg", 290, 415)
             break;
         case "dff":
-            img.dataset.isbb = 'true';
-            img.dataset.ramaStep = "5";
-            // fon.dataset.ramaStep = "5";
-
-            fon.src = "img/d-ff.svg";
-            fon.setAttribute("wintype", "dff");
-            img.setAttribute("wintype", "dff");
-
-            fon.style.width = "400px";
-            fon.style.height = "415px";
-
+            resize(true, "dff", "img/d-ff.svg", 400, 415)
             break;
         case "fdf":
-            img.dataset.isbb = 'true';
-            img.dataset.ramaStep = "6";
-            // fon.dataset.ramaStep = "6";
-
-            fon.src = "img/f-d-f.svg";
-            fon.setAttribute("wintype", "fdf");
-            img.setAttribute("wintype", "fdf");
-
-            fon.style.width = "415px";
-            fon.style.height = "415px";
-
+            resize(true, "fdf", "img/f-d-f.svg", 415, 415)
             break;
         default:
             alert("NOT WORKS YET!! IMG Step is " + img.dataset.ramaStep)
