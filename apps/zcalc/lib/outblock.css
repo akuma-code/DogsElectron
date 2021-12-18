@@ -87,6 +87,12 @@
     flex-wrap: nowrap;
 }
 
+.outblock_footer button {
+    display: flex;
+    flex-flow: row nowrap;
+    height: fit-content;
+}
+
 .out_sizes span:last-child {
     background-color: rgba(255, 127, 80, 0.623);
     border-radius: 3px;

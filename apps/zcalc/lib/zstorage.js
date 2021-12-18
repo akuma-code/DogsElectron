@@ -163,6 +163,7 @@ function countID() {
 class OutContainer {
     constructor() {
         this.cont = [];
+        this.exportCont = new TableExport();
         // this.divBlocks = [];
         this.startcount = 0;
     }
@@ -211,6 +212,10 @@ class OutContainer {
                 console.log('LOAD');
                 this.loadBlockState(elem.dataset.outblock_id)
             }
+            if (target.matches('[data-outbtn=export]')) {
+                this.exportCont.addToExportConteiner(this.getBlockDataById(id));
+                console.log(this.exportCont.expCont)
+            }
         })
         // console.log('Listeners added!')
     }
@@ -228,6 +233,9 @@ class OutContainer {
         console.log("Deleted: ", id);
         this.updateOUT()
         return this.getInfo()
+    }
+    getBlockDataById(id) {
+        return this.cont.find(block => block.id === id).data
     }
     updateOUT() {
         function makeDivs(cont = this.cont) {
@@ -303,7 +311,7 @@ class OutBlockMain extends OutContainer {
             const footer = document.createElement('div');
             footer.classList.add('outblock_footer')
             footer.innerHTML = `
-    <button data-outbtn="load">load state</button><button data-outbtn="delete">delete</button>`
+            <button data-outbtn="export">export</button><button data-outbtn="load">load state</button><button data-outbtn="delete">delete</button>`
 
             return footer
         };
