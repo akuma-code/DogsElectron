@@ -30,7 +30,7 @@ function createWindow() {
         },
         useContentSize: true
     });
-    win.title = `Akuma's apps <ver. ${app.getVersion()}>`
+    win.title = `Akuma's apps<${app.getVersion()}>`
     return win
 }
 

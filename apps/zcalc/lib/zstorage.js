@@ -164,7 +164,7 @@ class OutContainer {
     constructor() {
         this.cont = [];
         this.exportCont = new TableExport();
-        // this.divBlocks = [];
+        this.toTab = this.exportCont.expRaws;
         this.startcount = 0;
     }
 
@@ -213,8 +213,8 @@ class OutContainer {
                 this.loadBlockState(elem.dataset.outblock_id)
             }
             if (target.matches('[data-outbtn=export]')) {
-                this.exportCont.addToExportConteiner(this.getBlockDataById(id));
-                console.log(this.exportCont.expCont)
+                this.exportCont.addLineToCont(this.getBlockDataById(id));
+                console.log("items to export: ", this.exportCont.expRaws.length)
             }
         })
         // console.log('Listeners added!')
@@ -335,4 +335,53 @@ function _applyDiscount(price) {
 }
 
 
+class TableMaker {
+    constructor(exportCont) {
+        this.toHTML = this.getTable(exportCont)
+    }
+
+    makeTR(lineExport) {
+        const {
+            type,
+            color,
+            zw,
+            zh,
+            price,
+            Lupr,
+            shtDpt,
+            sq,
+            cB,
+            fCB,
+            itog
+        } = lineExport;
+        const tr = document.createElement('tr');
+        tr.innerHTML = /*html*/ `
+        <td>${type}</td>
+        <td>${color}</td>
+        <td>белый</td>
+        <td>${zw}</td>
+        <td>${zh}</td>
+        <td>${shtDpt}</td>
+        <td></td>
+        <td>${Lupr}</td>
+        <td>${sq}</td>
+        <td>${cB}</td>
+        <td>1</td>
+        <td>${fCB}</td>
+        <td>${price}</td>
+        <td></td>
+        <td>${itog}</td>
+        `;
+        return tr
+    };
+
+    getTable(cont = []) {
+        const tab = document.createElement('table');
+        tab.classList.add('exptab');
+        cont.forEach(line => {
+            tab.insertAdjacentElement('beforeend', this.makeTR(line))
+        })
+        return tab
+    }
+}
 const BC = new OutContainer();

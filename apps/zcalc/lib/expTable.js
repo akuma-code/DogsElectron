@@ -14,11 +14,11 @@ const EXEL_F = (line) => {
 
 class TableExport {
     constructor() {
-        this.expCont = []
+        this.expRaws = [];
 
     }
 
-    addToExportConteiner(export_block = OutBlockMain.data) {
+    addLineToCont(export_block = OutBlockMain.data) {
         const {
             zhals = [],
         } = export_block;
@@ -45,14 +45,14 @@ class TableExport {
                 Lupr,
                 shtDpt
             };
-            this.expCont.push(ExpLine)
+            this.expRaws.push(ExpLine)
             return ExpLine
         })
 
         return expBlock
     };
 
-    addExel(cont = this.expCont) {
+    addExel(cont = this.expRaws) {
         let start = 18;
         const fullExpCont = cont.map(elem => {
             const {
@@ -70,60 +70,15 @@ class TableExport {
         })
         return fullExpCont
     }
-}
 
-class ExpTabHTML {
-    constructor(export_conteiner = []) {
-        this.$tab = this.getTable(export_conteiner)
-    }
-
-    makeTR(lineExport) {
-        const {
-            type,
-            color,
-            zw,
-            zh,
-            price,
-            Lupr,
-            shtDpt,
-            sq,
-            cB,
-            fCB,
-            itog
-        } = lineExport;
-        const tr = document.createElement('tr');
-        tr.innerHTML = /*html*/ `
-        <td>${type}</td>
-        <td>${color}</td>
-        <td>белый</td>
-        <td>${zw}</td>
-        <td>${zh}</td>
-        <td>${shtDpt}</td>
-        <td></td>
-        <td>${Lupr}</td>
-        <td>${sq}</td>
-        <td>${cB}</td>
-        <td>1</td>
-        <td>${fCB}</td>
-        <td>${price}</td>
-        <td></td>
-        <td>${itog}</td>
-        `;
-        return tr
-    };
-
-    getTable(cont = []) {
-        const tab = document.createElement('table');
-        tab.classList.add('exptab');
-        cont.forEach(line => {
-            tab.insertAdjacentElement('beforeend', this.makeTR(line))
-        })
-        return tab
+    get toExel() {
+        return this.addExel(this.expRaws)
     }
 }
+
 
 const TE = new TableExport();
-TE.addToExportConteiner({
+TE.addLineToCont({
     "color": "Аллегро(2.0)",
 
     "type": "Rollite",
@@ -145,7 +100,7 @@ TE.addToExportConteiner({
         }
     ]
 })
-TE.addToExportConteiner({
+TE.addLineToCont({
     "color": "Аллегро(2.0)",
 
     "type": "Rollite",

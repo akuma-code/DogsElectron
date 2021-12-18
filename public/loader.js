@@ -39,6 +39,6 @@ document.querySelector('#tps').addEventListener('click', (event) => {
 
 }, true);
 
-document.querySelector('#patch').addEventListener('click', (event) => {
+document.querySelector('#patch').addEventListener('click', () => {
     window.open('./patchnote.html', '_blank')
 })
