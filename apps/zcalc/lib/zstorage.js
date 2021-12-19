@@ -203,6 +203,7 @@ class OutContainer {
         elem.addEventListener('click', (event) => {
             const target = event.target;
             const id = elem.dataset.outblock_id
+
             if (target.matches('[data-outbtn=delete]')) {
                 elem.remove()
                 this.removeBlock(id)
@@ -213,18 +214,20 @@ class OutContainer {
                 this.loadBlockState(elem.dataset.outblock_id)
             }
             if (target.matches('[data-outbtn=export]')) {
-                this.exportCont.addLineToCont(this.getBlockDataById(id));
+                const current = this.getBlockDataById(id)
+                this.exportCont.addLineToCont(current);
+                this.exportCont.toExel;
+                target.textContent = 'added!';
+                target.style.opacity = 0.7;
                 console.log("items to export: ", this.exportCont.expRaws.length)
             }
         })
         // console.log('Listeners added!')
     }
     loadBlockState(id) {
-        const arrID = this.cont.map(item => item.id);
-        const loadIndex = arrID.indexOf(id);
 
-
-        return loadState(this.cont[loadIndex].data)
+        return loadState(this.getBlockDataById(id))
+        // return loadState(this.cont[loadIndex].data)
     }
     removeBlock(id) {
         const arrID = this.cont.map(item => item.id);
@@ -336,8 +339,8 @@ function _applyDiscount(price) {
 
 
 class TableMaker {
-    constructor(exportCont) {
-        this.toHTML = this.getTable(exportCont)
+    constructor(toTab) {
+        this.toHTML = this.getTable(toTab)
     }
 
     makeTR(lineExport) {

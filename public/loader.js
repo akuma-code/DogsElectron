@@ -1,5 +1,6 @@
 const {
     ipcRenderer,
+
 } = require("electron");
 
 
@@ -7,7 +8,7 @@ const {
 function ver() {
     const div = document.createElement('div');
     div.id = 'vers'
-    div.insertAdjacentHTML('afterbegin', '<a id="patch">version: 1.2.1</a>');
+    div.insertAdjacentHTML('afterbegin', `<a id="patch">version: 1.3.0</a>`);
     document.body.insertAdjacentElement('afterbegin', div);
 
     return

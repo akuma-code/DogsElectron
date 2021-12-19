@@ -26,21 +26,36 @@ function addListener() { //добавляет на поля ввода разм�
     });
 
     document.getElementById('calc-btn').addEventListener('click', (event) => {
+
+        if (event.altKey) {
+            //! gonow()
+            event.preventDefault()
+            document.querySelector('#et').style.display = 'block'
+            const tab = new TableMaker(BC.toTab).toHTML
+            document.querySelector('#et').innerHTML = ''
+            document.querySelector('#et').insertAdjacentElement('afterbegin', tab)
+            // gonow()
+            // document.querySelector('#outside').insertAdjacentElement('afterbegin', newblock.toDIV)
+            return
+        }
         const inst = getInstanceData();
         const block = BC.makeBlock(inst)
         BC.addBlock(block);
         BC.updateOUT()
         saveToLocalStorage()
 
-        if (event.altKey) {
-            //! gonow()
-            event.preventDefault()
-            gonow()
-            // document.querySelector('#outside').insertAdjacentElement('afterbegin', newblock.toDIV)
+        document.getElementById("reset").style.display = "block";
+    })
+
+    document.querySelector('div.tabwrapper').addEventListener('click', (ev) => {
+        const targ = ev.target;
+
+        if (targ.matches('.exptab')) {
             return
         }
-
-        document.getElementById("reset").style.display = "block";
+        if (targ.matches('div.tabwrapper')) {
+            targ.style.display = 'none'
+        }
     })
 
 }

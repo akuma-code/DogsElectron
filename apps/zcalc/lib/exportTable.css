@@ -1,11 +1,28 @@
 .exptab {
     position: absolute;
-    right: 3%;
-    bottom: 10px;
+    left: 50px;
+    top: 50px;
+    background: rgb(255, 255, 255);
+    border-collapse: collapse;
 }
 
 .exptab td {
     border: 1px solid #000;
-    max-width: 50px;
-    overflow: hidden;
+    max-width: 180px;
+    min-width: 45px;
+    height: fit-content;
+    overflow: visible;
+    word-break: break-all;
+    padding: 5px 10px;
+}
+
+.tabwrapper {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #8a8a8a8e;
+    z-index: 100;
 }
