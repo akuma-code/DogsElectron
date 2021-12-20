@@ -1,7 +1,7 @@
 .rs__maincalc {
     position: relative;
     display: grid;
-    left: 240px;
+    left: 230px;
     top: -180px;
     /* border: var(--border-main-d); */
     width: 300px;
@@ -32,6 +32,18 @@
     width: 100%;
     height: 100%;
     font-size: 20px;
+    border: 2px ridge #e1e4f8;
+    border-radius: 5px;
+    background: #1c1b70;
+    color: beige;
+    cursor: pointer;
+
+
+}
+
+.rs_calc_btn>button:hover {
+    background: rgb(78, 89, 255);
+    color: black;
 }
 
 .rs_calc_res {
@@ -44,7 +56,7 @@
     font-size: 1.2rem;
     text-align: center;
     width: 100%;
-    left: 770px;
+    left: 790px;
     top: 60px;
 }
 

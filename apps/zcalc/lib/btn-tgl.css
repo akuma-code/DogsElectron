@@ -5,15 +5,16 @@
     height: 54px;
     background-color: steelblue;
     border: 2px outset coral;
-    left: 640px;
+    left: 540px;
     top: -128px;
+    border: 1px solid black;
 }
 
 .btn__cont::after {
-    content: "Счеты";
+    content: "ОднаЖ";
     position: absolute;
     font-size: 30px;
-    left: -90px;
+    left: 111px;
     top: 10px;
 }
 

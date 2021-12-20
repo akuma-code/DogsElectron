@@ -25,16 +25,19 @@ TODO: добавить отдельную дверь
             document.head.append(script);
             script.onload = () => callback(script);
         }
-        // async function loadDB() {
-        //     const script = document.createElement('script');
-        //     const DB = ['lib/priceDB.js', 'lib/SizeDB.js', 'lib/funcprice.js', 'lib/zDB.js'];
-        //     DB.forEach(src => {
-        //         script.src = await src;
-        //         document.head.append(script)
-        //     })
-        // }
+        loadScript('zApp.js', () => new AppScriptLoader([
+            "lib/funcprice.js",
+            "lib/Selector.js",
+            "lib/mapper.js",
+            "lib/model.js",
+            "lib/testing.js",
+            "lib/expTable.js",
+            "lib/zstorage.js",
+        ]));
+        stylelog("HTML IS READY");
+
     </script>
-    <script defer>
+    <!-- <script defer>
         const scripts = [
             "lib/funcprice.js",
             "lib/Selector.js",
@@ -49,7 +52,6 @@ TODO: добавить отдельную дверь
 
             let script = document.createElement("script");
             script.src = src;
-            // script.onload = () => console.log(`${script.src} Loaded`);
             document.head.append(script);
         };
 
@@ -60,13 +62,11 @@ TODO: добавить отдельную дверь
             console.log(`${scripts.length} scripts loaded`);
         }
 
-        stylelog("HTML IS READY");
-    </script>
+       
 
-    <script defer>
-        loader()
-        // loadDB()
-    </script>
+    </script> -->
+
+
 
     <title>Калькулятор жалюзей</title>
 </head>
@@ -188,7 +188,7 @@ TODO: добавить отдельную дверь
             </div>
             <script>
                 restoreInputs()
-                load('zApp.js')
+
             </script>
         </div>
 
@@ -217,6 +217,16 @@ TODO: добавить отдельную дверь
         listSelector();
         setgr()
         // showdisc();
+        // new AppScriptLoader([
+        //     "lib/funcprice.js",
+        //     "lib/Selector.js",
+        //     "lib/mapper.js",
+        //     "lib/model.js",
+        //     "lib/testing.js",
+        //     "lib/expTable.js",
+        //     "lib/zstorage.js",
+        // ])
+
     </script>
 
 

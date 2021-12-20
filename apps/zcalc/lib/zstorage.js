@@ -217,8 +217,9 @@ class OutContainer {
                 const current = this.getBlockDataById(id)
                 this.exportCont.addLineToCont(current);
                 this.exportCont.toExel;
-                target.textContent = 'added!';
+                target.textContent = 'Есть!';
                 target.style.opacity = 0.7;
+                target.disabled = true
                 console.log("items to export: ", this.exportCont.expRaws.length)
             }
         })
@@ -318,7 +319,9 @@ class OutBlockMain extends OutContainer {
             const footer = document.createElement('div');
             footer.classList.add('outblock_footer')
             footer.innerHTML = `
-            <button data-outbtn="export">export</button><button data-outbtn="load">load state</button><button data-outbtn="delete">delete</button>`
+            <button data-outbtn="export">В РДО</button>
+            <button data-outbtn="load">Загрузить</button>
+            <button data-outbtn="delete">Удалить</button>`
 
             return footer
         };

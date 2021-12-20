@@ -80,7 +80,7 @@
     display: flex;
     grid-area: footer;
     width: 200px;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: row;
     align-content: center;
     align-items: center;
@@ -91,6 +91,15 @@
     display: flex;
     flex-flow: row nowrap;
     height: fit-content;
+    border-radius: 5px;
+    background: rgb(1, 8, 75);
+    color: rgb(247, 182, 3);
+    box-shadow: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.outblock_footer button:hover {
+    background: #09b14a;
 }
 
 .out_sizes span:last-child {
