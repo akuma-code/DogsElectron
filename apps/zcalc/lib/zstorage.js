@@ -260,6 +260,10 @@ class OutContainer {
         // console.log('DivBlocks: ', this.divBlocks);
     }
 }
+
+const BC = new OutContainer();
+
+
 class OutBlockMain extends OutContainer {
     constructor(block = getInstanceData) {
         super()
@@ -387,4 +391,3 @@ class TableMaker {
         return tab
     }
 }
-const BC = new OutContainer();

@@ -322,6 +322,22 @@ strong {
     background-color: grey;
 }
 
+.ztypebtn::after {
+    position: absolute;
+    right: 10px;
+    top: 25%;
+    content: url('../img/arrow_4_bot.svg');
+    width: 35px;
+}
+
+.ztypebtn::before {
+    position: absolute;
+    left: 10px;
+    top: 20%;
+    content: url('../img/arrow_4_top.svg');
+    width: 35px;
+}
+
 .odepth {
     display: block;
 }
@@ -486,10 +502,12 @@ label.usedisc {
     background: transparent;
     height: .8em;
     font-size: .6em;
-    margin-top: 2px;
-    justify-content: flex-start;
+    margin-top: 7px;
+    justify-content: center;
     gap: .5em;
-
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .disc>label:hover {

@@ -1,4 +1,5 @@
 body {
+    position: relative;
     background: rgb(243, 217, 177);
     overflow-y: auto;
 
@@ -60,7 +61,11 @@ body {
 }
 
 .notes {
+    position: absolute;
     width: 500px;
+    left: 0;
+    top: 0;
+    height: fit-content;
     /* border: 1px solid #000; */
 }
 
@@ -69,10 +74,10 @@ body {
     top: 0;
     right: 0;
     width: 250px;
-    height: 99%;
+    height: fit-content;
     background: #c0c0c0;
     padding: 5px 5px;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 .todo span {

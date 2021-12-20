@@ -1,14 +1,15 @@
 .rs__maincalc {
     position: relative;
     display: grid;
-    left: 1030px;
-    top: -113px;
+    left: 240px;
+    top: -180px;
     /* border: var(--border-main-d); */
     width: 300px;
     height: auto;
     grid-template-columns: 1fr 1fr 60px;
     grid-template-rows: 3rem auto;
-    grid-template-areas: "w h btn" "res res res";
+    grid-template-areas: "w h btn"
+        "res res res";
     grid-gap: 10px 5px;
 }
 
@@ -35,13 +36,16 @@
 
 .rs_calc_res {
     display: grid;
+    position: absolute;
     grid-gap: 5px;
     background-color: #ffffffc7;
     background-size: auto;
-    grid-area: res;
+    /* grid-area: res; */
     font-size: 1.2rem;
     text-align: center;
     width: 100%;
+    left: 770px;
+    top: 60px;
 }
 
 .rs_out {

@@ -1,3 +1,4 @@
 {
-    "editor.suggest.showStatusBar": false
+    "editor.suggest.showStatusBar": false,
+    "svg.preview.background": "transparent"
 }
