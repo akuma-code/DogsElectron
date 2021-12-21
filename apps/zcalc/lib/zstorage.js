@@ -212,6 +212,12 @@ class OutContainer {
             if (target.matches('[data-outbtn=load]')) {
                 console.log('LOAD');
                 this.loadBlockState(elem.dataset.outblock_id)
+                const all = Array.from(document.querySelectorAll('.outblock'));
+                all.forEach(item => item.classList.remove('loaded'));
+                elem.classList.add('loaded')
+
+                // setTimeout(() => elem.classList.remove('loaded'), 5000)
+
             }
             if (target.matches('[data-outbtn=export]')) {
                 const current = this.getBlockDataById(id)
@@ -219,17 +225,18 @@ class OutContainer {
                 this.exportCont.toExel;
                 target.textContent = 'Есть!';
                 target.style.opacity = 0.7;
-                target.disabled = true
+                target.disabled = true;
+
                 console.log("items to export: ", this.exportCont.expRaws.length)
             }
         })
         // console.log('Listeners added!')
     }
-    loadBlockState(id) {
 
+    loadBlockState(id) {
         return loadState(this.getBlockDataById(id))
-        // return loadState(this.cont[loadIndex].data)
     }
+
     removeBlock(id) {
         const arrID = this.cont.map(item => item.id);
         const removeIndex = arrID.indexOf(id);
@@ -242,13 +249,15 @@ class OutContainer {
         return this.cont.find(block => block.id === id).data
     }
     updateOUT() {
+        const $out = document.getElementById('outside');
+
         function makeDivs(cont = this.cont) {
             const items = cont.map(item => item.HTML);
             return items
         }
         const summaryALL = this.cont.map(item => item.data.prices);
+
         const summ = _applyDiscount(summaryALL.reduce((a, b) => a + b, 0));
-        const $out = document.getElementById('outside');
         const blocks = makeDivs(this.cont);
         $out.innerHTML = '';
         blocks.forEach(block => {

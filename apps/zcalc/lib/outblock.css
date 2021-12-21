@@ -24,6 +24,10 @@
 
 }
 
+.outblock.loaded {
+    border: 3px inset #00ff00
+}
+
 .outblock_head {
     grid-area: head;
     width: 200px;
