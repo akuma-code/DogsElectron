@@ -64,7 +64,7 @@ class PriceCalculator {
     calcIt(zw, zh) {
 
         let index = this.getind(zw, zh);
-        return this.price[index[0]][index[1]] * this.S_rate(zw, zh)
+        return Math.floor(this.price[index[0]][index[1]] * this.S_rate(zw, zh))
     }
     /**
      * 

@@ -29,6 +29,7 @@ body {
 .zcalc,
 .tps {
     display: flex;
+    position: relative;
     border: 3px inset rgb(90, 82, 82);
     cursor: pointer;
     width: 120px;
@@ -40,6 +41,14 @@ body {
 :is(.zcalc, .tps):hover {
     background: #800000;
     color: azure;
+}
+
+.zcalc::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: "Прайс от 20.12.21";
+    font-size: 13px;
 }
 
 #vers {

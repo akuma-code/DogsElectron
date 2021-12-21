@@ -26,46 +26,16 @@ TODO: добавить отдельную дверь
             script.onload = () => callback(script);
         }
         loadScript('zApp.js', () => new AppScriptLoader([
+            "lib/expTable.js",
+            "lib/zstorage.js",
             "lib/funcprice.js",
             "lib/Selector.js",
             "lib/mapper.js",
             "lib/model.js",
             "lib/testing.js",
-            "lib/expTable.js",
-            "lib/zstorage.js",
         ]));
         stylelog("HTML IS READY");
-
     </script>
-    <!-- <script defer>
-        const scripts = [
-            "lib/funcprice.js",
-            "lib/Selector.js",
-            "lib/mapper.js",
-            "lib/model.js",
-            "lib/testing.js",
-            "lib/expTable.js",
-            "lib/zstorage.js",
-        ];
-
-        function load(src) {
-
-            let script = document.createElement("script");
-            script.src = src;
-            document.head.append(script);
-        };
-
-        function loader() {
-            for (let i = 0; i < scripts.length; i++) {
-                load(scripts[i]);
-            };
-            console.log(`${scripts.length} scripts loaded`);
-        }
-
-       
-
-    </script> -->
-
 
 
     <title>Калькулятор жалюзей</title>
@@ -188,7 +158,6 @@ TODO: добавить отдельную дверь
             </div>
             <script>
                 restoreInputs()
-
             </script>
         </div>
 
@@ -213,20 +182,8 @@ TODO: добавить отдельную дверь
         addListener();
         td();
         tt();
-        // tl();
         listSelector();
         setgr()
-        // showdisc();
-        // new AppScriptLoader([
-        //     "lib/funcprice.js",
-        //     "lib/Selector.js",
-        //     "lib/mapper.js",
-        //     "lib/model.js",
-        //     "lib/testing.js",
-        //     "lib/expTable.js",
-        //     "lib/zstorage.js",
-        // ])
-
     </script>
 
 
