@@ -57,10 +57,10 @@ function calc_rs() {
 
     const $output = document.getElementById('calc_res');
 
-    $output.insertAdjacentHTML("beforeend",
-        `<div class="rs_out">${calc.type} ಄ ${$color}<br>
+    $output.insertAdjacentHTML("beforeend", `
+<div class="rs_out">${calc.type} ಄ ${$color}<br>
 ${$w.value}мм x ${$h.value}мм<br>
-<b>${_applyDiscount(result)} руб.</b> </div>`);
+<b>${_applyDiscount(result)} руб.</b> </div>`)
 }
 
 
@@ -81,6 +81,7 @@ function fullreset() {
     document.getElementById('calc-btn').innerHTML = "Рассчитать"; //! возврат кнопки к исходному значению
     store.set("summ", 0); //! обнуление общей стоимости в хранилище
     BC.cont.length = 0;
+    BC.toTab.length = 0;
 
 }
 

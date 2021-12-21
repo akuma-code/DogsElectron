@@ -28,14 +28,12 @@ function addListener() { //добавляет на поля ввода разм�
     document.getElementById('calc-btn').addEventListener('click', (event) => {
 
         if (event.altKey) {
-            //! gonow()
             event.preventDefault()
             document.querySelector('#et').style.display = 'block'
             const tab = new TableMaker(BC.toTab).toHTML
             document.querySelector('#et').innerHTML = ''
-            document.querySelector('#et').insertAdjacentElement('afterbegin', tab)
-            // gonow()
-            // document.querySelector('#outside').insertAdjacentElement('afterbegin', newblock.toDIV)
+            document.querySelector('#et').insertAdjacentElement('afterbegin', tab);
+            tabCopy('et')
             return
         }
         const inst = getInstanceData();
@@ -100,6 +98,19 @@ function saveToLocalStorage() {
     })
     localStorage.setItem('z_last_inst', JSON.stringify(toLS))
     localStorage.setItem('saved_zBlocks', JSON.stringify(savedCont));
+}
+
+function tabCopy(id) {
+    let range = document.createRange();
+    let selection = window.getSelection();
+    const nodeToCopy = document.getElementById(id)
+
+    selection.removeAllRanges();
+    range.selectNodeContents(nodeToCopy);
+    selection.addRange(range)
+
+    document.execCommand('copy', true)
+
 }
 
 function loadDB(src, cb) {
