@@ -91,7 +91,8 @@ function getInstanceData() {
     const $color = document.getElementById('zlist');
     const $grp = document.getElementById('zgrp');
     const $system = document.getElementById('prof');
-    const $gdepth = document.getElementById('gdepth')
+    const $gdepth = document.getElementById('gdepth');
+
     const $stv = ['s1', 's2', 's3', 'sd'].map(id => {
         let state = document.getElementById(`${id}`).style.opacity || 0;
         return {
@@ -99,7 +100,7 @@ function getInstanceData() {
             state: state
         }
     })
-
+    const korob = getKorob()
     const sizeset = _SizeTypeSet(type).map(item => new GLS(item.w, item.h));
     const glasses_mainS = new MainSelector()[type]();
 
@@ -128,6 +129,7 @@ function getInstanceData() {
         fixes: $stv,
         type: $ztype.innerText,
         grp: $grp.innerText,
+        korob: korob,
         // @ts-ignore
         system: $system.value,
         // @ts-ignore
@@ -363,6 +365,7 @@ class TableMaker {
         const {
             type,
             color,
+            kColor,
             zw,
             zh,
             price,
@@ -377,7 +380,7 @@ class TableMaker {
         tr.innerHTML = /*html*/ `
         <td>${type}</td>
         <td>${color}</td>
-        <td>белый</td>
+        <td>${kColor}</td>
         <td>${zw}</td>
         <td>${zh}</td>
         <td>${shtDpt}</td>

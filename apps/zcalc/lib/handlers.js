@@ -1,4 +1,9 @@
-function addListener() { //добавляет на поля ввода размеров возможность считать по нажатию ентера
+window.addEventListener("load", () => restoreInputs)
+window.addEventListener('beforeunload', () => saveToLocalStorage);
+
+function addListener() {
+    //добавляет на поля ввода размеров возможность считать по нажатию ентера
+    //! INPUT.SIZE
     let sizes = document.getElementsByClassName("size");
     for (let size of sizes) {
         size.addEventListener("keyup", function (event) {
@@ -24,7 +29,7 @@ function addListener() { //добавляет на поля ввода разм�
         imp.style.display = (door.dataset.isfix == "0") ? "block" : "none";
 
     });
-
+    //! CALC BUTTON
     document.getElementById('calc-btn').addEventListener('click', (event) => {
 
         if (event.altKey) {
@@ -43,8 +48,9 @@ function addListener() { //добавляет на поля ввода разм�
         saveToLocalStorage()
 
         document.getElementById("reset").style.display = "block";
-    })
 
+    })
+    //! EXPORT TABLE
     document.querySelector('div.tabwrapper').addEventListener('click', (ev) => {
         const targ = ev.target;
 
@@ -55,10 +61,42 @@ function addListener() { //добавляет на поля ввода разм�
             targ.style.display = 'none'
         }
     })
+    //! KOROB COLOR
+    document.querySelector('#kor_col').addEventListener('click', (event) => {
+        const targ = event.target;
+        let type = document.getElementById('ztype').textContent;
+        let $zgrp = document.getElementById('zgrp');
+        let groups = (type == "Isolite") ? groupsI : groupsR;
+        let zcolor = document.getElementById('zlist').value;
+        let kr = "";
+
+        document.querySelectorAll('[data-kor_select]').forEach(elem => elem.classList.remove('active'))
+
+        if (targ.matches('[data-kor_select]')) {
+            targ.classList.add('active');
+            const kcol_group = targ.dataset.kor_select;
+            event.currentTarget.dataset.kor_color = kcol_group;
+            kr = kcol_group
+        }
+
+        for (let item of groups) {
+            if (item.name.includes(zcolor)) $zgrp.innerText = item.setKat(kr)
+        }
+    }, true)
 
 }
-window.addEventListener("load", () => restoreInputs)
-window.addEventListener('beforeunload', () => saveToLocalStorage);
+
+function getKorob() {
+    const $KorElem = document.querySelector('#kor_col');
+    const $ztype = document.querySelector('#ztype');
+    const activeKor = $KorElem.querySelector('.active').textContent;
+    const korGrp = $KorElem.dataset.kor_color;
+    return {
+        type: $ztype.textContent,
+        kColor: activeKor,
+        kGroup: korGrp,
+    }
+}
 
 function restoreInputs() {
     if (!localStorage.getItem('zcalc_inputs')) {

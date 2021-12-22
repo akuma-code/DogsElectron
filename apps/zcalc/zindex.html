@@ -85,7 +85,7 @@ TODO: добавить отдельную дверь
             <div class="head-item ztypebtn" id="ztype" onclick="tt()" data-stls="ztype" data-loadstate="ztype">Isolite
             </div>
 
-            <select tabindex="5" class="head-item" name="zlist" id="zlist" placeholder="Цвет" onclick="setgr()"
+            <select tabindex="5" class="head-item" name="zlist" id="zlist" placeholder="Цвет" onclick="setPriceGroup()"
                 data-stls="zcolor" data-loadstate="zcolor">
             </select>
             <span class="resetv zc" onclick="resetvals()">&#9746;</span>
@@ -119,7 +119,7 @@ TODO: добавить отдельную дверь
     </div>
 
     <!-- *цвет короба-->
-    <div class="ktype" id="korob" oninput="setgr()">
+    <!-- <div class="ktype" id="korob" oninput="setgr()">
         <b>Цвет короба: </b>
         <input type="radio" value="white" id="whiteK" name="KorColor" checked>
         <label for="whiteK">Белый</label>
@@ -127,6 +127,20 @@ TODO: добавить отдельную дверь
         <label for="laminK" class="show">золото/махагон</label>
         <input type="radio" value="color" id="colorK" name="KorColor">
         <label for="colorK">Kоричневый/бежевый/серебро</label>
+    </div> -->
+    <div class="korob abs" data-kor_color="white" id="kor_col" data-loadstate="kcolor">
+        <div class="korgroup">
+            <span data-kor_select="white" class="active">Белый</span>
+        </div>
+        <div class="korgroup">
+            <span data-kor_select="lamin">Золото</span>
+            <span data-kor_select="lamin">Махагон</span>
+        </div>
+        <div class="korgroup">
+            <span data-kor_select="color">Kоричневый</span>
+            <span data-kor_select="color">Бежевый</span>
+            <span data-kor_select="color">Серебро</span>
+        </div>
     </div>
     <!--*контейнер для кнопок право-лево, картинки рамы и створок, ввод размеров-->
     <div class="cont" id="maincont">
@@ -183,7 +197,7 @@ TODO: добавить отдельную дверь
         td();
         tt();
         listSelector();
-        setgr()
+        setPriceGroup()
     </script>
 
 

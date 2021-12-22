@@ -5,10 +5,15 @@ function loadState({
     gdepth,
     color,
     type,
-    idSizeList
+    idSizeList,
+    korob
 }) {
     const $loadElems = Array.from(document.querySelectorAll('[data-loadstate]'));
     const winState = document.querySelector(`[data-loadstate=${wintype}]`);
+    const {
+        kColor,
+        kGroup
+    } = korob;
     winState.click()
     fixes.map(({
         id,
@@ -36,10 +41,16 @@ function loadState({
             if (currenttype !== type) tt()
             elem.value = color;
             elem.click()
+        };
+        if (loadstate === 'kcolor') {
+
+
         }
     })
     Array.from(document.getElementsByClassName('size')).map(elem => {
         elem.value = idSizeList[elem.id]
     })
+
+
 
 }

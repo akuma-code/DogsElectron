@@ -64,3 +64,42 @@
 .btn__thumb {
     border-radius: 10px;
 }
+
+span.active {
+    background: #fff;
+    color: rgb(4, 103, 168);
+}
+
+.korob.abs {
+    top: 0;
+    right: 0;
+}
+
+.korob {
+    display: flex;
+    width: 300px;
+    height: fit-content;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 2px;
+}
+
+.korgroup {
+    display: flex;
+    border-collapse: collapse;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100px;
+    background: rgb(219, 178, 178);
+    height: fit-content;
+    gap: 2px;
+}
+
+.korgroup span {
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.korgroup span:hover {
+    background: rgb(230, 253, 17);
+}

@@ -137,21 +137,17 @@ async function td() {
 
 
 // !@Set Group - определяет группу жалюзей #zgrp
-async function setgr() {
+function setPriceGroup() {
     let type = document.getElementById('ztype').textContent;
-    let zcolor = await document.getElementById('zlist').value;
+    let zcolor = document.getElementById('zlist').value;
     let elem = document.getElementById('zgrp');
     let groups = (type == "Isolite") ? groupsI : groupsR
-    let korobs = document.getElementById('korob').children;
-    let kr = "";
-    for (let korob of korobs) {
-        if (!korob.checked) continue
-        else {
-            kr = korob.value
-        }
-    }
+    const {
+        kColor,
+        kGroup
+    } = getKorob();
     for (let item of groups) {
-        if (item.name.includes(zcolor)) elem.innerText = item.setKat(kr)
+        if (item.name.includes(zcolor)) elem.innerText = item.setKat(kGroup)
     }
 }
 
@@ -192,5 +188,5 @@ function listSelector() {
             list.appendChild(option)
         }
     }
-    setgr()
+    setPriceGroup()
 }

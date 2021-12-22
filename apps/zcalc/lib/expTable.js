@@ -21,7 +21,11 @@ class TableExport {
     addLineToCont(export_block = OutBlockMain.data) {
         const {
             zhals = [],
+                korob
         } = export_block;
+        const {
+            kColor
+        } = korob
         const shtDpt = `10`;
         const uprLength = (h) => (Math.floor((+h - 50) / 10)) * 10
 
@@ -39,6 +43,7 @@ class TableExport {
             const ExpLine = {
                 type: ztype,
                 color,
+                kColor,
                 zw,
                 zh,
                 price,
@@ -77,50 +82,50 @@ class TableExport {
 }
 
 
-const TE = new TableExport();
-TE.addLineToCont({
-    "color": "Аллегро(2.0)",
+// const TE = new TableExport();
+// TE.addLineToCont({
+//     "color": "Аллегро(2.0)",
 
-    "type": "Rollite",
+//     "type": "Rollite",
 
-    "zhals": [{
-            "zw": 504,
-            "zh": 1396,
-            "price": 2735
-        },
-        {
-            "zw": 25,
-            "zh": 1396,
-            "price": 2346
-        },
-        {
-            "zw": 504,
-            "zh": 1396,
-            "price": 2735
-        }
-    ]
-})
-TE.addLineToCont({
-    "color": "Аллегро(2.0)",
+//     "zhals": [{
+//             "zw": 504,
+//             "zh": 1396,
+//             "price": 2735
+//         },
+//         {
+//             "zw": 25,
+//             "zh": 1396,
+//             "price": 2346
+//         },
+//         {
+//             "zw": 504,
+//             "zh": 1396,
+//             "price": 2735
+//         }
+//     ]
+// })
+// TE.addLineToCont({
+//     "color": "Аллегро(2.0)",
 
-    "type": "Rollite",
+//     "type": "Rollite",
 
-    "zhals": [{
-            "zw": 504,
-            "zh": 1396,
-            "price": 2735
-        },
-        {
-            "zw": 25,
-            "zh": 1396,
-            "price": 2346
-        },
-        {
-            "zw": 504,
-            "zh": 1396,
-            "price": 2735
-        }
-    ]
-})
+//     "zhals": [{
+//             "zw": 504,
+//             "zh": 1396,
+//             "price": 2735
+//         },
+//         {
+//             "zw": 25,
+//             "zh": 1396,
+//             "price": 2346
+//         },
+//         {
+//             "zw": 504,
+//             "zh": 1396,
+//             "price": 2735
+//         }
+//     ]
+// })
 
-TE.addExel()
+// TE.addExel()
