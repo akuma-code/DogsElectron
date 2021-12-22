@@ -1,5 +1,13 @@
 window.addEventListener("load", () => restoreInputs)
 window.addEventListener('beforeunload', () => saveToLocalStorage);
+window.addEventListener('keydown', (e) => {
+    const calcbtn = document.querySelector('#calc-btn');
+    let temp = calcbtn.textContent;
+    if (e.altKey) {
+        calcbtn.textContent = 'Таблица РДО'
+        setTimeout(() => calcbtn.textContent = temp, 2000)
+    }
+})
 
 function addListener() {
     //добавляет на поля ввода размеров возможность считать по нажатию ентера
@@ -33,9 +41,10 @@ function addListener() {
     document.getElementById('calc-btn').addEventListener('click', (event) => {
 
         if (event.altKey) {
-            event.preventDefault()
+            event.preventDefault();
+            const maketab = new TableElementMaker();
+            const tab = maketab.getTable(BC.toTab)
             document.querySelector('#et').style.display = 'block'
-            const tab = new TableMaker(BC.toTab).toHTML
             document.querySelector('#et').innerHTML = ''
             document.querySelector('#et').insertAdjacentElement('afterbegin', tab);
             tabCopy('et')

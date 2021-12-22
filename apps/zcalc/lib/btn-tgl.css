@@ -71,17 +71,17 @@ span.active {
 }
 
 .korob.abs {
-    top: 0;
-    right: 0;
+    top: 150px;
+    left: 353px;
 }
 
 .korob {
     display: flex;
-    width: 300px;
+    width: 400px;
     height: fit-content;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 2px;
+    gap: 3px;
 }
 
 .korgroup {
@@ -89,17 +89,34 @@ span.active {
     border-collapse: collapse;
     flex-direction: column;
     flex-wrap: nowrap;
-    width: 100px;
+    width: 133px;
     background: rgb(219, 178, 178);
     height: fit-content;
-    gap: 2px;
+    gap: 1px;
 }
 
 .korgroup span {
     border: 1px solid #000;
     text-align: center;
+    font-size: 1.1em;
+    cursor: pointer;
 }
+
+
+span[data-kor_dd] {
+    display: none;
+}
+
 
 .korgroup span:hover {
     background: rgb(230, 253, 17);
+
 }
+
+.korgroup:hover span[data-kor_dd] {
+    display: flex;
+}
+
+/* span[data-kor_dd=hide] {
+    display: none;
+} */

@@ -35,6 +35,7 @@ TODO: добавить отдельную дверь
             "lib/testing.js",
         ]));
         stylelog("HTML IS READY");
+
     </script>
 
 
@@ -131,15 +132,21 @@ TODO: добавить отдельную дверь
     <div class="korob abs" data-kor_color="white" id="kor_col" data-loadstate="kcolor">
         <div class="korgroup">
             <span data-kor_select="white" class="active">Белый</span>
+            <span data-kor_dd="hide">Белый</span>
+
         </div>
         <div class="korgroup">
             <span data-kor_select="lamin">Золото</span>
-            <span data-kor_select="lamin">Махагон</span>
+
+            <span data-kor_dd="hide">Золото</span>
+            <span data-kor_dd="lamin">Махагон</span>
         </div>
         <div class="korgroup">
             <span data-kor_select="color">Kоричневый</span>
-            <span data-kor_select="color">Бежевый</span>
-            <span data-kor_select="color">Серебро</span>
+
+            <span data-kor_dd="color">Kоричневый</span>
+            <span data-kor_dd="color">Бежевый</span>
+            <span data-kor_dd="color">Серебро</span>
         </div>
     </div>
     <!--*контейнер для кнопок право-лево, картинки рамы и створок, ввод размеров-->
@@ -172,6 +179,7 @@ TODO: добавить отдельную дверь
             </div>
             <script>
                 restoreInputs()
+
             </script>
         </div>
 
@@ -198,6 +206,7 @@ TODO: добавить отдельную дверь
         tt();
         listSelector();
         setPriceGroup()
+
     </script>
 
 

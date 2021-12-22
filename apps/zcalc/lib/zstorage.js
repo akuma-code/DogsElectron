@@ -202,6 +202,7 @@ class OutContainer {
 
 
     _addListeners(elem = HTMLDivElement) {
+        let counted = false;
         elem.addEventListener('click', (event) => {
             const target = event.target;
             const id = elem.dataset.outblock_id
@@ -222,15 +223,29 @@ class OutContainer {
 
             }
             if (target.matches('[data-outbtn=export]')) {
-                const current = this.getBlockDataById(id)
+                const current = this.getBlockDataById(id);
+                target.style.opacity = 0.8;
+                target.textContent = 'Открыть таблицу';
+                // if (!this.isAdded) {
+                //     target.onclick = getExport.bind(this, this.toTab);
+                //     this.isAdded = true
+                //     return
+
+
+                // };
                 this.exportCont.addLineToCont(current);
                 this.exportCont.toExel;
-                target.textContent = 'Есть!';
-                target.style.opacity = 0.7;
-                target.disabled = true;
+                if (!counted) target.addEventListener('contextmenu', (e) => {
+                    e.preventDefault()
+                    getExport(this.toTab);
+                    e.target.disabled = false
+                    counted = !counted
+                })
+                // target.disabled = true;
 
                 console.log("items to export: ", this.exportCont.expRaws.length)
             }
+
         })
         // console.log('Listeners added!')
     }
@@ -275,6 +290,13 @@ class OutContainer {
 
 const BC = new OutContainer();
 
+function IA(func) {
+    let isadded = false;
+    if (!isadded) {
+        isadded = !isadded
+        return func.call(this, ...args)
+    }
+}
 
 class OutBlockMain extends OutContainer {
     constructor(block = getInstanceData) {
@@ -353,56 +375,4 @@ function _applyDiscount(price) {
     const isDisc = document.querySelector('input#isdisc').checked
     const result = (isDisc) ? Math.floor(price * rate) : price
     return result
-}
-
-
-class TableMaker {
-    constructor(toTab) {
-        this.toHTML = this.getTable(toTab)
-    }
-
-    makeTR(lineExport) {
-        const {
-            type,
-            color,
-            kColor,
-            zw,
-            zh,
-            price,
-            Lupr,
-            shtDpt,
-            sq,
-            cB,
-            fCB,
-            itog
-        } = lineExport;
-        const tr = document.createElement('tr');
-        tr.innerHTML = /*html*/ `
-        <td>${type}</td>
-        <td>${color}</td>
-        <td>${kColor}</td>
-        <td>${zw}</td>
-        <td>${zh}</td>
-        <td>${shtDpt}</td>
-        <td></td>
-        <td>${Lupr}</td>
-        <td>${sq}</td>
-        <td>${cB}</td>
-        <td>1</td>
-        <td>${fCB}</td>
-        <td>${price}</td>
-        <td></td>
-        <td>${itog}</td>
-        `;
-        return tr
-    };
-
-    getTable(cont = []) {
-        const tab = document.createElement('table');
-        tab.classList.add('exptab');
-        cont.forEach(line => {
-            tab.insertAdjacentElement('beforeend', this.makeTR(line))
-        })
-        return tab
-    }
 }

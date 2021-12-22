@@ -15,6 +15,7 @@ const EXEL_F = (line) => {
 class TableExport {
     constructor() {
         this.expRaws = [];
+        this.isAdded = false
 
     }
 
@@ -81,6 +82,63 @@ class TableExport {
     }
 }
 
+class TableElementMaker {
+
+
+    makeTR(lineExport) {
+        const {
+            type,
+            color,
+            kColor,
+            zw,
+            zh,
+            price,
+            Lupr,
+            shtDpt,
+            sq,
+            cB,
+            fCB,
+            itog
+        } = lineExport;
+        const tr = document.createElement('tr');
+        tr.innerHTML = /*html*/ `
+        <td>${type}</td>
+        <td>${color}</td>
+        <td>${kColor}</td>
+        <td>${zw}</td>
+        <td>${zh}</td>
+        <td>${shtDpt}</td>
+        <td></td>
+        <td>${Lupr}</td>
+        <td>${sq}</td>
+        <td>${cB}</td>
+        <td>1</td>
+        <td>${fCB}</td>
+        <td>${price}</td>
+        <td></td>
+        <td>${itog}</td>
+        `;
+        return tr
+    };
+
+    getTable(cont = []) {
+        const tab = document.createElement('table');
+        tab.classList.add('exptab');
+        cont.forEach(line => {
+            tab.insertAdjacentElement('beforeend', this.makeTR(line))
+        })
+        return tab
+    }
+}
+
+function getExport(data) {
+    const maketab = new TableElementMaker();
+    const tab = maketab.getTable(data)
+    document.querySelector('#et').style.display = 'block'
+    document.querySelector('#et').innerHTML = ''
+    document.querySelector('#et').insertAdjacentElement('beforeend', tab);
+    tabCopy('et')
+}
 
 // const TE = new TableExport();
 // TE.addLineToCont({
