@@ -313,7 +313,6 @@ class OutBlockMain extends OutContainer {
 
         function _outbody({
             color,
-            grp,
             zhals,
             prices
         }) {
