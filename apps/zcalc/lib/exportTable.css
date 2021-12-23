@@ -1,19 +1,21 @@
 .exptab {
     position: absolute;
-    left: 50px;
+    left: 30px;
     top: 50px;
     background: rgb(255, 255, 255);
     border-collapse: collapse;
 }
 
 .exptab td {
+    font-size: 13px;
+    font-family: 'Times New Roman';
     border: 1px solid #000;
-    max-width: 180px;
-    min-width: 45px;
+    max-width: 190px;
+    min-width: 50px;
     height: fit-content;
     overflow: visible;
     word-break: break-all;
-    padding: 5px 10px;
+    padding: 5px 5px;
 }
 
 .tabwrapper {
@@ -24,5 +26,5 @@
     top: 0;
     left: 0;
     background: #8a8a8a8e;
-    z-index: 100;
+    z-index: 500;
 }

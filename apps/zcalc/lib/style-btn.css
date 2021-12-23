@@ -47,10 +47,10 @@
 #show_calc.resbtn {
     display: none;
     visibility: visible;
-    left: 580px;
-    border-radius: 30px;
-    top: 10px;
-    width: 130px;
+    left: 10px;
+    border-radius: 10px;
+    top: 660px;
+    width: 200px;
 }
 
 #reset.resbtn {

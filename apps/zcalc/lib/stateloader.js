@@ -43,8 +43,11 @@ function loadState({
             elem.click()
         };
         if (loadstate === 'kcolor') {
-
-
+            const currentKorob = elem.querySelector(`.korgroup span[data-kor_select=${kGroup}]`);
+            document.querySelectorAll('[data-kor_select]').forEach(elem => elem.classList.remove('active'))
+            currentKorob.textContent = kColor;
+            currentKorob.classList.add('active');
+            currentKorob.click()
         }
     })
     Array.from(document.getElementsByClassName('size')).map(elem => {

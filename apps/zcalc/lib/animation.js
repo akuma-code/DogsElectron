@@ -107,7 +107,7 @@ async function tt() {
         listSelector()
     }
     for (let el of showelems) {
-        el.style.display = (type == "Isolite") ? "block" : "none";
+        el.style.display = (type == "Isolite") ? "flex" : "none";
     }
 }
 
@@ -138,14 +138,17 @@ async function td() {
 
 // !@Set Group - определяет группу жалюзей #zgrp
 function setPriceGroup() {
-    let type = document.getElementById('ztype').textContent;
+    // let type = document.getElementById('ztype').textContent;
     let zcolor = document.getElementById('zlist').value;
     let elem = document.getElementById('zgrp');
-    let groups = (type == "Isolite") ? groupsI : groupsR
     const {
         kColor,
-        kGroup
+        kGroup,
+        type
     } = getKorob();
+
+    let groups = (type == "Isolite") ? groupsI : groupsR
+
     for (let item of groups) {
         if (item.name.includes(zcolor)) elem.innerText = item.setKat(kGroup)
     }

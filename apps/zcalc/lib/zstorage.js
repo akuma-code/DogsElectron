@@ -225,23 +225,12 @@ class OutContainer {
             if (target.matches('[data-outbtn=export]')) {
                 const current = this.getBlockDataById(id);
                 target.style.opacity = 0.8;
-                target.textContent = 'Открыть таблицу';
-                // if (!this.isAdded) {
-                //     target.onclick = getExport.bind(this, this.toTab);
-                //     this.isAdded = true
-                //     return
-
-
-                // };
-                this.exportCont.addLineToCont(current);
+                target.style.color = '#fff'
+                target.textContent = 'Добавлено';
+                document.querySelector('#show_calc').style.display = 'block'
+                this.exportCont.addRowToCont(current);
                 this.exportCont.toExel;
-                if (!counted) target.addEventListener('contextmenu', (e) => {
-                    e.preventDefault()
-                    getExport(this.toTab);
-                    e.target.disabled = false
-                    counted = !counted
-                })
-                // target.disabled = true;
+                target.disabled = true;
 
                 console.log("items to export: ", this.exportCont.expRaws.length)
             }
@@ -288,7 +277,6 @@ class OutContainer {
     }
 }
 
-const BC = new OutContainer();
 
 function IA(func) {
     let isadded = false;
@@ -366,8 +354,6 @@ class OutBlockMain extends OutContainer {
         return div
     }
 
-
-
 }
 
 function _applyDiscount(price) {
@@ -376,3 +362,4 @@ function _applyDiscount(price) {
     const result = (isDisc) ? Math.floor(price * rate) : price
     return result
 }
+const BC = new OutContainer();

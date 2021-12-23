@@ -3,7 +3,7 @@ function updateHTML(HTMLelement, text) {
     HTMLelement.insertAdjacentHTML('beforeend', text)
     return
 }
-const getState = function() {
+const getState = function () {
     function state() {
         //@ts-ignore
         const state = $stateElem.dataset.bgState
@@ -55,7 +55,7 @@ function debounce(func, delay) {
         func.apply(this, arguments);
 
         isCooldown = true;
-        setTimeout(function() {
+        setTimeout(function () {
             if (savedArgs) {
                 bounce.apply(savedThis, savedArgs);
                 savedArgs = savedThis = null;
@@ -72,7 +72,7 @@ function spanResult(w, h) {
 };
 
 function spanWeight(weight) {
-    return `<span><b>${weight}</b> кг</span>`
+    return `<span id="gw"><b>${weight}</b> кг</span>`
 };
 
 const square = (w, h) => Math.round(w / 100 * h / 100) / 100;
@@ -85,7 +85,7 @@ function destructor(obj) {
     let resultObj = {};
     resultObj.glass = {};
     const str = JSON.stringify(Object.fromEntries(obj));
-    JSON.parse(str, function(key, value) {
+    JSON.parse(str, function (key, value) {
         if (key === "gw" || key === 'gh') resultObj.glass[key] = value;
 
     });

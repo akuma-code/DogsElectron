@@ -263,3 +263,11 @@ div.disp_none {
     top: 82%;
     z-index: 10;
 }
+
+.glsweight {
+    position: relative;
+    top: 160px;
+    display: block;
+    font-size: 1.2em;
+    z-index: 4;
+}

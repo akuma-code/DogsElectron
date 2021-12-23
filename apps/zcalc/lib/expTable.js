@@ -19,7 +19,7 @@ class TableExport {
 
     }
 
-    addLineToCont(export_block = OutBlockMain.data) {
+    addRowToCont(export_block = OutBlockMain.data) {
         const {
             zhals = [],
                 korob
@@ -139,51 +139,3 @@ function getExport(data) {
     document.querySelector('#et').insertAdjacentElement('beforeend', tab);
     tabCopy('et')
 }
-
-// const TE = new TableExport();
-// TE.addLineToCont({
-//     "color": "Аллегро(2.0)",
-
-//     "type": "Rollite",
-
-//     "zhals": [{
-//             "zw": 504,
-//             "zh": 1396,
-//             "price": 2735
-//         },
-//         {
-//             "zw": 25,
-//             "zh": 1396,
-//             "price": 2346
-//         },
-//         {
-//             "zw": 504,
-//             "zh": 1396,
-//             "price": 2735
-//         }
-//     ]
-// })
-// TE.addLineToCont({
-//     "color": "Аллегро(2.0)",
-
-//     "type": "Rollite",
-
-//     "zhals": [{
-//             "zw": 504,
-//             "zh": 1396,
-//             "price": 2735
-//         },
-//         {
-//             "zw": 25,
-//             "zh": 1396,
-//             "price": 2346
-//         },
-//         {
-//             "zw": 504,
-//             "zh": 1396,
-//             "price": 2735
-//         }
-//     ]
-// })
-
-// TE.addExel()

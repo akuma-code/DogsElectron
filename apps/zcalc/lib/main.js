@@ -75,9 +75,10 @@ function resetvals() {
 
 function fullreset() {
     document.getElementById('outside').innerHTML = ""; // ! сброс вывода жалюзи
-    document.getElementById('zlist').value = ""; //! цвет жалюзи
-    document.getElementById('zgrp').innerText = ""; //! группа жалюзи
+    // document.getElementById('zlist').value = ""; //! цвет жалюзи
+    // document.getElementById('zgrp').innerText = ""; //! группа жалюзи
     document.getElementById("reset").style.display = "none";
+    document.getElementById("show_calc").style.display = "none";
     document.getElementById('calc-btn').innerHTML = "Рассчитать"; //! возврат кнопки к исходному значению
     store.set("summ", 0); //! обнуление общей стоимости в хранилище
     BC.cont.length = 0;

@@ -113,7 +113,7 @@ class DeltaCalcModule extends StorageModule {
         const {
             type
         } = getState();
-        const $Welem = document.querySelector('#gweight');
+
         const glasses = Array.from(gls).join(',').split(',');
         const sumOfGlasses = glasses.reduce((sum, current) => sum + parseInt(current), 0);
         // console.log(sumOfGlasses);
@@ -218,6 +218,7 @@ class ListenerModule extends DeltaCalcModule {
     updWeight() {
         const gls = $weight.value
         this.updateWeight(gls || null);
+
         Send2HTML()
         return
     }
@@ -240,16 +241,19 @@ function Send2HTML(storageObj = DSO(DataStorage)) {
             if (type === 'stv' && system === 'WHS' && item.type === 'skf') {
                 item.div = /*html*/ `<div  style="margin-top: 20px; font-weight: 100; color: #fff"><span>#SKF на WHS не ставится!</span></div>`
             };
-            $out.insertAdjacentHTML("beforeend", item.div)
+            $out.insertAdjacentHTML("beforeend", item.div);
+
         });
     };
     if (storageObj.type && storageObj.type === 'svet') {
         const model = MSoutputModel;
         model(storageObj.MS).forEach(item => {
-            $out.insertAdjacentHTML("beforeend", item.div)
+            $out.insertAdjacentHTML("beforeend", item.div);
         });
 
     }
+    const $Welem = document.querySelector('span[data-gwout]');
+    $Welem.innerHTML = document.querySelector('#gw').textContent;
 }
 
 const MSoutputModel = (MS) => [{
@@ -266,7 +270,7 @@ const MSoutputModel = (MS) => [{
     },
     {
         type: 'weight',
-        div: /*html*/ `<div style='margin-top: 20px; color: #fff'><span>Вес ст/п:</span>${spanWeight(MS.weight || 0)}</div>`
+        div: /*html*/ `<div style='margin-top: 20px; color: #fff'><span >Вес ст/п:</span>${spanWeight(MS.weight || 0)}</div>`
     },
 ];
 

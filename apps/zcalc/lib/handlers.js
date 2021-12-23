@@ -1,13 +1,13 @@
 window.addEventListener("load", () => restoreInputs)
 window.addEventListener('beforeunload', () => saveToLocalStorage);
-window.addEventListener('keydown', (e) => {
-    const calcbtn = document.querySelector('#calc-btn');
-    let temp = calcbtn.textContent;
-    if (e.altKey) {
-        calcbtn.textContent = 'Таблица РДО'
-        setTimeout(() => calcbtn.textContent = temp, 2000)
-    }
-})
+// window.addEventListener('keydown', (e) => {
+//     const calcbtn = document.querySelector('#calc-btn');
+//     let temp = calcbtn.textContent;
+//     if (e.altKey) {
+//         calcbtn.textContent = 'Таблица'
+//         setTimeout(() => calcbtn.textContent = temp, 2000)
+//     }
+// })
 
 function addListener() {
     //добавляет на поля ввода размеров возможность считать по нажатию ентера
@@ -59,7 +59,7 @@ function addListener() {
         document.getElementById("reset").style.display = "block";
 
     })
-    //! EXPORT TABLE
+    //! CLOSE EXPORT TABLE
     document.querySelector('div.tabwrapper').addEventListener('click', (ev) => {
         const targ = ev.target;
 
@@ -73,25 +73,39 @@ function addListener() {
     //! KOROB COLOR
     document.querySelector('#kor_col').addEventListener('click', (event) => {
         const targ = event.target;
+        const targSelector = event.currentTarget;
         let type = document.getElementById('ztype').textContent;
         let $zgrp = document.getElementById('zgrp');
         let groups = (type == "Isolite") ? groupsI : groupsR;
         let zcolor = document.getElementById('zlist').value;
-        let kr = "";
+        let korobColorType = "";
 
         document.querySelectorAll('[data-kor_select]').forEach(elem => elem.classList.remove('active'))
 
-        if (targ.matches('[data-kor_select]')) {
+        if (targ.matches('.korgroup [data-kor_select]')) {
             targ.classList.add('active');
             const kcol_group = targ.dataset.kor_select;
-            event.currentTarget.dataset.kor_color = kcol_group;
-            kr = kcol_group
+            targSelector.dataset.kor_color = kcol_group;
+            korobColorType = kcol_group
         }
-
+        if (targ.matches('.droplist span')) {
+            const kcol_group = targ.dataset.kor_select;
+            targSelector.dataset.kor_color = kcol_group;
+            korobColorType = kcol_group;
+            targSelector.querySelectorAll(`[data-kor_select=${korobColorType}]`).forEach(elem => elem.classList.remove('selected'))
+            targSelector.querySelector(`span[data-kor_select=${korobColorType}]`).textContent = targ.textContent;
+            targSelector.querySelector(`span[data-kor_select=${korobColorType}]`).classList.add('active');
+            targ.classList.add('selected');
+        }
         for (let item of groups) {
-            if (item.name.includes(zcolor)) $zgrp.innerText = item.setKat(kr)
+            if (item.name.includes(zcolor)) $zgrp.innerText = item.setKat(korobColorType)
         }
     }, true)
+
+    document.querySelector('#show_calc').addEventListener('click', (e) => {
+
+        getExport(BC.toTab)
+    })
 
 }
 
@@ -124,8 +138,8 @@ function restoreInputs() {
 
 function saveToLocalStorage() {
     const sizes = _SizeList();
-    const $inst = document.querySelector('#showinst');
-    $inst.innerHTML = '<ul>';
+    // const $inst = document.querySelector('#showinst');
+    // $inst.innerHTML = '<ul>';
     localStorage.setItem('zcalc_inputs', JSON.stringify(sizes))
     const $savedElems = Array.from(document.querySelectorAll('[data-stls]')) || [];
     const toLS = $savedElems.map(element => {

@@ -1,8 +1,5 @@
 <!-- TODO: поменять кнопку ресет
-TODO: добавить стрелку на тип жалюзей
-TODO: подсказка на катеогрию
-TODO: добавить отдельную дверь
-*TODO: выравнивание текста для длинного названия-->
+TODO: добавить отдельную дверь-->
 
 <!DOCTYPE HTML>
 <html>
@@ -35,7 +32,6 @@ TODO: добавить отдельную дверь
             "lib/testing.js",
         ]));
         stylelog("HTML IS READY");
-
     </script>
 
 
@@ -119,37 +115,29 @@ TODO: добавить отдельную дверь
         </div>
     </div>
 
-    <!-- *цвет короба-->
-    <!-- <div class="ktype" id="korob" oninput="setgr()">
-        <b>Цвет короба: </b>
-        <input type="radio" value="white" id="whiteK" name="KorColor" checked>
-        <label for="whiteK">Белый</label>
-        <input type="radio" value="lamin" id="laminK" name="KorColor" class="show">
-        <label for="laminK" class="show">золото/махагон</label>
-        <input type="radio" value="color" id="colorK" name="KorColor">
-        <label for="colorK">Kоричневый/бежевый/серебро</label>
-    </div> -->
+    <!-- !цвет короба-->
     <div class="korob abs" data-kor_color="white" id="kor_col" data-loadstate="kcolor">
         <div class="korgroup">
             <span data-kor_select="white" class="active">Белый</span>
-            <span data-kor_dd="hide">Белый</span>
 
         </div>
-        <div class="korgroup">
-            <span data-kor_select="lamin">Золото</span>
-
-            <span data-kor_dd="hide">Золото</span>
-            <span data-kor_dd="lamin">Махагон</span>
+        <div class="show korgroup">
+            <span data-kor_select="lamin">Золотой дуб</span>
+            <div class="droplist">
+                <span data-kor_select="lamin">Махагон</span>
+                <span data-kor_select="lamin">Золотой дуб</span>
+            </div>
         </div>
         <div class="korgroup">
             <span data-kor_select="color">Kоричневый</span>
-
-            <span data-kor_dd="color">Kоричневый</span>
-            <span data-kor_dd="color">Бежевый</span>
-            <span data-kor_dd="color">Серебро</span>
+            <div class="droplist">
+                <span data-kor_select="color">Бежевый</span>
+                <span data-kor_select="color">Серебро</span>
+                <span data-kor_select="color">Kоричневый</span>
+            </div>
         </div>
     </div>
-    <!--*контейнер для кнопок право-лево, картинки рамы и створок, ввод размеров-->
+    <!--!контейнер для кнопок право-лево, картинки рамы и створок, ввод размеров-->
     <div class="cont" id="maincont">
 
         <!--! BACKGROUNF FON IMG-->
@@ -179,10 +167,9 @@ TODO: добавить отдельную дверь
             </div>
             <script>
                 restoreInputs()
-
             </script>
         </div>
-
+        <!--!OUTPUT-->
         <div class="current">
             <div id="outside">
             </div>
@@ -191,14 +178,13 @@ TODO: добавить отдельную дверь
     <!--!кнопка СБРОС-->
     <img src="img/reset.jpg" alt="reset" id="reset" class="resbtn" onclick="fullreset()">
 
-    <div class="show_inst abs" id="showinst" style="top:700px; left:10px"></div>
     <div class="btn__cont" id="btn__cont">
         <div class="btn__thumb" data-calc-state="close" onclick="toggle_rs_calc(this)"></div>
     </div>
-
-    <img src="img/devbtn.jpg" alt="reset" id="show_calc" class="resbtn" onclick="toggleCalc()">
+    <img src="img/devbtn.jpg" alt="reset" id="show_calc" class="resbtn">
 
     <div class="rs__maincalc" id="rs__calc" data-rs-calc="hide"></div>
+    <!--!Кнопка таблицы РДО-->
     <div class="tabwrapper" id="et"> </div>
     <script>
         addListener();
@@ -206,10 +192,7 @@ TODO: добавить отдельную дверь
         tt();
         listSelector();
         setPriceGroup()
-
     </script>
-
-
 </body>
 
 </html>
