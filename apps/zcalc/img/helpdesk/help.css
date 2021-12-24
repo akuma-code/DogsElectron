@@ -12,12 +12,41 @@
 
 button[data-handler] {
     position: absolute;
-    top: 164px;
-    left: 1030px;
+    top: 90px;
+    left: 1150px;
     font-size: 22px;
-    background: rgba(255, 99, 71, 0.664);
+    background: tomato;
     padding: 4px 8px 4px 8px;
+    transition: all .2s ease-in;
+    cursor: pointer;
+
 }
+
+button[data-handler]:hover {
+    background: #dd3333;
+}
+
+.help-btn {
+    width: 50px;
+
+}
+
+button[data-handler]::after {
+    content: 'HELP Panel';
+    display: none;
+
+}
+
+button[data-handler]:hover::after {
+    content: 'Окрыть подсказку';
+    display: block;
+    position: absolute;
+    left: 80px;
+    bottom: 0;
+
+
+}
+
 
 #helpcont {
     left: 30px;
@@ -31,5 +60,5 @@ button[data-handler] {
     width: 1260px;
     height: auto;
     left: 70px;
-    top: 120px;
+    top: 70px;
 }

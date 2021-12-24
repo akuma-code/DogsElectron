@@ -47,16 +47,16 @@
 #show_calc.resbtn {
     display: none;
     visibility: visible;
-    left: 1030px;
+    left: 553px;
     border-radius: 10px;
-    top: 280px;
+    top: 78px;
     width: 200px;
 }
 
 #reset.resbtn {
     display: none;
     left: 1030px;
-    top: 210px;
+    top: 170px;
 }
 
 .resbtn:hover {

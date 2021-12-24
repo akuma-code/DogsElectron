@@ -35,6 +35,7 @@ TODO: добавить отдельную дверь-->
             ])
         });
         stylelog("HTML IS READY");
+
     </script>
 
 
@@ -92,20 +93,20 @@ TODO: добавить отдельную дверь-->
 
             <div id="zgrp" class="head-item"></div>
 
-            <button class="calc-btn hand-item" id="calc-btn">Рассчитать</button>
+            <button class="calc-btn head-item" id="calc-btn">Рассчитать</button>
 
         </div>
     </header>
 
     <div class="disc abs">
-        <label for="discount"><span>Скидка:</span>
+        <label for="discount"><span>Скидка: </span>
             <input type="number" name="discount" id="discount" min="0" max="90" step="1" value="40"
-                data-stls="discount">%
+                data-stls="discount">
         </label>
         <label for="isdisc" class="usedisc"><input type="checkbox" name="usedisc" id="isdisc" data-stls="discount">
-            Считать со скидкой?</label>
+            Применять скидку?</label>
     </div>
-
+    <!--!Выбор конфигурации окна для расчета-->
     <div id="cfgbox" class="cfg-gridbox">
         <div class="cfg-item" data-cfg="fff" onclick="resizeWin('fff')" data-loadstate="fff"><span>Трешка</span> </div>
         <div class="cfg-item" data-cfg="ff" onclick="resizeWin('ff')" data-loadstate="ff"><span> Двушка </span></div>
@@ -140,10 +141,10 @@ TODO: добавить отдельную дверь-->
             </div>
         </div>
     </div>
-    <!--!контейнер для кнопок право-лево, картинки рамы и створок, ввод размеров-->
+
+    <!--! BACKGROUNF FON IMG-->
     <div class="cont" id="maincont">
 
-        <!--! BACKGROUNF FON IMG-->
         <div class="imgbox" id="imgbox" data-isbb="false" data-rama-step="3" wintype="fff">
             <img src="img/fff.svg" alt="nope" class="fon" id="fon" data-rama-step="3" wintype="fff" data-stls="wintype"
                 data-loadstate="wintype">
@@ -170,6 +171,7 @@ TODO: добавить отдельную дверь-->
             </div>
             <script>
                 restoreInputs()
+
             </script>
         </div>
         <!--!OUTPUT-->
@@ -178,18 +180,21 @@ TODO: добавить отдельную дверь-->
             </div>
         </div>
     </div>
+    <!--! SingleCalc Output-->
+    <div class="rs__maincalc" id="rs__calc" data-rs-calc="hide"></div>
     <!--!кнопка СБРОС-->
     <img src="img/reset.jpg" alt="reset" id="reset" class="resbtn" onclick="fullreset()">
-
+    <!--! Toggle Single Calculator-->
     <div class="btn__cont" id="btn__cont">
         <div class="btn__thumb" data-calc-state="close" onclick="toggle_rs_calc(this)"></div>
     </div>
+    <!--! Show Table Btn-->
     <img src="img/devbtn.jpg" alt="reset" id="show_calc" class="resbtn">
 
-    <div class="rs__maincalc" id="rs__calc" data-rs-calc="hide"></div>
-    <!--!Кнопка таблицы РДО-->
+    <!--! Table Export Output-->
     <div class="tabwrapper" id="et"></div>
-    <button data-handler="showhelp">Помощь</button>
+    <!--!Help button-->
+    <button data-handler="showhelp"><img src="./img/helpdesk/question--v1.png" class='help-btn' /></button>
     <div class="helpdesk" id="hd">
     </div>
     <script>
@@ -198,6 +203,7 @@ TODO: добавить отдельную дверь-->
         tt();
         listSelector();
         setPriceGroup()
+
     </script>
 </body>
 
