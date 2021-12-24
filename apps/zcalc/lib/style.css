@@ -6,6 +6,7 @@
 @import url('tooltip.css');
 @import url('outblock.css');
 @import url('exportTable.css');
+@import url('../img/helpdesk/help.css');
 
 
 :root {
@@ -449,15 +450,15 @@ div#outside>span:-moz-first-node {
 
 .disc {
     display: flex;
-    left: 765px;
-    top: 12px;
+    left: 1020px;
+    top: 10px;
     font-size: 2em;
     justify-content: space-evenly;
     align-items: center;
     align-content: center;
     flex-direction: column;
     flex-wrap: nowrap;
-    width: 240px;
+    width: 200px;
 }
 
 #discount {

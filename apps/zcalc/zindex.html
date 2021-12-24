@@ -22,15 +22,18 @@ TODO: добавить отдельную дверь-->
             document.head.append(script);
             script.onload = () => callback(script);
         }
-        loadScript('zApp.js', () => new AppScriptLoader([
-            "lib/expTable.js",
-            "lib/zstorage.js",
-            "lib/funcprice.js",
-            "lib/Selector.js",
-            "lib/mapper.js",
-            "lib/model.js",
-            "lib/testing.js",
-        ]));
+        loadScript('zApp.js', () => {
+            new HelpDesk();
+            new AppScriptLoader([
+                "lib/expTable.js",
+                "lib/funcprice.js",
+                "lib/Selector.js",
+                "lib/zstorage.js",
+                "lib/mapper.js",
+                "lib/model.js",
+                "lib/testing.js",
+            ])
+        });
         stylelog("HTML IS READY");
     </script>
 
@@ -39,9 +42,9 @@ TODO: добавить отдельную дверь-->
 </head>
 
 <body>
-    <div>
+    <!-- <div>
         <h1 class="tooltip">ЖАЛЮЗИ</h1> <span class="tooltiptext">Рассчет жалюзей по профилю</span>
-    </div>
+    </div> -->
     <!-- *Header: кнопки смены профильной системы, толщины ст-п, типа и цвета жалюзи а также их группа и, наконец, кнопка расчета -->
     <header class="head">
         <div class="headcont">
@@ -185,7 +188,10 @@ TODO: добавить отдельную дверь-->
 
     <div class="rs__maincalc" id="rs__calc" data-rs-calc="hide"></div>
     <!--!Кнопка таблицы РДО-->
-    <div class="tabwrapper" id="et"> </div>
+    <div class="tabwrapper" id="et"></div>
+    <button data-handler="showhelp">Помощь</button>
+    <div class="helpdesk" id="hd">
+    </div>
     <script>
         addListener();
         td();

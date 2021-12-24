@@ -6,7 +6,7 @@
 
 .zc {
     left: 730px;
-    top: 65px;
+    top: 0;
 }
 
 .remlast {
@@ -47,16 +47,16 @@
 #show_calc.resbtn {
     display: none;
     visibility: visible;
-    left: 10px;
+    left: 1030px;
     border-radius: 10px;
-    top: 660px;
+    top: 280px;
     width: 200px;
 }
 
 #reset.resbtn {
     display: none;
-    left: 10px;
-    top: 590px;
+    left: 1030px;
+    top: 210px;
 }
 
 .resbtn:hover {

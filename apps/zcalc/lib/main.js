@@ -47,8 +47,8 @@ function gonow() {
 }
 
 function calc_rs() {
-    const $w = document.querySelector('#rs__calc > input.rs_calc_w.rs_size');
-    const $h = document.querySelector('#rs__calc > input.rs_calc_h.rs_size');
+    const $w = document.querySelector('input.rs_calc_w.rs_size');
+    const $h = document.querySelector('input.rs_calc_h.rs_size');
     const $color = document.getElementById('zlist').value;
     // const $disc = 1 - document.getElementById('discount').value / 100;
     const calc = new PriceCalculator();

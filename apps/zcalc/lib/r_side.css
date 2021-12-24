@@ -1,8 +1,8 @@
 .rs__maincalc {
     position: relative;
     display: grid;
-    left: 230px;
-    top: -180px;
+    left: 1220px;
+    top: -40px;
     /* border: var(--border-main-d); */
     width: 300px;
     height: auto;
@@ -52,12 +52,11 @@
     grid-gap: 5px;
     background-color: #ffffffc7;
     background-size: auto;
-    /* grid-area: res; */
     font-size: 1.2rem;
     text-align: center;
     width: 100%;
-    left: 790px;
-    top: 60px;
+    left: 0;
+    top: 65px;
 }
 
 .rs_out {
