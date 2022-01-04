@@ -16,6 +16,8 @@ function handleSquirrelEvent() {
     const rootAtomFolder = path.resolve(appFolder, '..');
     const updateDotExe = path.resolve(path.join(rootAtomFolder, 'Update.exe'));
     const exeName = path.basename(process.execPath);
+    const currentVers = app.getVersion();
+    const shortCutName = `${exeName}_${currentVers}`;
 
     const spawn = function (command, args) {
         let spawnedProcess, error;
@@ -47,7 +49,7 @@ function handleSquirrelEvent() {
             // - Write to the registry for things like file associations and
             //   explorer context menus
             // Install desktop and start menu shortcuts
-            spawnUpdate(['--createShortcut', exeName]);
+            spawnUpdate(['--createShortcut', shortCutName]);
 
             setTimeout(app.quit, 1000);
             return true;

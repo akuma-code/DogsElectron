@@ -14,7 +14,7 @@ if (handleSquirrelEvent()) {
     return;
 }
 
-
+const updater = require('update-electron-app');
 const path = require('path');
 
 
@@ -45,7 +45,8 @@ function openLink(w, h) {
     });
     return aapp
 }
-module.exports = openLink
+updater();
+
 app.whenReady().then(() => {
     createWindow().loadFile("public/homepage.html")
 
