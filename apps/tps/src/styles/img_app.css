@@ -271,3 +271,9 @@ div.disp_none {
     font-size: 1.2em;
     z-index: 4;
 }
+
+span[data-gwout] {
+    font-weight: bolder;
+    font-size: 1.3em;
+    text-shadow: 1px 3px 4px #fff;
+}

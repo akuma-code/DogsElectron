@@ -233,6 +233,7 @@ function Send2HTML(storageObj = DSO(DataStorage)) {
             system,
             type
         } = storageObj;
+
         const model = RamaOutputModel;
 
         model(storageObj).forEach(item => {
@@ -258,38 +259,39 @@ function Send2HTML(storageObj = DSO(DataStorage)) {
 
 const MSoutputModel = (MS) => [{
         type: 'skf',
-        div: /*html*/ `<div><span>#SKF:</span>${spanResult(MS.skf.w, MS.skf.h)}</div>`
+        div: /*html*/ `<div><span>#SKF:</span> ${ spanResult(MS.skf.w, MS.skf.h)}</div> `
     },
     {
         type: 'simple',
-        div: /*html*/ `<div><span>#Простая:</span>${spanResult(MS.simple.w, MS.simple.h)}</div>`
+        div: /*html*/ `<div><span>#Простая:</span> ${spanResult(MS.simple.w, MS.simple.h)}</div> `
     },
     {
         type: 'simple_whs',
-        div: /*html*/ `<div style='margin-top: 20px'><span># на WHS:</span>${spanResult(MS.simple_whs.w, MS.simple_whs.h)}</div>`
+        div: /*html*/ `<div style='margin-top: 20px'><span># на WHS:</span>${spanResult(MS.simple_whs.w, MS.simple_whs.h)}</div> `
     },
     {
         type: 'weight',
-        div: /*html*/ `<div style='margin-top: 20px; color: #fff'><span >Вес ст/п:</span>${spanWeight(MS.weight || 0)}</div>`
+        div: /*html*/ `<div style='margin-top: 20px; color: #fff; display: none'><span >Вес ст/п:</span>${spanWeight(MS.weight || 0)}</div> `
     },
 ];
 
 const RamaOutputModel = (sizes) => [{
     type: 'glass',
-    div: /*html*/ `<div><span>Стеклопакет:</span>${spanResult(sizes.glass.gw, sizes.glass.gh)}</div>`
+    div: `<div><span>Стеклопакет:</span> ${spanResult(sizes.glass.gw, sizes.glass.gh)}</div>`
 }, {
     type: 'square',
-    div: /*html*/ `<div><span>Площадь ст/п:</span>${sqResult(sizes.glass.gw, sizes.glass.gh)}</div>`
+    div: `<div><span>Площадь ст/п:</span> ${sqResult(sizes.glass.gw, sizes.glass.gh)}</div>`
 }, {
     type: 'weight',
-    div: /*html*/ `<div style='color: #fff'><span>Вес ст/п:</span>${spanWeight(sizes.weight || 0)}</div>`
+    div: `<div style='color: #fff; display: none;'><span>Вес ст/п:</span>${spanWeight(sizes.weight || 0)}</div>`
 }, {
     type: 'shtap',
-    div: /*html*/ `<div><span>Штапик:</span>${spanResult(sizes.glass.gw+10, sizes.glass.gh+10)}</div>`
+    div: `<div><span>Штапик:</span>${spanResult(sizes.glass.gw+10, sizes.glass.gh+10)}</div>`
 }, {
     type: 'skf',
-    div: /*html*/ `<div style='margin-top: 20px'><span>#SKF:</span>${spanResult(sizes.stv_ms.skf.w, sizes.stv_ms.skf.h)}</div>`
+    div: `<div style='margin-top: 20px'><span>#SKF:</span>${spanResult(sizes.stv_ms.skf.w, sizes.stv_ms.skf.h)}</div>`
 }, {
     type: 'simple',
-    div: /*html*/ `<div><span>#М/С:</span>${spanResult(sizes.stv_ms.simple.w, sizes.stv_ms.simple.h)}</div>`
+    div: `<div>
+    <span>#М/С:</span>${spanResult(sizes.stv_ms.simple.w, sizes.stv_ms.simple.h)}</div>`
 }, ];

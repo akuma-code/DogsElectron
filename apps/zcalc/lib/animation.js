@@ -15,7 +15,6 @@ function toggle_rs_calc(elem) {
         toggleCalc();
         return elem.dataset.calcState = "close"
     }
-
 }
 
 function resizeWin(wintype) {
