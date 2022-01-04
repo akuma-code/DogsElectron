@@ -259,11 +259,11 @@ function Send2HTML(storageObj = DSO(DataStorage)) {
 
 const MSoutputModel = (MS) => [{
         type: 'skf',
-        div: /*html*/ `<div><span>#SKF:</span> ${ spanResult(MS.skf.w, MS.skf.h)}</div> `
+        div: /*html*/ `<div style='color: #fff;'><span>#SKF:</span> ${ spanResult(MS.skf.w, MS.skf.h)}</div> `
     },
     {
         type: 'simple',
-        div: /*html*/ `<div><span>#Простая:</span> ${spanResult(MS.simple.w, MS.simple.h)}</div> `
+        div: /*html*/ `<div style='color: #fff;'><span>#Простая:</span> ${spanResult(MS.simple.w, MS.simple.h)}</div> `
     },
     {
         type: 'simple_whs',
@@ -289,9 +289,9 @@ const RamaOutputModel = (sizes) => [{
     div: `<div><span>Штапик:</span>${spanResult(sizes.glass.gw+10, sizes.glass.gh+10)}</div>`
 }, {
     type: 'skf',
-    div: `<div style='margin-top: 20px'><span>#SKF:</span>${spanResult(sizes.stv_ms.skf.w, sizes.stv_ms.skf.h)}</div>`
+    div: `<div style='color: #fff;margin-top: 20px'><span>#SKF:</span>${spanResult(sizes.stv_ms.skf.w, sizes.stv_ms.skf.h)}</div>`
 }, {
     type: 'simple',
-    div: `<div>
+    div: `<div  style='color: #fff'>
     <span>#М/С:</span>${spanResult(sizes.stv_ms.simple.w, sizes.stv_ms.simple.h)}</div>`
 }, ];
