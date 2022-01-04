@@ -158,6 +158,25 @@ class MainSelector {
             g_right.applyDelta(Delta_selector.ri(this.check("s3")))
         ]
     }
+    d(sizepool = getSizes()) {
+        let g_door_top, g_door_bot, g_door_full;
+        const isFullGLS = !!this.check("sd");
+        //! g_door проверяет есть в двери импост или нет
+
+        g_door_full = new GLS(sizepool[0][0], sizepool[1][0]);
+        g_door_bot = new GLS(sizepool[0][0], sizepool[1][1]);
+        g_door_top = new GLS(sizepool[0][0], sizepool[1][0] - sizepool[1][1]);
+        if (isFullGLS) {
+            return [
+                g_door_full.applyDelta(Delta_selector.door(isFullGLS)),
+            ]
+        } else {
+            return [
+                g_door_top.applyDelta(Delta_selector.door(isFullGLS)),
+                g_door_bot.applyDelta(Delta_selector.door(isFullGLS)),
+            ]
+        }
+    }
     df(sizepool = getSizes()) {
         let g_door, g_right;
         //! g_door проверяет есть в двери импост или нет
@@ -202,6 +221,7 @@ const IdSelector = {
         df: ["w", "levo"],
         dff: ["w", "levo", "pravo"],
         fdf: ["levo", "w", "pravo"],
+        d: ["w"],
     },
     idh: {
         f: ["h"],
@@ -210,6 +230,7 @@ const IdSelector = {
         df: ["h", "hpr", "himp"],
         dff: ["h", "hpr", "hpr", "himp"],
         fdf: ["hlv", "h", "hpr", "himp"],
+        d: ["h", "himp"],
     }
 
 }

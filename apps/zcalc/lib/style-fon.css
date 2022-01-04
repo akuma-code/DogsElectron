@@ -44,7 +44,7 @@
     height: 290px;
 }
 
-.fon[wintype="df"]~#s1 {
+.fon:is([wintype="df"], [wintype="d"])~#s1 {
     display: none;
     left: 0px;
 }
@@ -98,11 +98,11 @@
     transform: rotateY(0deg);
 }
 
-.fon[wintype="fdf"]~#s2 {
+.fon:is([wintype="fdf"], [wintype="d"])~#s2 {
     display: none;
 }
 
-.fon:is([wintype="f"], [wintype="ff"], [wintype="df"], [wintype="dff"])~#s3 {
+.fon:is([wintype="f"], [wintype="ff"], [wintype="df"], [wintype="dff"], [wintype="d"])~#s3 {
     display: none;
     left: 250px;
 }
@@ -150,7 +150,7 @@
     top: 130px;
 }
 
-.imgbox:is([wintype="df"], [wintype="dff"]) #h {
+.imgbox:is([wintype="df"], [wintype="dff"], [wintype="d"]) #h {
     left: -95px;
     top: 130px;
 }
@@ -166,7 +166,7 @@
     top: 305px;
 }
 
-.imgbox:is([wintype="df"], [wintype="dff"]) #w {
+.imgbox:is([wintype="df"], [wintype="dff"], [wintype="d"]) #w {
     left: 40px;
     top: 425px;
 }
@@ -176,7 +176,7 @@
     top: 425px;
 }
 
-.imgbox:is([wintype="f"], [wintype="ff"]) #pravo {
+.imgbox:is([wintype="f"], [wintype="ff"], [wintype="d"]) #pravo {
     display: none;
 }
 
@@ -204,7 +204,7 @@
     top: 290px;
 }
 
-.imgbox:is([wintype="f"], [wintype="df"]) #levo {
+.imgbox:is([wintype="f"], [wintype="df"], [wintype="d"]) #levo {
     display: none;
 }
 
@@ -231,7 +231,7 @@
     display: none;
 } */
 
-.imgbox:is([wintype="f"], [wintype="ff"], [wintype="fff"]) #hpr {
+.imgbox:is([wintype="f"], [wintype="ff"], [wintype="fff"], [wintype="d"]) #hpr {
     display: none;
 }
 
@@ -257,7 +257,7 @@
     display: none;
 }
 
-.imgbox:is([wintype="f"], [wintype="ff"], [wintype="fff"], [wintype="df"]) #hlv {
+.imgbox:is([wintype="f"], [wintype="ff"], [wintype="fff"], [wintype="df"], [wintype="d"]) #hlv {
     display: none;
 }
 
@@ -271,7 +271,7 @@
     display: none;
 }
 
-.imgbox:is([wintype="df"], [wintype="dff"]) #himp {
+.imgbox:is([wintype="df"], [wintype="dff"], [wintype="d"]) #himp {
     display: none;
     top: 310px;
     left: 37px;
@@ -282,6 +282,8 @@
     left: 165px;
     top: 310px;
 }
+
+
 
 #mid {
     display: none;
@@ -316,6 +318,11 @@
     transform: rotateY(180deg);
 }
 
+.fon[wintype="d"]~.sd {
+    left: 0px;
+    transform: rotateY(0deg);
+}
+
 .fon[wintype="dff"]~.sd {
     left: 3px;
     transform: rotateY(180deg);
@@ -324,4 +331,20 @@
 .fon[wintype="fdf"]~.sd {
     left: 132px;
     transform: rotateY(0deg);
+}
+
+.imgbox:not([wintype=d])::after {
+    display: none;
+}
+
+.imgbox:is([wintype=d])::after {
+    content: "";
+    display: block;
+    width: 104px;
+    height: 127px;
+    background-color: #08FFEA;
+    z-index: 1;
+    position: absolute;
+    top: 265px;
+    left: 23px;
 }

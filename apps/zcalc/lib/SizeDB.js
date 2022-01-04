@@ -1,7 +1,10 @@
 const SizeDB = { //дельта рама, шмпост, импост-створка, импост-рама, импост в створке
 
     d_rr(sys) { //*rama + rama
-        return this[sys].dsize[0] * 2
+        const [dr, di, dsi, drs, diis] = this[sys].dsize;
+
+        return dr * 2
+        // return this[sys].dsize[0] * 2
     },
     d_ri(sys) { //*rama + impost
         return this[sys].dsize[0] + this[sys].dsize[1]

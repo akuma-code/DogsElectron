@@ -36,6 +36,11 @@ function _SizeTypeSet(type = null) {
             w: +pravo,
             h: +h
         }],
+        d: [{
+            w: +w,
+            h: +h,
+            himp: +himp
+        }],
         df: [{
             w: +w,
             h: +h,

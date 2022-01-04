@@ -22,6 +22,7 @@ function resizeWin(wintype) {
 
     let fon = document.getElementById("fon");
     let img = document.getElementById('imgbox');
+    // let patch = document.getElementById("patch")
 
     const resize = (isbb, wintype, src, width, height) => {
         img.dataset.isbb = isbb;
@@ -33,6 +34,7 @@ function resizeWin(wintype) {
 
         fon.style.width = width + 'px';
         fon.style.height = height + 'px';
+        // patch.style.display = "none"
     }
 
 
@@ -50,7 +52,7 @@ function resizeWin(wintype) {
             fon.style.top = "0px"
             break;
         case "d":
-            resize(true, "d", "img/door-clr.svg", 125, 415)
+            resize(true, "d", "img/door-clr.svg", 150, 415);
             break;
         case "df":
             resize(true, "df", "img/d-f.svg", 290, 415)
