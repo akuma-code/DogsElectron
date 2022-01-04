@@ -17,7 +17,9 @@ function handleSquirrelEvent() {
     const updateDotExe = path.resolve(path.join(rootAtomFolder, 'Update.exe'));
     const exeName = path.basename(process.execPath);
     const currentVers = app.getVersion();
-    const shortCutName = `${exeName}_${currentVers}`;
+    const shortCutName = `(v${currentVers})${exeName}`;
+    console.log('shortCutName :>> ', shortCutName);
+    console.log('exeName :>> ', exeName);
 
     const spawn = function (command, args) {
         let spawnedProcess, error;
@@ -40,6 +42,7 @@ function handleSquirrelEvent() {
     const squirrelEvent = process.argv[1];
     switch (squirrelEvent) {
         case '--squirrel-install':
+            // spawnUpdate(['', exeName]);
             spawnUpdate(['--createShortcut', exeName]);
             setTimeout(app.quit, 1000);
             return true;
