@@ -49,7 +49,7 @@ function handleSquirrelEvent() {
             // - Write to the registry for things like file associations and
             //   explorer context menus
             // Install desktop and start menu shortcuts
-            spawnUpdate(['--createShortcut', shortCutName]);
+            spawnUpdate(['--createShortcut', exeName]);
 
             setTimeout(app.quit, 1000);
             return true;
